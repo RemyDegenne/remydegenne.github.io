@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<!--
+	Read Only by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Sequential Learning</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<span class="image avatar"><img src="images/avatar2.jpg" alt="" /></span>
+					<h1 id="logo"><a href="https://remydegenne.github.io/SL_2022">Sequential Learning (2022)</a></h1>
+					<p>Rémy Degenne</p>
+				</header>
+				<footer>
+					<ul class="icons">
+						<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+					</ul>
+				</footer>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Three-->
+							<section id="one">
+								<div class="container">
+									<h3>Sequential learning projects</h3>
+<p>
+	The project consists in reading, understanding and explaining a research paper about a topic related to the class [you don’t need to understand all the proofs when there are some, but you do need to understand the results]. If possible, you are encouraged to implement the algorithm described yourself and report your own findings on close or different benchmarks than those presented in the paper.
+</p>
+
+<p>
+What is expected? A short report (8 pages) explaining the topic in your own words (no copy-paste from the paper your study!), relating it to the course, discussing links with other algorithms you know, etc., reporting the findings of your own experiments,our opinion about the paper (possible weaknesses ?). 
+In short any personal thoughts inspired by the paper.
+</p>
+
+<p>
+You can team up for the project, groups of two students are welcome. 1 group / project maximum. 
+</p>
+
+<p>
+Possible format: you may use the NeurIPS template if you are familiar with latex, but any other format is accepted. Using Overleaf allows you to write latex in a navigator with no installation on your computer, and the NeurIPS template is already there: 
+<a href="https://fr.overleaf.com/latex/templates/neurips-2022/kxymzbjpwsqx">https://fr.overleaf.com/latex/templates/neurips-2022/kxymzbjpwsqx</a>
+</p>
+
+<p>
+<b>Deadline: send your report to me by email by January 26nd, 2023 at 11:59pm. </b>
+You can either submit a PDF file with your report or a zip file with your PDF report and source code to run your experiments (a github link in the report is also OK). In either case, the name of your submission should be SL22_Name1_Name2.pdf
+</p>
+
+
+<h3>List of possible projects</h3> 
+You can also propose your own, please email me for approval with a short description of the project.
+
+<h4>Bandits</h4>
+
+<p>
+<b>Bootstrapping and bandits</b>: researchers have developed alternatives to UCB or Thompson Sampling with an exploration that is more data-driven and directly uses the history of observed reward. This paper reveals that standard statistical bootstrap method cannot work, and propose a fix
+</br><a href="https://arxiv.org/abs/1811.05154">https://arxiv.org/abs/1811.05154  </a>
+</br>Project chosen by: 
+</p>
+
+<p>
+<b>Bandits with delayed rewards</b>: In real-world problems, the reward is often observed after some random delay. This paper presents a way to cope with a known delay distribution:
+<a href="https://arxiv.org/abs/1706.09186">https://arxiv.org/abs/1706.09186</a>. Maybe you want to try your own Thompson Sampling variant? 
+</br>Project chosen by:
+</p>
+
+<p>
+<b>Non-stationary bandits</b>: Assuming the rewards are i.i.d. is often a big limitation in practice, and researchers have studied the so-called piecewise i.i.d. models, in which there can be some breakpoints in which the rewards distributions change abruptly. This paper proposes two ways to cope with non-stationarity, that you can understand and compare :
+</br><a href="https://arxiv.org/abs/0805.3415">https://arxiv.org/abs/0805.3415 </a>
+</br>Project chosen by: 
+</p>
+
+<p>
+<b>Thompson Sampling for logistic bandits</b>: a logistic model is particularly well suited to model binary rewards and take features into account and could be useful for contextual recommendation. This paper discusses the implementation of Thompson Sampling in this setting: 
+</br><a href="http://papers.neurips.cc/paper/7713-pg-ts-improved-thompson-sampling-for-logistic-contextual-bandits">http://papers.neurips.cc/paper/7713-pg-ts-improved-thompson-sampling-for-logistic-contextual-bandits</a>
+</br>Project chosen by: 
+</p>
+
+<!--
+<p>
+<b>Bandits without rewards</b>: Is it possible to minimize regret in a bandit model and simultaneously find the best arm with high probability? 
+</br><a href="https://arxiv.org/abs/1810.04088">https://arxiv.org/abs/1810.04088 </a>
+</br>Project chosen by:
+</p>
+-->
+
+<h4>RL algorithms, miscellaneous</h4>
+
+<p>
+<b>Conservative policy iteration</b>: How can we do policy iteration if the policies cannot be evaluated exactly? 
+</br><a href="https://people.eecs.berkeley.edu/~pabbeel/cs287-fa09/readings/KakadeLangford-icml2002.pdf">https://people.eecs.berkeley.edu/~pabbeel/cs287-fa09/readings/KakadeLangford-icml2002.pdf</a>
+</br>Project chosen by:
+</p>
+
+<p>
+<b>Kernel-Based Reinforcement Learning</b>:  A stable method of solving MDPs with continuous states when a simulator is available, with asymptotic convergence guarantees.
+</br><a href="https://link.springer.com/article/10.1023/A:1017928328829">https://link.springer.com/article/10.1023/A:1017928328829</a>
+</br>Project chosen by:
+</p>
+
+<p>
+<b>Transfer in Reinforcement Learning</b>: how to use reinforcement learning to learn several tasks at the same time, and get a more adaptable algorithm?
+</br><a href="https://proceedings.neurips.cc/paper/2017/file/350db081a661525235354dd3e19b8c05-Paper.pdf">https://proceedings.neurips.cc/paper/2017/file/350db081a661525235354dd3e19b8c05-Paper.pdf</a>
+</br>Project chosen by:
+</p>
+
+<h4>Improving the DQN algorithm</h4>
+
+<p>
+<b>Deep Reinforcement Learning with Double Q-learning</b>:  A way to improve Deep Q Learning. 
+</br><a href="https://arxiv.org/pdf/1509.06461.pdf">https://arxiv.org/pdf/1509.06461.pdf</a>
+</br>Project chosen by:
+</p>
+
+<p>
+<b>Prioritized Experience Replay</b>: Another way to improve Deep Q Learning.
+</br><a href="https://arxiv.org/abs/1511.05952">https://arxiv.org/abs/1511.05952</a>
+</br>Project chosen by: 
+</p>
+
+<p>
+<b>Dueling Network Architectures for Deep Reinforcement Learning</b>: Again another way to improve Deep Q Learning.
+</br><a href="https://arxiv.org/pdf/1511.06581.pdf">https://arxiv.org/pdf/1511.06581.pdf</a>
+</br>Project chosen by: 
+</p>
+
+
+<h4>Policy Optimization / Policy Gradient  </h4>
+
+<p>
+<b>Policy optimization via the cross-entropy method</b>: The cross-entropy (CE) method is a Monte Carlo method for importance sampling and optimization, that can be used to optimize the value function in reinforcement learning.
+</br><a href="https://www.aaai.org/Papers/ICML/2003/ICML03-068.pdf">https://www.aaai.org/Papers/ICML/2003/ICML03-068.pdf</a>
+</br>Project chosen by:
+</p>
+
+<!--
+<p>
+<b>Bandits and Policy gradients algorithms</b>: When bandits meets Policy gradient for Optimistic Policy Optimization :
+</br><a href="https://t3p.github.io/icml19/">https://t3p.github.io/icml19/</a>
+</br>Project chosen by: 
+</p>
+-->
+
+<p>
+<b>A Natural Policy Gradient</b>: Policy gradient methods perform gradient ascent on the value function to optimize the policy. The natural policy gradient allows us to improve the convergence speed of this approach.
+</br><a href="https://papers.nips.cc/paper/2001/file/4b86abe48d358ecf194c56c69108433e-Paper.pdf">https://papers.nips.cc/paper/2001/file/4b86abe48d358ecf194c56c69108433e-Paper.pdf</a>
+</br>Project chosen by:
+</p>
+
+<h4>Exploration in RL </h4>
+
+<p>
+<b>Posterior Sampling for RL</b>: the Thompson Sampling principle can be naturally extended to RL, provided one is able to maintain a posterior on the parameters of a Markov Decision Process. You can try to understand how it’s done here, and what theoretical guarantees the authors are able to give for this new exploration strategy. 
+</br><a href="https://arxiv.org/abs/1306.0940">https://arxiv.org/abs/1306.0940 </a>
+</br>Project chosen by:
+</p>
+
+<p>
+<b>Bootstrap DQN</b>: the DQN algorithm is often used in conjunction with an epsilon-greedy policy to perform exploration. The Bootstrap DQN alternative introduces some alternative, randomized exploration :
+</br><a href="https://arxiv.org/abs/1602.04621">https://arxiv.org/abs/1602.04621  </a>
+</br>Project chosen by:
+</p>
+
+<p>
+<b>Exploration: A Study of Count-Based Exploration for Deep Reinforcement Learning</b>: Improving exploration in Deep RL using bonuses built with hash codes of the states. 
+</br><a href="https://arxiv.org/pdf/1611.04717.pdf">https://arxiv.org/pdf/1611.04717.pdf </a>
+</br>Project chosen by: 
+</p>
+
+<p>
+<b>Unifying Count-Based Exploration and Intrinsic Motivation</b>: Improving exploration in RL using bonuses built with pseudo-counts based on a density model. 
+</br><a href="https://arxiv.org/pdf/1606.01868.pdf">https://arxiv.org/pdf/1606.01868.pdf </a>
+</br>Project chosen by:
+</p>
+
+
+<h4>Miscellaneous  </h4>
+
+<p>
+<b>From TD-Gammon to DQN</b> : a journey in the history of RL. The goal of this project is to understand the algorithm that lead to the first big success of RL and already used neural networks, and contrast it with the DQN algorithm.
+</br><a href="https://bkgm.com/articles/tesauro/TDGammonAchievesMasterLevelPlay.pdf">https://bkgm.com/articles/tesauro/TDGammonAchievesMasterLevelPlay.pdf </a>       
+</br>Project chosen by:
+</p>
+
+<p>
+<b>Bandits to manage inventory problems</b>: How bandit models can be useful to solve inventory management problems when the demand is unknown. 
+</br><a href="https://arxiv.org/abs/1905.04337">https://arxiv.org/abs/1905.04337 </a>
+</br>Project chosen by: 
+</p>
+								</div>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="container">
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollzer.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
