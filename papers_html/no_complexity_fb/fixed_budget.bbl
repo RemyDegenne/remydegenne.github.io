@@ -1,0 +1,155 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{EDMMM06}
+
+\bibitem[ABM10]{audibert2010best}
+Jean-Yves Audibert, S{\'e}bastien Bubeck, and R{\'e}mi Munos.
+\newblock Best arm identification in multi-armed bandits.
+\newblock In {\em COLT}, pages 41--53. Citeseer, 2010.
+
+\bibitem[ACD21]{alieva2021robust}
+Ayya Alieva, Ashok Cutkosky, and Abhimanyu Das.
+\newblock Robust pure exploration in linear bandits with limited budget.
+\newblock In {\em International Conference on Machine Learning}, pages
+  187--195. PMLR, 2021.
+
+\bibitem[AKG21]{azizi2021fixed}
+Mohammad~Javad Azizi, Branislav Kveton, and Mohammad Ghavamzadeh.
+\newblock Fixed-budget best-arm identification in structured bandits.
+\newblock {\em arXiv preprint arXiv:2106.04763}, 2021.
+
+\bibitem[AKK{\etalchar{+}}21]{ariu2021policy}
+Kaito Ariu, Masahiro Kato, Junpei Komiyama, Kenichiro McAlinn, and Chao Qin.
+\newblock Policy choice and best arm identification: Asymptotic analysis of
+  exploration sampling.
+\newblock {\em arXiv preprint arXiv:2109.08229}, 2021.
+
+\bibitem[AKSK22]{atsidakou2022bayesian}
+Alexia Atsidakou, Sumeet Katariya, Sujay Sanghavi, and Branislav Kveton.
+\newblock Bayesian fixed-budget best-arm identification.
+\newblock {\em arXiv preprint arXiv:2211.08572}, 2022.
+
+\bibitem[BCB{\etalchar{+}}12]{bubeck2012regret}
+S{\'e}bastien Bubeck, Nicolo Cesa-Bianchi, et~al.
+\newblock Regret analysis of stochastic and nonstochastic multi-armed bandit
+  problems.
+\newblock {\em Foundations and Trends{\textregistered} in Machine Learning},
+  5(1):1--122, 2012.
+
+\bibitem[BGS22]{barrier2022best}
+Antoine Barrier, Aur{\'e}lien Garivier, and Gilles Stoltz.
+\newblock On best-arm identification with a fixed budget in non-parametric
+  multi-armed bandits.
+\newblock {\em arXiv preprint arXiv:2210.00895}, 2022.
+
+\bibitem[BMS09]{bubeck2009pure}
+S{\'e}bastien Bubeck, R{\'e}mi Munos, and Gilles Stoltz.
+\newblock Pure exploration in multi-armed bandits problems.
+\newblock In {\em Algorithmic Learning Theory: 20th International Conference,
+  ALT 2009, Porto, Portugal, October 3-5, 2009. Proceedings 20}, pages 23--37.
+  Springer, 2009.
+
+\bibitem[CL16]{carpentier2016tight}
+Alexandra Carpentier and Andrea Locatelli.
+\newblock Tight (lower) bounds for the fixed budget best arm identification
+  bandit problem.
+\newblock In {\em Conference on Learning Theory}, pages 590--604. PMLR, 2016.
+
+\bibitem[CMC21]{cheshire2021problem}
+James Cheshire, Pierre M{\'e}nard, and Alexandra Carpentier.
+\newblock Problem dependent view on structured thresholding bandit problems.
+\newblock In {\em International Conference on Machine Learning}, pages
+  1846--1854. PMLR, 2021.
+
+\bibitem[DK19]{degenne2019pure}
+R{\'e}my Degenne and Wouter~M Koolen.
+\newblock Pure exploration with multiple correct answers.
+\newblock {\em Advances in Neural Information Processing Systems}, 32, 2019.
+
+\bibitem[DSK20]{degenne2020structure}
+R{\'e}my Degenne, Han Shao, and Wouter Koolen.
+\newblock Structure adaptive algorithms for stochastic bandits.
+\newblock In {\em International Conference on Machine Learning}, pages
+  2443--2452. PMLR, 2020.
+
+\bibitem[EDMMM06]{even2006action}
+Eyal Even-Dar, Shie Mannor, Yishay Mansour, and Sridhar Mahadevan.
+\newblock Action elimination and stopping conditions for the multi-armed bandit
+  and reinforcement learning problems.
+\newblock {\em Journal of machine learning research}, 7(6), 2006.
+
+\bibitem[GGL12]{gabillon2012best}
+Victor Gabillon, Mohammad Ghavamzadeh, and Alessandro Lazaric.
+\newblock Best arm identification: A unified approach to fixed budget and fixed
+  confidence.
+\newblock {\em Advances in Neural Information Processing Systems}, 25, 2012.
+
+\bibitem[GJ04]{glynn2004large}
+Peter Glynn and Sandeep Juneja.
+\newblock A large deviations perspective on ordinal optimization.
+\newblock In {\em Proceedings of the 2004 Winter Simulation Conference, 2004.},
+  volume~1. IEEE, 2004.
+
+\bibitem[GK16]{garivier2016optimal}
+Aur{\'e}lien Garivier and Emilie Kaufmann.
+\newblock Optimal best arm identification with fixed confidence.
+\newblock In {\em Conference on Learning Theory}, pages 998--1027. PMLR, 2016.
+
+\bibitem[GMS19]{garivier2019explore}
+Aur{\'e}lien Garivier, Pierre M{\'e}nard, and Gilles Stoltz.
+\newblock Explore first, exploit next: The true shape of regret in bandit
+  problems.
+\newblock {\em Mathematics of Operations Research}, 44(2):377--399, 2019.
+
+\bibitem[KCG16]{kaufmann2016complexity}
+Emilie Kaufmann, Olivier Capp{\'e}, and Aur{\'e}lien Garivier.
+\newblock On the complexity of best-arm identification in multi-armed bandit
+  models.
+\newblock {\em The Journal of Machine Learning Research}, 17(1):1--42, 2016.
+
+\bibitem[KKG18]{kaufmann2018sequential}
+Emilie Kaufmann, Wouter~M Koolen, and Aur{\'e}lien Garivier.
+\newblock Sequential test for the lowest mean: From thompson to murphy
+  sampling.
+\newblock {\em Advances in Neural Information Processing Systems}, 31, 2018.
+
+\bibitem[KKS13]{karnin2013almost}
+Zohar Karnin, Tomer Koren, and Oren Somekh.
+\newblock Almost optimal exploration in multi-armed bandits.
+\newblock In {\em International Conference on Machine Learning}, pages
+  1238--1246. PMLR, 2013.
+
+\bibitem[KTH22]{komiyama2022minimax}
+Junpei Komiyama, Taira Tsuchiya, and Junya Honda.
+\newblock Minimax optimal algorithms for fixed-budget best arm identification.
+\newblock In {\em Advances in Neural Information Processing Systems}, 2022.
+
+\bibitem[LGC16]{locatelli2016optimal}
+Andrea Locatelli, Maurilio Gutzeit, and Alexandra Carpentier.
+\newblock An optimal algorithm for the thresholding bandit problem.
+\newblock In {\em International Conference on Machine Learning}, pages
+  1690--1698. PMLR, 2016.
+
+\bibitem[LS20]{lattimore2020bandit}
+Tor Lattimore and Csaba Szepesv{\'a}ri.
+\newblock {\em Bandit algorithms}.
+\newblock Cambridge University Press, 2020.
+
+\bibitem[ODGP21]{ouhamma2021online}
+Reda Ouhamma, R{\'e}my Degenne, Pierre Gaillard, and Vianney Perchet.
+\newblock Online sign identification: Minimization of the number of errors in
+  thresholding bandits.
+\newblock In {\em NeurIPS 2021-35th International Conference on Neural
+  Information Processing Systems}, pages 1--25, 2021.
+
+\bibitem[Qin22]{qin2022open}
+Chao Qin.
+\newblock Open problem: Optimal best arm identification with fixed-budget.
+\newblock In {\em Conference on Learning Theory}, pages 5650--5654. PMLR, 2022.
+
+\bibitem[YT22]{yangminimax}
+Junwen Yang and Vincent Tan.
+\newblock Minimax optimal fixed-budget best arm identification in linear
+  bandits.
+\newblock In {\em Advances in Neural Information Processing Systems}, 2022.
+
+\end{thebibliography}
