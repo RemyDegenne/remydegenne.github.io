@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>On the Existence of a Complexity in Fixed Budget Bandit Identification: Proofs of results from Section 4</title>
+<link rel="next" href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-no_complexity_in_best_arm_identification.html" title="Proofs of results from Section 5" />
+<link rel="prev" href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-main_tool.html" title="Proofs of results from Section 3" />
+<link rel="up" href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html" title="On the Existence of a Complexity in Fixed Budget Bandit Identification" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html">On the Existence of a Complexity in Fixed Budget Bandit Identification</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Introduction</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-algorithmic_classes.html"><span class="toc_ref">2</span> <span class="toc_entry">Algorithmic classes</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html"><span class="toc_ref">3</span> <span class="toc_entry">Lower bounds on the difficulty ratio</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-the_range_of_the_difficulty_ratio.html"><span class="toc_ref">4</span> <span class="toc_entry">The range of the difficulty ratio</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-no_complexity_in_best_arm_identification.html"><span class="toc_ref">5</span> <span class="toc_entry">No Complexity in Best Arm Identification</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-conclusion.html"><span class="toc_ref">6</span> <span class="toc_entry">Conclusion</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0002.html"><span class="toc_ref"></span> <span class="toc_entry">Acknowledgments</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html"><span class="toc_ref">7</span> <span class="toc_entry">Bibliography</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-algorithmic_classes.html"><span class="toc_ref">A</span> <span class="toc_entry">Proofs of results from Section 2</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-main_tool.html"><span class="toc_ref">B</span> <span class="toc_entry">Proofs of results from Section 3</span></a>
+ </li>
+<li class=" active current">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_of_results_from_section_sec-the_range_of_the_difficulty_ratio.html"><span class="toc_ref">C</span> <span class="toc_entry">Proofs of results from Section 4</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-no_complexity_in_best_arm_identification.html"><span class="toc_ref">D</span> <span class="toc_entry">Proofs of results from Section 5</span></a>
+ </li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="sec:proofs_of_results_from_section_sec:the_range_of_the_difficulty_ratio">C Proofs of results from Section 4</h1>
+
+<p>For \(u, w \in \mathbb {R}^K\), we use the notation \(\Vert u \Vert _{\omega } = \sqrt{\sum _{k=1}^K \omega _k u_k^2}\). </p>
+<p><div class="lemma_thmwrapper theorem-style-plain" id="a0000000040">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">3</span>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>For the Gaussian half-space identification problem, where arm \(k\) has variance \(\sigma _k^2 {\gt} 0\), with orthogonal vector \(u\) with \(\Vert u \cdot \sigma \Vert _1 = 1\), \(H_{\mathcal C^{sp}}(\lambda )^{-1} = \frac{1}{2}(\lambda ^\top u)^2\). </p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000041">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>We compute \(\sup _{\omega \in \triangle _K} \inf _{\nu \in \mathrm{Alt}(\lambda )} \sum _{k=1}^K \omega _k \mathrm{KL}(\nu _k, \lambda _k)\) for any \(\lambda \). </p>
+<div class="displaymath" id="a0000000042">
+  \begin{align*}  \inf _{\nu \in \mathrm{Alt}(\lambda )} \sum _{k=1}^K \omega _k \mathrm{KL}(\nu _k, \lambda _k) & = \frac{1}{2}\inf _{\nu \in \mathrm{Alt}(\lambda )} \sum _{k=1}^K \omega _k \sigma _k^{-2} (\nu _k - \lambda _k)^2 = \frac{1}{2} \frac{(\lambda ^\top u)^2}{\Vert u \Vert _{\omega ^{-1} \cdot \sigma ^{2}}^2} \end{align*}
+</div>
+<div class="displaymath" id="a0000000043">
+  \begin{align*}  \sup _{\omega \in \triangle _K} \inf _{\nu \in \mathrm{Alt}(\lambda )} \sum _{k=1}^K \omega _k \mathrm{KL}(\nu _k, \lambda _k) & = \sup _{\omega \in \triangle _K} \frac{1}{2} \frac{(\lambda ^\top u)^2}{\Vert u \Vert _{\omega ^{-1} \cdot \sigma ^{2}}^2} = \frac{1}{2} (\lambda ^\top u)^2 \:  . \end{align*}
+</div>
+
+  </div>
+</div>
+<p><div class="lemma_thmwrapper theorem-style-plain" id="lem:half_space">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">4</span>
+  </div>
+  <div class="lemma_thmcontent">
+  <p> For Gaussian half-space identification, \(\inf _{\mathcal A \in \mathcal C_\infty }\sup _{\lambda \in \mathcal D} R_{H_{\mathcal C^{sp}}, \infty }(\mathcal A, \lambda ) \ge 1\). </p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000044">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>For the proof, the vector orthogonal to the hyperplane is \(u\) with \(\Vert u \cdot \sigma \Vert _1 = 1\). </p>
+<p>We show that for all \(\nu \), \(\max _{\omega \in \triangle _K} \inf _{\lambda \in \mathrm{Alt}(\nu )} H_{\mathcal C^{sp}}(\lambda ) \sum _{k=1}^K \omega _{k} \mathrm{KL}(\nu _k, \lambda _k) = 1\). The result then follows from an application of Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#thm:asm_R_LB_limsup">3</a>. </p>
+<div class="displaymath" id="a0000000045">
+  \begin{align*}  \max _{\omega \in \triangle _K} \inf _{\lambda \in \mathrm{Alt}(\nu )} H_{\mathcal C^{sp}}(\lambda ) \sum _{k=1}^K \omega _{k} \mathrm{KL}(\nu _k, \lambda _k) & = \max _{\omega \in \triangle _K} \inf _{\lambda \in \mathrm{Alt}(\nu )} \frac{\sum _{k=1}^K \omega _{k} \sigma _k^{-2} (\nu _k - \lambda _k)^2}{(\lambda ^\top u)^2} \\ & = \max _{\omega \in \triangle _K} \inf _{a{\gt}0} \frac{1}{a}\inf _{\lambda \in \mathrm{Alt}(\nu ), (\lambda ^\top u)^2 = a} \sum _{k=1}^K \omega _{k} \sigma _k^{-2} (\nu _k - \lambda _k)^2 \\ & = \max _{\omega \in \triangle _K} \inf _{a{\gt}0} \frac{(\sqrt{a} + \vert u^\top \nu \vert )^2}{a \Vert u \Vert _{\omega ^{-1} \cdot \sigma ^{2}}^2} \\ & = \max _{\omega \in \triangle _K} \frac{1}{\Vert u \Vert _{\omega ^{-1} \cdot \sigma ^{2}}^2} \\ & = 1 \:  . \end{align*}
+</div>
+
+  </div>
+</div>
+<p>We suppose in the remainder of this section that the distributions of the arms are Gaussian, where arm \(k\) has variance \(\sigma _k^2 {\gt} 0\). The Kullback-Leibler divergence is \((x,y) \mapsto \frac{1}{2 \sigma _k^2}(x - y)^2\). Suppose that there is a ball \(B(\eta , r)\) in the norm \(\Vert \cdot \Vert _{\sigma ^{-2}}\) with center \(\eta \in \mathcal D\) and radius \(r {\gt} 0\) such that \(i^\star \) takes only two values in \(B(\eta , r)\), say \(i\) and \(j\), and the boundary between \(B(\eta , r) \cap \{ \mu \mid i^\star (\mu ) = i\} \) and \(B(\eta , r) \cap \{ \mu \mid i^\star (\mu ) = j\} \) is the restriction of a hyperplane passing through \(\eta \). Let \(u\) be a vector orthogonal to the hyperplane with \(\Vert u \cdot \sigma \Vert _1 = 1\). </p>
+<p><div class="lemma_thmwrapper theorem-style-plain" id="lem:ball_half_space_difficulty">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">5</span>
+  </div>
+  <div class="lemma_thmcontent">
+  <p> For \(\mu \in B(\eta , r/(\sqrt{K}+1))\) with \(\mu ^\top u {\lt} \eta ^\top u\), </p>
+<div class="displaymath" id="a0000000046">
+  \begin{align*}  \max _{\omega \in \triangle _K} \inf _{\lambda \in \mathrm{Alt}(\mu ) \cap B(\eta , r)} \sum _{k=1}^K \omega _k (\lambda _k - \mu _k)^2 & = \max _{\omega \in \triangle _K} \inf _{\lambda : (\lambda - \eta )^\top u \ge 0} \sum _{k=1}^K \omega _k (\lambda _k - \mu _k)^2 = ((\mu - \eta )^\top u)^2 \:  . \end{align*}
+</div>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000047">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>Let \(\mu \in B(\eta , r/(\sqrt{K}+1))\) be such that \(u^\top \mu {\lt} u^\top \eta \). For the full half-space alternative, we have </p>
+<div class="displaymath" id="a0000000048">
+  \begin{align*}  \max _{\omega \in \triangle _K} \inf _{\lambda : (\lambda - \eta )^\top u \ge 0} \sum _{k=1}^K \omega _k \sigma _k^{-2} (\lambda _k - \mu _k)^2 = ((\mu - \eta )^\top u)^2 \end{align*}
+</div>
+<p> Let \(\lambda _u(\mu ) = \mu - ((\mu - \eta )^\top u) \sigma \). We now prove that that point belongs to the ball \(B(\eta , r)\). We will use the fact that \(\Vert u \Vert _{\sigma ^2}^2 = \sum _{k=1}^K u_k^2 \sigma _k^2 \le \sum _{k=1}^K u_k \sigma _k = 1\) (since \(\Vert u \cdot \sigma \Vert _1 = 1)\). </p>
+<div class="displaymath" id="a0000000049">
+  \begin{align*}  \Vert \lambda _{u}(\mu ) - \eta \Vert _{\sigma ^{-2}}^2 & = \Vert \mu _k - \eta _k - ((\mu - \eta )^\top u) \sigma \Vert _{\sigma ^{-2}}^2 \\ & \le \left( \Vert \mu - \eta \Vert _{\sigma ^{-2}} + \sqrt{K} \vert (\mu - \eta )^\top u \vert \right)^2 \\ & \le \left( \Vert \mu - \eta \Vert _{\sigma ^{-2}} + \sqrt{K} \Vert \mu - \eta \Vert _{\sigma ^{-2}} \Vert u \Vert _{\sigma ^{2}} \right)^2 \\ & \le (\sqrt{K} + 1)^2 \Vert \mu - \eta \Vert _{\sigma ^{-2}}^2 \\ & \le r^2 \:  . \end{align*}
+</div>
+<p> For the problem restricted to the ball, </p>
+<div class="displaymath" id="a0000000050">
+  \begin{align*}  \max _{\omega \in \triangle _K} \inf _{\lambda \in \mathrm{Alt}(\mu ) \cap B(\eta , r)} \sum _{k=1}^K \omega _k \sigma _k^{-2} (\lambda _k - \mu _k)^2 & \le \max _{\omega \in \triangle _K} \sum _{k=1}^K \omega _k \sigma _k^{-2} (\lambda _{u,k}(\mu ) - \mu _k)^2 = ((\mu - \eta )^\top u)^2 \;  , \\ \text{and } \max _{\omega \in \triangle _K} \inf _{\lambda \in \mathrm{Alt}(\mu ) \cap B(\eta , r)} \sum _{k=1}^K \omega _k \sigma _k^{-2} (\lambda _k - \mu _k)^2 & \ge \max _{\omega \in \triangle _K} \inf _{\lambda : (\lambda - \eta )^\top u \ge 0} \sum _{k=1}^K \omega _k \sigma _k^{-2} (\lambda _k - \mu _k)^2 = ((\mu - \eta )^\top u)^2 \:  . \end{align*}
+</div>
+<p> The last inequality comes from \(\mathrm{Alt}(\mu ) \cap B(\eta , r) \subseteq \{ \lambda \mid (\lambda - \eta )^\top u \ge 0\} \). We have proved the equality. </p>
+
+  </div>
+</div>
+<p><div class="lemma_thmwrapper theorem-style-plain" id="a0000000051">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">6</span>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>Let \(\delta {\gt} 0\), \(\varepsilon {\gt} 0\), \(r' = r / (\sqrt{K} + 1)\) and \(r'' = \frac{1}{2} r' \frac{\delta \varepsilon }{(1 + \delta ) (1 + \varepsilon )}\). Let \(\mu \in B(\eta , r'')\) with \((\mu - \eta )^\top u {\gt} 0\) and let \(D_{\varepsilon , \delta }(\mu ) = \mathrm{Alt}(\mu )\cap B(\eta , r')\). Then </p>
+<div class="displaymath" id="a0000000052">
+  \begin{align*}  \max _{\omega \in \triangle _K} \inf _{\lambda \in D_{\varepsilon , \delta }(\mu )} \sum _{k=1}^K \omega _k \mathrm{KL}(\lambda _k, \mu _k) \le (1 + \varepsilon ) (1 + \delta )^2 \:  . \end{align*}
+</div>
+
+  </div>
+</div> </p>
+<p>This bound is then used in Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#thm:asm_R_LB_limsup">3</a> to get a lower bound on the difficulty ratio. Taking the limit as \(\varepsilon \to 0\) and \(\delta \to 0\), we prove Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-the_range_of_the_difficulty_ratio.html#thm:flat_boundary">6</a>. </p>
+<div class="proof_wrapper" id="a0000000053">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>For all \(\lambda \in \mathrm{Alt}(\mu ) \cap B(\eta , r')\), Lemma&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_of_results_from_section_sec-the_range_of_the_difficulty_ratio.html#lem:ball_half_space_difficulty">5</a> gives \(H_{\mathcal C^{sp}}(\lambda ) = 2 ((\lambda - \eta )^\top u)^{-2}\). </p>
+<div class="displaymath" id="a0000000054">
+  \begin{align*}  \max _{\omega \in \triangle _K} \inf _{\lambda \in \mathrm{Alt}(\mu ) \cap B(\eta , r')} H_{\mathcal C^{sp}}(\lambda ) \sum _{k=1}^K \omega _{k} \mathrm{KL}(\mu _k, \lambda _k) & = \max _{\omega \in \triangle _K} \inf _{\lambda \in \mathrm{Alt}(\mu ) \cap B(\eta , r')} \frac{\sum _{k=1}^K \omega _{k} \sigma _k^{-2} (\mu _k - \lambda _k)^2}{((\lambda - \eta )^\top u)^2} \\ & = \max _{\omega \in \triangle _K} \inf _{\lambda \in \cap B(\eta , r'), (\lambda - \eta )^\top u \le 0} \frac{\sum _{k=1}^K \omega _{k} \sigma _k^{-2} (\mu _k - \lambda _k)^2}{((\lambda - \eta )^\top u)^2} \:  . \end{align*}
+</div>
+<p> If we did not restrict \(\lambda \) to the ball \(B(\eta , r')\), then that quantity would be equal to 1 as shown in Lemma&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_of_results_from_section_sec-the_range_of_the_difficulty_ratio.html#lem:half_space">4</a>. We now argue that if \(\mu \) is sufficiently close to \(\eta \), it approaches 1 even with the restriction to the ball. </p>
+<p>For \(\omega \in \triangle _K\), let \(\omega ^\varepsilon \in \triangle _K^0\) be such that \(\omega _k^\varepsilon = \frac{\omega _k + \varepsilon }{1 + \varepsilon }\). </p>
+<div class="displaymath" id="a0000000055">
+  \begin{align*} & \max _{\omega \in \triangle _K} \inf _{\lambda \in \cap B(\eta , r'), (\lambda - \eta )^\top u \le 0} \frac{\sum _{k=1}^K \omega _{k} \sigma _k^{-2} (\mu _k - \lambda _k)^2}{((\lambda - \eta )^\top u)^2} \\ & \le (1 + \varepsilon ) \max _{\omega \in \triangle _K} \inf _{\lambda \in \cap B(\eta , r'), (\lambda - \eta )^\top u \le 0} \frac{\sum _{k=1}^K \omega _{k}^\varepsilon \sigma _k^{-2} (\mu _k - \lambda _k)^2}{((\lambda - \eta )^\top u)^2} \end{align*}
+</div>
+<p>Let \(x = \frac{1}{2}r' \frac{\varepsilon }{(1 + \delta ) (1 + \varepsilon )}\). Let \(\lambda _{\omega ^\varepsilon }(\mu )\) be the vector with coordinates \(\lambda _{\omega ^\varepsilon ,k}(\mu ) = \mu _k - \frac{(\mu - \eta )^\top u + x}{\Vert u \Vert ^2_{(\omega ^\varepsilon )^{-1} \cdot \sigma ^{2}}} \frac{u_k}{\omega _k^\varepsilon } \sigma _k^2\). We show that it belongs to the ball \(B(\eta , r')\). This is possible only thanks to the lower bound on any coordinate of \(\omega ^\varepsilon \), and is the reason for introducing that modification of \(\omega \). </p>
+<div class="displaymath" id="a0000000056">
+  \begin{align*}  \Vert \lambda _{\omega ^\varepsilon }(\mu ) - \eta \Vert _{\sigma ^{-2}} & = \Vert \mu - \eta - \frac{(\mu - \eta )^\top u + x}{\Vert u \Vert ^2_{(\omega ^\varepsilon )^{-1} \cdot \sigma ^{2}}} (\frac{u_k}{\omega _k^\varepsilon } \sigma _k^2)_{k\in [K]} \Vert _{\sigma ^{-2}} \\ & \le \Vert \mu - \eta \Vert _{\sigma ^{-2}} + \frac{(\mu - \eta )^\top u + x}{\Vert u \Vert ^2_{(\omega ^\varepsilon )^{-1} \cdot \sigma ^{2}}} \Vert \frac{u}{\omega ^{\varepsilon }} \sigma ^2 \Vert _{\sigma ^{-2}} \\ & \le \Vert \mu - \eta \Vert _{\sigma ^{-2}} + \frac{\Vert \mu - \eta \Vert _{\sigma ^{-2}} + x}{\Vert u \Vert ^2_{(\omega ^\varepsilon )^{-1} \cdot \sigma ^{2}}} \Vert \frac{u}{\omega ^{\varepsilon }} \sigma ^2 \Vert _{\sigma ^{-2}} \\ & \le \Vert \mu - \eta \Vert _{\sigma ^{-2}} + (\Vert \mu - \eta \Vert _{\sigma ^{-2}} + x) \Vert \frac{u}{\omega ^{\varepsilon }} \sigma ^2 \Vert _{\sigma ^{-2}} \\ & \le \Vert \mu - \eta \Vert _{\sigma ^{-2}} + (\Vert \mu - \eta \Vert _{\sigma ^{-2}} + x)\frac{1 + \varepsilon }{\varepsilon } \\ & \le r” + (r” + x)\frac{1 + \varepsilon }{\varepsilon } \\ & = x (\delta + (1 + \delta )\frac{1 + \varepsilon }{\varepsilon }) \le 2 x(1 + \delta )\frac{1 + \varepsilon }{\varepsilon } = r’ \:  . \end{align*}
+</div>
+<p> Now since \(\lambda _{\omega ^\varepsilon }(\mu ) \in \mathrm{Alt}(\mu ) \cap B(\eta , r')\), we get </p>
+<div class="displaymath" id="a0000000057">
+  \begin{align*} & \max _{\omega \in \triangle _K} \inf _{\lambda \in \cap B(\eta , r'), (\lambda - \eta )^\top u \le 0} \frac{\sum _{k=1}^K \omega _{k} \sigma _k^{-2} (\mu _k - \lambda _k)^2}{((\lambda - \eta )^\top u)^2} \\ & \le (1 + \varepsilon ) \max _{\omega \in \triangle _K} \inf _{\lambda \in \cap B(\eta , r'), (\lambda - \eta )^\top u \le 0} \frac{\sum _{k=1}^K \omega _{k}^\varepsilon \sigma _k^{-2} (\mu _k - \lambda _k)^2}{((\lambda - \eta )^\top u)^2} \\ & \le (1 + \varepsilon ) \max _{\omega \in \triangle _K} \frac{\sum _{k=1}^K \omega _{k}^\varepsilon \sigma _k^{-2} (\mu _k - \lambda _{\omega ^\varepsilon ,k}(\mu ))^2}{((\lambda _{\omega ^\varepsilon }(\mu ) - \eta )^\top u)^2} \:  . \end{align*}
+</div>
+<p> We can compute explicitly both terms in the ratio: </p>
+<div class="displaymath" id="a0000000058">
+  \begin{align*}  \sum _{k=1}^K \omega _{k}^\varepsilon \sigma _k^{-2} (\mu _k - \lambda _{\omega ^\varepsilon ,k}(\mu ))^2 & = \frac{((\mu - \eta )^\top u + x)^2}{\Vert u \Vert ^2_{(\omega ^\varepsilon )^{-1} \cdot \sigma ^{2}}} \:  , &  (\lambda _{\omega ^\varepsilon }(\mu ) - \eta )^\top u & = -x \:  . \end{align*}
+</div>
+<p> Finally, </p>
+<div class="displaymath" id="a0000000059">
+  \begin{align*} & \max _{\omega \in \triangle _K} \inf _{\lambda \in \cap B(\eta , r'), (\lambda - \eta )^\top u \le 0} \frac{\sum _{k=1}^K \omega _{k} (\mu _k - \lambda _k)^2}{((\lambda - \eta )^\top u)^2} \\ & \le (1 + \varepsilon ) \max _{\omega \in \triangle _K} \inf _{\lambda \in \cap B(\eta , r'), (\lambda - \eta )^\top u \le 0} \frac{\sum _{k=1}^K \omega _{k}^\varepsilon (\mu _k - \lambda _k)^2}{((\lambda - \eta )^\top u)^2} \\ & \le (1 + \varepsilon ) \max _{\omega \in \triangle _K} \frac{((\mu - \eta )^\top u + x)^2}{x^2 \Vert u \Vert ^2_{(\omega ^\varepsilon )^{-1} \cdot \sigma ^{2}}} \\ & \le (1 + \varepsilon ) (\frac{(\mu - \eta )^\top u}{x} + 1)^2 \\ & \le (1 + \varepsilon ) (\frac{r''}{x} + 1)^2 \\ & = (1 + \varepsilon ) (1 + \delta )^2 \:  . \end{align*}
+</div>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-main_tool.html" title="Proofs of results from Section 3"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html" title="On the Existence of a Complexity in Fixed Budget Bandit Identification"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-no_complexity_in_best_arm_identification.html" title="Proofs of results from Section 5"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+</body>
+</html>

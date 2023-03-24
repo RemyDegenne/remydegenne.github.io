@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>On the Existence of a Complexity in Fixed Budget Bandit Identification: No Complexity in Best Arm Identification</title>
+<link rel="next" href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-conclusion.html" title="Conclusion" />
+<link rel="prev" href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-the_range_of_the_difficulty_ratio.html" title="The range of the difficulty ratio" />
+<link rel="up" href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html" title="On the Existence of a Complexity in Fixed Budget Bandit Identification" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html">On the Existence of a Complexity in Fixed Budget Bandit Identification</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Introduction</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-algorithmic_classes.html"><span class="toc_ref">2</span> <span class="toc_entry">Algorithmic classes</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html"><span class="toc_ref">3</span> <span class="toc_entry">Lower bounds on the difficulty ratio</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-the_range_of_the_difficulty_ratio.html"><span class="toc_ref">4</span> <span class="toc_entry">The range of the difficulty ratio</span></a>
+ </li>
+<li class=" active current">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-no_complexity_in_best_arm_identification.html"><span class="toc_ref">5</span> <span class="toc_entry">No Complexity in Best Arm Identification</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-conclusion.html"><span class="toc_ref">6</span> <span class="toc_entry">Conclusion</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0002.html"><span class="toc_ref"></span> <span class="toc_entry">Acknowledgments</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html"><span class="toc_ref">7</span> <span class="toc_entry">Bibliography</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-algorithmic_classes.html"><span class="toc_ref">A</span> <span class="toc_entry">Proofs of results from Section 2</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-main_tool.html"><span class="toc_ref">B</span> <span class="toc_entry">Proofs of results from Section 3</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_of_results_from_section_sec-the_range_of_the_difficulty_ratio.html"><span class="toc_ref">C</span> <span class="toc_entry">Proofs of results from Section 4</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-no_complexity_in_best_arm_identification.html"><span class="toc_ref">D</span> <span class="toc_entry">Proofs of results from Section 5</span></a>
+ </li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="sec:no_complexity_in_best_arm_identification">5 No Complexity in Best Arm Identification</h1>
+
+<p>We have investigated the possible values for the difficulty ratio over different identification tasks. We now focus on best arm identification, with \(\mathcal I = [K]\) and \(i^\star \) the arm with highest mean. We show that for several values of \(\mathcal D\), \(\inf _{\mathcal A \in \mathcal C_{\infty }}\sup _{\lambda \in \mathcal D} R_{H_{\mathcal C}, \infty }(\mathcal A, \lambda ) {\gt} 1\) for any class \(\mathcal C\) that includes the static proportions algorithms. We conclude that these classes don’t admit a complexity. </p>
+<h2 id="sub:gaussian_best_arm_identification">5.1 Gaussian best arm identification</h2>
+
+<p><div class="theorem_thmwrapper theorem-style-plain" id="thm:gaussian_bai_no_complexity">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">7</span>
+  </div>
+  <div class="theorem_thmcontent">
+  <p> Consider the BAI task with Gaussian distributions with variance 1. For any class \(\mathcal C\) containing the static proportions algorithms, \(\inf _{\mathcal A \in \mathcal C_\infty } \sup _{\lambda \in \mathcal D} R_{H_{\mathcal C},\infty }(\mathcal A, \lambda ) \ge (3/80)\log (K)\) . </p>
+
+  </div>
+</div> </p>
+<p>This proves that for \(K\) large enough, no algorithm class containing the static proportions admits a complexity in Gaussian BAI. It applies to (exponentially) consistent algorithms and to algorithms that have a difficulty ratio to the complexity of the uniform allocation which is uniformly bounded. </p>
+<div class="proof_wrapper" id="a0000000024">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>First, since \(\mathcal C^{sp} \subseteq \mathcal C\), for any algorithm \(\mathcal A\) and \(\mu \in \mathcal D\), \(R_{H_{\mathcal C}, T}(\mathcal A, \mu ) \ge R_{H_{\mathcal C^{sp}}, T}(\mathcal A, \mu )\). It suffices to give a lower bound for \(H_{\mathcal C^{sp}}\). </p>
+<p>Let \(H_{\Delta }(\mu ) = \frac{2}{\min _{k : \Delta _k{\gt}0} \Delta _k^2} + \sum _{k:\Delta _k{\gt}0} \frac{2}{\Delta _k^2}\). It was shown by <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#garivier2016optimal" >GK16</a>
+	]
+</span> that for all \(\mu \in \mathcal D\), this function satisfies the inequalities \(H_\Delta (\mu ) \le H_{C^{sp}}(\mu ) \le 2 H_\Delta (\mu )\) . Thus \(R_{H_{\mathcal C}, T}(\mathcal A, \mu ) \ge R_{H_\Delta , T}(\mathcal A, \mu ) / 2\). From this point on, we use a construction similar to the one that was used by <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#carpentier2016tight" >CL16</a>
+	]
+</span> to prove a lower bound on the ratio to \(H_\Delta \) for Bernoulli bandits. We define a Gaussian problem \(\mu \) by \(\mu _1 = 0\) (or any arbitrary value) and \(\mu _k = \mu _1 - k \Delta \) for all \(k \in \{ 2, \ldots , K\} \) and some \(\Delta {\gt} 0\). We apply Corollary&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#cor:corner_lb">1</a> to \(\mu \) and \(\lambda ^{(2)}, \ldots , \lambda ^{(K)}\) where each \(\lambda ^{(j)}\) is identical to \(\mu \) except that \(\lambda ^{(j)}_j = \mu _1 + (\mu _1 - \mu _j)\). The details can be found in appendix&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-no_complexity_in_best_arm_identification.html">D</a>. </p>
+
+  </div>
+</div>
+<p>The closest existing result is the lower bound of <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#carpentier2016tight" >CL16</a>
+	]
+</span>. They don’t consider the difficulty of fixed proportions but \(H_\Delta \), the sum of inverse squared gaps. That function was hypothesized to be a complexity for fixed budget at the time. They present a set of Bernoulli problems and show that for all algorithms that return \(\hat{i}_T = i^\star (\hat{\mu }_T)\), there is a lower bound on the probability of error on one problem in the set. Their lower bound can be rewritten as a bound on \(\sup _{\lambda \in \mathcal D} R_{H_\Delta ,T}(\mathcal A, \lambda )\). It is not asymptotic in \(T\), but we could also obtain a non-asymptotic bound by using Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#thm:R_LB">2</a> instead of Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#thm:asm_R_LB_limsup">3</a> when deriving Corollary&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#cor:corner_lb">1</a> at the cost of additional low order terms. Their result is valid only for algorithms that return the empirical correct answer and does not for example apply to Successive Rejects, while we derive a result for any algorithm. </p>
+<h2 id="sub:two_arms">5.2 Two arms best arm identification with Bernoulli distributions</h2>
+
+<p>In BAI with two arms and Gaussian distributions with known variances (possibly different for each arm), there is a unique static proportions oracle, independent of the means (see <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#kaufmann2016complexity" >KCG16</a>
+	]
+</span>). Thus that same algorithm matches the lower bound on all \(\mu \in \mathcal D\) and fixed budget BAI with two Gaussian arms has a complexity. We showed that as \(K\) becomes large, this is no longer the case. In Bernoulli bandits, we show that there is no complexity even for \(K = 2\).To prove that result, we will apply Corollary&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#cor:corner_lb">1</a> to well chosen mean vectors. In order to do so, we first compute explicitly the oracle difficulty of static proportions algorithms. </p>
+<p><div class="lemma_thmwrapper theorem-style-plain" id="cor:bernoulli_bai_H">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">1</span>
+  </div>
+  <div class="lemma_thmcontent">
+  <p> In a two arms BAI problem with Bernoulli distributions, </p>
+<div class="displaymath" id="a0000000025">
+  \begin{align*}  (H_{\mathcal C^{sp}}(\mu ))^{-1} & = \mathrm{KL}\Big(\frac{\log \frac{1 - \mu _2}{1 - \mu _1}}{\log \frac{\mu _1(1 - \mu _2)}{(1 - \mu _1)\mu _2}}, \mu _1\Big) = \mathrm{KL}\Big(\frac{\log \frac{1 - \mu _2}{1 - \mu _1}}{\log \frac{\mu _1(1 - \mu _2)}{(1 - \mu _1)\mu _2}}, \mu _2\Big) \:  . \end{align*}
+</div>
+
+  </div>
+</div> </p>
+<p><div class="theorem_thmwrapper theorem-style-plain" id="thm:bernoulli_bai_no_complexity">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">8</span>
+  </div>
+  <div class="theorem_thmcontent">
+  <p> In BAI for Bernoulli bandits with two arms, for any class \(\mathcal C\) containing the static proportions algorithms, \( \inf _{\mathcal A \in \mathcal C_\infty } \sup _{\lambda \in \mathcal D} R_{H_{\mathcal C}, \infty }(\mathcal A, \lambda ) {\gt} 1 \) . </p>
+
+  </div>
+</div> </p>
+<p>The lemma is a special case of a more general result which applies to all exponential families: Lemma&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-no_complexity_in_best_arm_identification.html#lem:exp_fam_bai">7</a> in Appendix&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-no_complexity_in_best_arm_identification.html">D</a>. The proof is an explicit computation. We now apply Corollary&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#cor:corner_lb">1</a> to \(\mu = (x(1+x), x)\) for some \(x\in (0,1/2)\), \(\lambda ^{(1)} = (x/2, x)\) and \(\lambda ^{(2)} = (x(1+x), 1/2)\). This gives an explicit lower bound, function of \(x\). The limit of that bound at 0 is approximately \(1.22\), which means that there exists \(x\) small enough for which it is greater than 1. Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-no_complexity_in_best_arm_identification.html#thm:bernoulli_bai_no_complexity">8</a> is proved (see Appendix&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-no_complexity_in_best_arm_identification.html">D</a> for details). Values \(x\) for which we get a lower bound greater than 1 are very small, \(10^{-9}\) and lower. We used Corollary&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#cor:corner_lb">1</a> and not Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#thm:asm_R_LB_limsup">3</a> because it allows a closed form computation of the bound, but by doing so we may have lost constants. It is possible that we could show a lower bound greater than 1 for \(x\) which is not so close to 0. </p>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-the_range_of_the_difficulty_ratio.html" title="The range of the difficulty ratio"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html" title="On the Existence of a Complexity in Fixed Budget Bandit Identification"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-conclusion.html" title="Conclusion"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+</body>
+</html>

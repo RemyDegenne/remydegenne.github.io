@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>On the Existence of a Complexity in Fixed Budget Bandit Identification: Introduction</title>
+<link rel="next" href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-algorithmic_classes.html" title="Algorithmic classes" />
+<link rel="prev" href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html" title="On the Existence of a Complexity in Fixed Budget Bandit Identification" />
+<link rel="up" href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html" title="On the Existence of a Complexity in Fixed Budget Bandit Identification" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html">On the Existence of a Complexity in Fixed Budget Bandit Identification</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class=" active current">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Introduction</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-algorithmic_classes.html"><span class="toc_ref">2</span> <span class="toc_entry">Algorithmic classes</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html"><span class="toc_ref">3</span> <span class="toc_entry">Lower bounds on the difficulty ratio</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-the_range_of_the_difficulty_ratio.html"><span class="toc_ref">4</span> <span class="toc_entry">The range of the difficulty ratio</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-no_complexity_in_best_arm_identification.html"><span class="toc_ref">5</span> <span class="toc_entry">No Complexity in Best Arm Identification</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-conclusion.html"><span class="toc_ref">6</span> <span class="toc_entry">Conclusion</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0002.html"><span class="toc_ref"></span> <span class="toc_entry">Acknowledgments</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html"><span class="toc_ref">7</span> <span class="toc_entry">Bibliography</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-algorithmic_classes.html"><span class="toc_ref">A</span> <span class="toc_entry">Proofs of results from Section 2</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-main_tool.html"><span class="toc_ref">B</span> <span class="toc_entry">Proofs of results from Section 3</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_of_results_from_section_sec-the_range_of_the_difficulty_ratio.html"><span class="toc_ref">C</span> <span class="toc_entry">Proofs of results from Section 4</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-no_complexity_in_best_arm_identification.html"><span class="toc_ref">D</span> <span class="toc_entry">Proofs of results from Section 5</span></a>
+ </li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000002">1 Introduction</h1>
+<p>A multi-armed bandit is a model of a sequential interaction between an algorithm and its environment. The bandit is described by a finite number of probability distributions (called arms) \(\nu _1, \ldots , \nu _K\) with finite means. At every discrete step \(t\), the algorithm chooses one arm \(k_t\) and observes a sample \(X_t^{k_t}\) from the distribution \(\nu _{k_t}\). The bandit model was introduced to study clinical trials, but has found many applications in recommender systems and online advertisement. </p>
+<p>Most of the bandit literature is concerned with the design of algorithms that maximize the expected sum of the samples gathered by the algorithm, which in this case represent rewards accrued by choosing the arms. See <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#bubeck2012regret" >BCB\(^{+}\)12</a>
+	, 
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#lattimore2020bandit" >LS20</a>
+	]
+</span> for extensive surveys. We are on the other hand interested in the <em>identification</em> setting. We also consider a set \(\mathcal D\) of tuples of real probability distributions (we call such a tuple a <em>bandit problem</em>), but we additionally define a finite answer set \(\mathcal I\), and a function \(i^\star : \mathcal D \to \mathcal I\), called the correct answer function. We call \((\mathcal D, \mathcal I, i^\star )\) an <em>identification task</em>. An identification algorithm will sequentially observe samples from the unknown distributions \((\nu _1, \ldots , \nu _K) \in \mathcal D\) until a time \(\tau \) at which it stops and returns an answer. Its goal is to return the correct answer with high probability. At each successive discrete time \(t \ge 1\) until a stopping time \(\tau \), the algorithm chooses an arm \(k_t\) based on previous observations and it observes \(X_t^{k_t} \sim \nu _{k_t}\). At \(\tau \), the algorithm returns an answer \(\hat{i}_\tau \in \mathcal I\). We say that the answer is correct if \(\hat{i}_\tau = i^\star (\nu )\), and that the algorithm makes an error otherwise. We denote by \(p_{\nu , \tau }(\mathcal A)\) the probability of error of algorithm \(\mathcal A\) on problem \(\nu \), that is \(p_{\nu , \tau }(\mathcal A) := \mathbb {P}_{\nu , \mathcal A}(\hat{i}_\tau \ne i^\star (\nu ))\) (we index the probability by the problem and the algorithm). The bandit identification problem has mainly been studied in the two following ways: </p>
+<ul class="itemize">
+  <li><p><em>Fixed confidence</em>: the stopping time \(\tau \) is a part of the algorithm design, and we want to find an algorithm \(\mathcal A\) with minimal \(\mathbb {E}[\tau ]\) under the constraint that for all \(\mu \in \mathcal D\), \(p_{\mu , \tau }(\mathcal A) \le \delta \) for a known \(\delta {\gt} 0\). </p>
+</li>
+  <li><p><em>Fixed budget</em>: the stopping time is set to a value \(T \in \mathbb {N}\) known in advance, and we are looking for an algorithm \(\mathcal A\) with minimal \(p_{\mu , T}(\mathcal A)\) for all \(\mu \in \mathcal D\). </p>
+</li>
+</ul>
+<h4 id="par:examples">Examples of identification tasks</h4>
+
+<p>The bandit identification framework include diverse queries about the distribution, the most popular of which is best arm identification. </p>
+<ul class="itemize">
+  <li><p>Best Arm Identification (BAI, <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#even2006action" >EDMMM06</a>
+	, 
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#bubeck2009pure" >BMS09</a>
+	, 
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#audibert2010best" >ABM10</a>
+	, 
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#gabillon2012best" >GGL12</a>
+	, 
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#karnin2013almost" >KKS13</a>
+	]
+</span>): the goal of the algorithm is to find the arm with highest mean. That is, the answer set is \(\mathcal I = [K]\) and the answer function is \(i^\star (\mu ) = \arg \max _k \mu _k\). </p>
+</li>
+  <li><p>Thresholding Bandits (<span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#locatelli2016optimal" >LGC16</a>
+	]
+</span>): the algorithm returns for all arms whether its mean is below or above a given threshold, and is correct only if all signs are correct. The answer set is \(\mathcal I = \{ -, +\} ^K\). </p>
+</li>
+  <li><p>Positivity: the goal of the algorithm is to determine whether all arms have means above a threshold, or if at least one has mean below. The answer set is \(\mathcal I = \{ \text{all above}, \text{exists below}\} \). It was introduced in <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#kaufmann2018sequential" >KKG18</a>
+	]
+</span> as a step towards identification of the best play in two player min-max games, but can also model the task of verifying if all components of a system meet minimal performance thresholds. See also <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#degenne2019pure" >DK19</a>
+	]
+</span>. </p>
+</li>
+</ul>
+<p>These three examples vary the answer set and function, \(\mathcal I\) and \(i^\star \). Variants of these tasks can also be obtained by choosing different sets of distributions \(\mathcal D\). For example, the distributions could be Gaussian with same variance and a mean vector result of the product of a known matrix and an unknown low dimensional parameter vector, as in linear bandits. These so-called <em>structured</em> settings are the subject of a lot of recent attention in the fixed budget literature <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#azizi2021fixed" >AKG21</a>
+	, 
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#alieva2021robust" >ACD21</a>
+	, 
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#yangminimax" >YT22</a>
+	, 
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#cheshire2021problem" >CMC21</a>
+	]
+</span>. Our approach of fixed budget identification is frequentist, but a bayesian goal could also be studied, as in <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#atsidakou2022bayesian" >AKSK22</a>
+	]
+</span>. </p>
+<h4 id="par:assumptions_on_the_identification_problem">Assumptions on the identification problem</h4>
+
+<p>We do not consider all possible identification problems, but restrict our attention to queries about the means of parametric distributions. We suppose that for each arm \(k \in [K]\), the set of possible distributions is a subset of a one-parameter canonical exponential family. For example, all arms may have Gaussian distributions with known variance but unknown mean, or Bernoulli distributions with means in \((0,1)\). Exponential families is the setting for which fixed confidence is best understood. Bandit identification is of course interesting beyond that model. However the goal of this paper is to show mostly negative results, showing that fixed budget is not as simple as fixed confidence, even in that very simple parametric model. </p>
+<p>For such exponential families, the distribution of each arm can be uniquely described by its mean, we identify means and distributions everywhere in the remainder of the paper. We will talk about some bandit problem \(\mu \in \mathcal D\) and also denote its mean vector by \(\mu \). The mean of each arm \(k \in [K]\) belongs to an open interval \(\mathcal M_k\). For any set \(S\), let \(\mathrm{cl}(S)\) be its closure and \(\mathrm{int}(S)\) be its interior. The empirical mean \(\hat{\mu }_{T,k} \in \mathrm{cl}(\mathcal M_k)\) of an arm \(k\) is the maximum likelihood estimator for the mean \(\mu _k\) and we can have concentration results for that estimator. </p>
+<p>Finally, we need to introduce an assumption to make sure that every \(\mu \in \mathcal D\) has a well defined correct answer which can reliably be found if we observe enough samples of every arm. </p>
+<p><div class="assumption_thmwrapper theorem-style-plain" id="asm:answer_nhds">
+  <div class="assumption_thmheading">
+    <span class="assumption_thmcaption">
+    Assumption
+    </span>
+    <span class="assumption_thmlabel">1</span>
+  </div>
+  <div class="assumption_thmcontent">
+  <p> For all \(i \in \mathcal I\), \(\mathcal D_i := \{ \mu \in \mathcal D \mid i^\star (\mu ) = i\} \) is open and \(\mathcal D_i = \mathrm{int}(\mathrm{cl}(\mathcal D_i))\). The union \(\bigcup _{i \in \mathcal I} \mathrm{cl}(\mathcal D_i)\) contains all tuples of distributions in the exponential family. Finally, \(\mathcal D = \bigcup _{i \in \mathcal I} \mathcal D_i\) </p>
+
+  </div>
+</div> </p>
+<p>\(\mathcal D_i = \mathrm{int}(\mathrm{cl}(\mathcal D_i))\) ensures that if all problems in a neighborhood of \(\mu \in \mathcal D\) have the same answer \(i\), then \(i^\star (\mu ) = i\) as well. The condition on \(\bigcup _{i \in \mathcal I} \mathrm{cl}(\mathcal D_i)\) ensures that the empirical mean of the arms will always be in the closure of \(\mathcal D\). We then extend \(i^\star \) beyond \(\mathcal D\), to all tuples in \(\mathrm{cl}(\mathcal M_1) \times \ldots \times \mathrm{cl}(\mathcal M_K)\), by giving it an arbitrary value outside of \(\mathcal D\). We can then define the <em>empirical correct answer</em> \(i^\star (\hat{\mu }_T)\). Informally, we required that \(\mathcal D\) contains all tuples of distributions for which the correct answer \(i^\star \) is unique. In thresholding bandits \(\mathcal D\) contains all tuples for which all arms have means not equal to the threshold. Everywhere in the paper \(\mathcal D\) will satisfy that assumption, even if not explicitly mentioned. For example, if we write that in a BAI task \(\mathcal D\) contains Gaussian distributions with variance 1, we mean all tuples such that there is a unique arm with highest mean. </p>
+<h2 id="sub:fixed_confidence_bandit_identification">1.1 Fixed confidence bandit identification</h2>
+
+<p>Fixed confidence identification is now well understood in the asymptotic regime, when \(\delta \to 0\). Let’s now describe one central facet of asymptotic fixed confidence identification: the existence of a complexity. To that end we will consider two classes of algorithms. The first class contains \(\delta \)-correct algorithms. Denote it \(\mathcal C^\delta \). An algorithm is said to be \(\delta \)-correct on \(\mathcal D\) if for all \(\mu \in \mathcal D\), \(p_{\mu , \tau } \le \delta \). </p>
+<p><span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#garivier2016optimal" >GK16</a>
+	]
+</span> showed that there exists a function \(H_{\mathcal C^{\delta }} : \mathcal D \to \mathbb {R}\) such that any \(\delta \)-correct algorithm satisfies, for all \(\mu \in \mathcal D\), </p>
+<div class="displaymath" id="a0000000005">
+  \begin{align*}  \liminf _{\delta \to 0} \mathbb {E}_\mu [\tau ]/\log (1/\delta ) \ge H_{\mathcal C^\delta }(\mu ) \:  . \end{align*}
+</div>
+<p> They introduced the Track-and-Stop algorithm (TnS), which is \(\delta \)-correct and satisfies for all \(\mu \in \mathcal D\) </p>
+<div class="displaymath" id="a0000000006">
+  \begin{align*}  \limsup _{\delta \to 0} \mathbb {E}_\mu [\tau ]/\log (1/\delta ) \le H_{\mathcal C^\delta }(\mu ) \:  . \end{align*}
+</div>
+<p> The conclusion from these two facts is that we can meaningfully talk about <em>the complexity</em> of identification at \(\mu \) for \(\delta \)-correct algorithms: there is a function \(H_{\mathcal C^\delta }\) which is a lower bound on \(\liminf _{\delta \to 0} \frac{\mathbb {E}_\mu [\tau ]}{\log (1/\delta )}\) for all \(\mu \in \mathcal D\) and all algorithms \(\mathcal A \in \mathcal C^\delta \), and there is a single algorithm in the class (TnS) which matches that bound on every \(\mu \). </p>
+<p>The second class of interest contains algorithms which are \(\delta \)-correct and use static proportions, meaning algorithms which are parametrized by \(w \in \triangle _K\) (the simplex) and maintain sampling counts at every time \(T \in \mathbb {N}\) close to \(w_k T\) for each arm \(k \in [K]\), say \(\vert N_{T,k} - w_k T \vert \le K\) for all \(T,k\). Let us denote that class by \(\mathcal C^{sp}\). For \((\mathcal D, \mathcal I, i^\star )\) satisfying our assumptions, there exist stopping rules and recommendation rules which can make any algorithm using them \(\delta \)-correct, regardless of the sampling rule <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#garivier2016optimal" >GK16</a>
+	]
+</span>. This shows in particular that \(\mathcal C^{sp}\) is not empty, and contains algorithms with the static proportion sampling rule for all \(w \in \triangle _K\). Let \(H_{\mathcal C^{sp}}\) be the least expected stopping time (normalized by \(\log (1/\delta )\)) for algorithms in \(\mathcal C^{sp}\): \( H_{\mathcal C^{sp}}(\mu ) = \inf _{\mathcal A \in \mathcal C^{sp}} \liminf _{\delta \to 0} \frac{\mathbb {E}_{\mu , \mathcal A}[\tau ]}{\log (1/\delta )} \:  . \) Since \(\mathcal C^{sp} \subseteq \mathcal C^\delta \), we have \(H_{\mathcal C^\delta } \le H_{\mathcal C^{sp}}\). A remarkable property of fixed confidence identification is that these two functions are in fact equal. For each \(\mu \in \mathcal D\), there exists oracle static proportions \(w^\star (\mu ) \in \triangle _K\) and a static proportion algorithm \(\mathcal A_{w^\star (\mu )}^{sp}\) parametrized by \(w^\star (\mu )\) such that \(\liminf _{\delta \to 0} \frac{\mathbb {E}_{\mu , \mathcal A_{w^\star (\mu )}}[\tau ]}{\log (1/\delta )} = H_{\mathcal C^\delta }(\mu )\). The existence of optimal static proportions is used in the design of TnS: the sampling rule ensures that the sampling proportions converge to \(w^\star (\mu )\). To summarize, the class of \(\delta \)-correct algorithms in fixed confidence identification satisfies the following properties: </p>
+<ul class="itemize">
+  <li><p>It has a complexity \(H_{\mathcal C^\delta }\) which defines a lower bound for all \(\mu \in \mathcal D\) and all \(\mathcal A \in \mathcal C^\delta \) and is attained by a single algorithm in \(\mathcal C^\delta \) for all \(\mu \in \mathcal D\). </p>
+</li>
+  <li><p>The complexity \(H_{\mathcal C^\delta }\) is equal to \(H_{\mathcal C^{sp}}\), which characterizes the difficulty of each \(\mu \in \mathcal D\) for the best static proportions algorithm in hindsight. </p>
+</li>
+</ul>
+<p>The description above gives a good picture of asymptotic fixed confidence, in the regime \(\delta \to 0\). It is now the object of a large literature, which also deals with structured BAI, other identification tasks, and/or give algorithms that have advantages over TnS. Fixed confidence BAI with \(\delta \) not close to zero and small gaps is also an active field of study, which is less well understood. </p>
+<h2 id="sub:fixed_budget_bandit_identification">1.2 Fixed Budget Bandit Identification</h2>
+
+<p>An algorithm family \(\mathcal A\) is a sequence \((\mathcal A_T)_{T \ge 1}\) of algorithms, one for each possible value of the horizon. That definition allows us to describe the behavior of fixed budget algorithms in the limit \(T \to +\infty \). This is similar to fixed confidence, where we describe the limit as \(\delta \to 0\) of \(\mathbb {E}[\tau ]/\log (1/\delta )\): we compute that limit for a family of algorithms, one for each \(\delta \). A good fixed budget algorithm family minimizes the probability of error \(p_{\mu , T}\) for all \(\mu \in \mathcal D\). That probability is exponentially small in \(T\) for any algorithm that pulls all arms linearly and recommends the empirical correct answer. We hence look at the rate at which it decreases, and define \(\rho _{\mu , T}(\mathcal A) = T / \log (1/p_{\mu , T}(\mathcal A))\) . Written differently, the error probability of \(\mathcal A\) on \(\mu \in \mathcal D\) is \(p_{\mu , T}(\mathcal A) = \exp (-T/\rho _{\mu , T}(\mathcal A))\). </p>
+<h4 id="par:oracle_difficulty_of_an_algorithm_class">Oracle difficulty of an algorithm class</h4>
+
+<p>We call a set of algorithm families an <em>algorithm class</em>. We want to quantify the performance of the best algorithm family in \(\mathcal C\) at \(\mu \in \mathcal D\). An algorithm family \(\mathcal A\) is asymptotically “good” if eventually as \(T \to + \infty \), \(\rho _{\mu , T}(\mathcal A)\) becomes small. We are thus interested \(\limsup _{T \to +\infty } \rho _{\mu , T}(\mathcal A)\). For an algorithm class, we want to quantify that limsup for the best algorithm in the class, hence we define the oracle difficulty as </p>
+<div class="displaymath" id="a0000000007">
+  \begin{align*}  H_{\mathcal C}(\mu ) := \inf _{\mathcal A \in \mathcal C} \limsup _{T \to +\infty } \rho _{\mu , T}(\mathcal A) = \inf _{\mathcal A \in \mathcal C} \limsup _{T \to +\infty } T / \log (1/p_{\mu , T}(\mathcal A)) \:  . \end{align*}
+</div>
+<p> We call \(H_{\mathcal C}(\mu )\) an <em>oracle</em> difficulty because it reflects how difficult the problem \(\mu \) is for the algorithm family in the class which is best at \(\mu \). By definition, for all \(\mathcal A \in \mathcal C\) and for all \(\varepsilon {\gt} 0\), there exists infinitely many times \(T \ge T_\varepsilon \) such that \(p_{\mu , T}(\mathcal A) \ge \exp \left( - T/ (H_{\mathcal C}(\mu ) - \varepsilon ) \right)\) . Thus \(H_{\mathcal C}\) represents a lower bound on the probability of error of any algorithm family in the class. </p>
+<h4 id="par:complexity">Complexity</h4>
+
+<p>By analogy with fixed confidence identification, we say that an algorithm class \(\mathcal C\) admits a complexity if there exists \(\mathcal A^\star _{\mathcal C} \in \mathcal C\) such that for all \(\mu \in \mathcal D\), \( \limsup _{T \to +\infty } \rho _{\mu , T}(\mathcal A^\star _{\mathcal C}) \le H_{\mathcal C}(\mu ) \:  . \) We then have equality and furthermore \(H_{\mathcal C} = H_{\{ \mathcal A^\star _{\mathcal C}\} }\). We thus say that the class has an asymptotic complexity if a single algorithm matches the lower bound everywhere on \(\mathcal D\). Some classes admit complexities, for example any singleton class, while we will see that others do not. </p>
+<h4 id="par:difficulty_ratio">Difficulty ratio</h4>
+
+<p>In order to establish whether a class admits a complexity, we will need to compare the rate of algorithm families with the difficulty of the class. Suppose more generally that we are given a function \(H: \mathcal D \to \mathbb {R}^+\) which represents a difficulty <em>a priori</em> of each \(\mu \in \mathcal D\), and that we want to compare \(\rho _{\mu , T}(\mathcal A)\) to \(H(\mu )\) in order to assess how good \(\mathcal A\) is when compared to the baseline \(H\). That function \(H\) which will usually be the oracle difficulty of an algorithm class, but not necessarily. Most of the literature on sub-Gaussian BAI defines \(H\) as the sum of the inverse squares of the gaps, and compares algorithms to that baseline. We define the <em>difficulty ratio</em> of an algorithm family \(\mathcal A\) to \(H\) at a problem \(\mu \in \mathcal D\) at time \(T\) as </p>
+<div class="displaymath" id="a0000000008">
+  \begin{align*}  R_{H, T}(\mathcal A,\mu ) = \frac{\rho _{\mu , T}(\mathcal A)}{H(\mu )} = \frac{T}{H(\mu ) \log (1/p_{\mu , T}(\mathcal A))} \:  . \end{align*}
+</div>
+<p> That ratio is larger than 1 if \(\mathcal A_T\) has error probability larger than the value \(\exp (-T/H(\mu ))\) prescribed by the difficulty \(H\). If we consider two classes \(\mathcal C \subseteq \mathcal C'\), then \(H_{\mathcal C} \ge H_{\mathcal C'}\) and \(R_{H_{\mathcal C}, T}(\mathcal A,\mu ) \le R_{H_{\mathcal C'}, T}(\mathcal A,\mu )\). We introduce the notation \(R_{H,\infty }(\mathcal A,\mu ) = \limsup _{T \to \infty } R_{\mu , T}(\mathcal A, \mu )\). We call the value \(\sup _{\mu \in \mathcal D} R_{H_{\mathcal C}, \infty }(\mathcal A, \mu )\) the <em>maximal difficulty ratio</em> of \(\mathcal A\). </p>
+<p>An algorithm class \(\mathcal C\) admits an asymptotic complexity iff there exists \(\mathcal A^\star _{\mathcal C} \in \mathcal C\) such that \(\sup _{\mu \in \mathcal D} R_{H_{\mathcal C}, \infty }(\mathcal A^\star _{\mathcal C}, \mu ) \le 1\). If on the contrary that quantity is strictly greater than 1 for all \(\mathcal A \in \mathcal C\), then any algorithm in the class has a sub-optimal rate compared to the oracle at some point of \(\mathcal D\). </p>
+<h2 id="sub:contributions">1.3 Contributions and structure of the paper</h2>
+
+<p>We are inspired by the open problem presented at COLT 2022 by <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#qin2022open" >Qin22</a>
+	]
+</span>. With our terminology, they ask whether there exists a sufficiently large algorithm class that admits a complexity in fixed budget best arm identification. We draw a parallel with the fixed confidence setting and also ask whether that complexity necessarily equates the oracle difficulty of static proportions. </p>
+<ul class="itemize">
+  <li><p>We formalized in the introduction the notion of complexity of fixed budget identification and we give tools for the study of that complexity. In particular, we reduce the question of its existence to the derivation of a bound on the difficulty ratio. </p>
+</li>
+  <li><p>In Section&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html">3</a>, we present generic lower bounds on the difficulty ratio. </p>
+</li>
+  <li><p>In Section&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-the_range_of_the_difficulty_ratio.html">4</a>, we use these tools to study the range of the smallest possible maximal difficulty ratio for any algorithm when compared to static proportions algorithms. We show that this ratio is at least 1 for most tasks, and is at most \(K\). The lower bound of 1 indicates that static proportions oracles indeed define lower bounds on the error probability of any algorithm: if a class \(\mathcal C\) contains static proportions algorithms and has a complexity, then that complexity is the oracle difficulty of static proportions. The upper bound of \(K\) is attained: in the positivity task, uniform sampling is optimal and has a maximal difficulty ratio equal to \(K\). </p>
+</li>
+  <li><p>In Section&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-no_complexity_in_best_arm_identification.html">5</a>, we show that for any class that contains the static proportions algorithms, Gaussian BAI has no complexity for \(K\) large enough. We show that for the same classes, Bernoulli BAI has no complexity for \(K=2\). </p>
+</li>
+</ul>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html" title="On the Existence of a Complexity in Fixed Budget Bandit Identification"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html" title="On the Existence of a Complexity in Fixed Budget Bandit Identification"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-algorithmic_classes.html" title="Algorithmic classes"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+</body>
+</html>

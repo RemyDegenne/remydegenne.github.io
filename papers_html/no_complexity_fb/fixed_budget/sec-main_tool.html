@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>On the Existence of a Complexity in Fixed Budget Bandit Identification: Lower bounds on the difficulty ratio</title>
+<link rel="next" href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-the_range_of_the_difficulty_ratio.html" title="The range of the difficulty ratio" />
+<link rel="prev" href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-algorithmic_classes.html" title="Algorithmic classes" />
+<link rel="up" href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html" title="On the Existence of a Complexity in Fixed Budget Bandit Identification" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html">On the Existence of a Complexity in Fixed Budget Bandit Identification</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Introduction</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-algorithmic_classes.html"><span class="toc_ref">2</span> <span class="toc_entry">Algorithmic classes</span></a>
+ </li>
+<li class=" active current">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html"><span class="toc_ref">3</span> <span class="toc_entry">Lower bounds on the difficulty ratio</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-the_range_of_the_difficulty_ratio.html"><span class="toc_ref">4</span> <span class="toc_entry">The range of the difficulty ratio</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-no_complexity_in_best_arm_identification.html"><span class="toc_ref">5</span> <span class="toc_entry">No Complexity in Best Arm Identification</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-conclusion.html"><span class="toc_ref">6</span> <span class="toc_entry">Conclusion</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0002.html"><span class="toc_ref"></span> <span class="toc_entry">Acknowledgments</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html"><span class="toc_ref">7</span> <span class="toc_entry">Bibliography</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-algorithmic_classes.html"><span class="toc_ref">A</span> <span class="toc_entry">Proofs of results from Section 2</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-main_tool.html"><span class="toc_ref">B</span> <span class="toc_entry">Proofs of results from Section 3</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_of_results_from_section_sec-the_range_of_the_difficulty_ratio.html"><span class="toc_ref">C</span> <span class="toc_entry">Proofs of results from Section 4</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-no_complexity_in_best_arm_identification.html"><span class="toc_ref">D</span> <span class="toc_entry">Proofs of results from Section 5</span></a>
+ </li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="sec:main_tool">3 Lower bounds on the difficulty ratio</h1>
+
+<p>Most of the bounds on the difficulty ratio we derive are consequences of the following theorem. <div class="theorem_thmwrapper theorem-style-plain" id="thm:R_LB">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">2</span>
+  </div>
+  <div class="theorem_thmcontent">
+  <p> Let \(H : \mathcal D \to \mathbb {R}^+\) be an arbitrary difficulty function. Let \(\mu , \lambda \in \mathcal D\) be such that \(i^*(\lambda ) \ne i^*(\mu )\) and \(H(\lambda ) \le \sqrt{T}\). Then for any algorithm \(\mathcal A\), </p>
+<div class="displaymath" id="a0000000013">
+  \begin{align*}  R_{H,T}(\mathcal A, \lambda )^{-1} (1 - p_{\mu ,T}(\mathcal A)) - \frac{\log 2}{\sqrt{T}} \le H(\lambda )\sum _{k=1}^K \mathbb {E}_\mu [\frac{N_{T,k}}{T}] \mathrm{KL}(\mu _k, \lambda _k) \:  . \end{align*}
+</div>
+
+  </div>
+</div> </p>
+<p>The proof of this inequality follows the standard bandit lower bound argument, appealing to the data processing inequality for the KL divergence, which can be found for example in <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#garivier2019explore" >GMS19</a>
+	]
+</span>. The proof is in Appendix&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-main_tool.html">B</a>. The only mildly original step is to put \(H(\lambda )\) on the right of the inequality instead of writing a lower bound on \(p_{\lambda , T}(\mathcal A)\) (which would give a bound akin to Lemma 6 of <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#barrier2022best" >BGS22</a>
+	]
+</span> when taking the limit as \(T \to + \infty \)). </p>
+<p><div class="theorem_thmwrapper theorem-style-plain" id="thm:asm_R_LB_limsup">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">3</span>
+  </div>
+  <div class="theorem_thmcontent">
+  <p> For any consistent algorithm family \(\mathcal A\), for all \(\mu \in \mathcal D\) and all sets \(D(\mu ) \subseteq \mathrm{Alt}(\mu )\), </p>
+<div class="displaymath" id="a0000000014">
+  \begin{align*}  (\sup _{\lambda \in D(\mu )} R_{H,\infty }(\mathcal A, \lambda ))^{-1} & \le \max _{\omega \in \triangle _K} \inf _{\lambda \in D(\mu )} H(\lambda )\sum _{k=1}^K \omega _k \mathrm{KL}(\mu _k, \lambda _k) \:  . \\ \text{Furthermore}, \quad (\sup _{\lambda \in \mathcal D} R_{H,\infty }(\mathcal A, \lambda ))^{-1} & \le \inf _{\mu \in \mathcal D} \max _{\omega \in \triangle _K} \inf _{\lambda \in \mathrm{Alt}(\mu )} H(\lambda )\sum _{k=1}^K \omega _k \mathrm{KL}(\mu _k, \lambda _k) \:  . \end{align*}
+</div>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000015">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>Let \(\mu \in \mathcal D\). Since \(\triangle _K\) is compact, the sequence \((\mathbb {E}_{\mu , \mathcal A}[N_{T}/T])_{T \in \mathbb {N}}\) has a subsequence indexed by some \((T_n)_{n \in \mathbb {N}}\) which converges to a vector \(\omega _{\mu } \in \triangle _K\). Let \(\lambda \in \mathrm{Alt}(\mu )\). Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#thm:R_LB">2</a> gives, for \(n\) large enough, </p>
+<div class="displaymath" id="a0000000016">
+  \begin{align*}  R_{H,T_n}(\mathcal A, \lambda )^{-1} (1 - p_{\mu , T_n}(\mathcal A)) - \frac{\log 2}{\sqrt{T_n}} \le H(\lambda )\sum _{k=1}^K \mathbb {E}_\mu [\frac{N_{T_n,k}}{T_n}] \mathrm{KL}(\mu _k, \lambda _k) \:  . \end{align*}
+</div>
+<p> Since \(\mathcal A\) is consistent, \(1 - p_{\mu , T_n}(\mathcal A) \to 1\). Taking a limit as \(n \to +\infty \), we have </p>
+<div class="displaymath" id="a0000000017">
+  \begin{align*}  \liminf _{n \to + \infty } R_{H,T_n}(\mathcal A, \lambda )^{-1} \le H(\lambda )\sum _{k=1}^K \omega _{\mu , k} \mathrm{KL}(\mu _k, \lambda _k) \:  . \end{align*}
+</div>
+<p> That bound on the liminf of a subsequence gives a bound on the liminf of the whole sequence. We finally take an infimum over \(\lambda \in D(\mu )\) on both sides of the inequality, and replace \(\omega _{\mu }\) by a maximum over the simplex. We proved the first statement. The second inequality is obtained by choosing \(D(\mu ) = \mathrm{Alt}(\mu )\) and taking an infimum over \(\mu \in \mathcal D\). </p>
+
+  </div>
+</div>
+<p>The second inequality of Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#thm:asm_R_LB_limsup">3</a> recovers Theorem 1 of <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#komiyama2022minimax" >KTH22</a>
+	]
+</span>, which they prove differently: they introduce typical concentration events, reduce the study to those events and use a change of measure. Their proof does not give an explicit non-asymptotic version of the bound, unlike Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#thm:R_LB">2</a>. In contrast, our short proof is a direct application of the data processing inequality for the KL divergence. </p>
+<p>Instead of an inequality on the supremum of the limsup of \(R_{H, T}(\mathcal A, \mu )\) as in Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#thm:asm_R_LB_limsup">3</a>, we can also get a bound on the liminf of the supremum of \(R_{H, T}(\mathcal A, \mu )\) over sets with bounded \(H\). See Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-main_tool.html#thm:asm_R_LB">10</a> in Appendix&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-main_tool.html">B</a>. We will use Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#thm:asm_R_LB_limsup">3</a> in order to describe the asymptotic difficulty of fixed budget identification. We could derive bounds for a fixed \(T\) by using Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#thm:R_LB">2</a> instead, at the cost of second order terms and restrictions of the alternative to problems with \(H\) bounded by \(\sqrt{T}\), that is to problems which are not too hard at time \(T\). <div class="corollary_thmwrapper theorem-style-plain" id="cor:corner_lb">
+  <div class="corollary_thmheading">
+    <span class="corollary_thmcaption">
+    Corollary
+    </span>
+    <span class="corollary_thmlabel">1</span>
+  </div>
+  <div class="corollary_thmcontent">
+  <p> Let \(\mu , \lambda ^{(1)}, \ldots , \lambda ^{(K)}\) be such that for all \(j \in [K]\), \(i^\star (\lambda ^{(j)}) \ne i^\star (\mu )\), \(H(\lambda ^{(j)}){\gt}0\), and each \(\lambda ^{(j)}\) differ from \(\mu \) only along coordinate \(j\). Then for all algorithms \(\mathcal A\) such that \(\lim _{T \to +\infty } p_{\mu , T}(\mathcal A) = 0\) , </p>
+<div class="displaymath" id="a0000000018">
+  \begin{align*}  \sup _{j \in [K]} R_{H,\infty }(\mathcal A,\lambda ^{(j)}) \ge \sum _{j=1}^K \frac{1}{H(\lambda ^{(j)}) \mathrm{KL}(\mu _j, \lambda _j^{(j)})} \:  . \end{align*}
+</div>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000019">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>We apply the first inequality of Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#thm:asm_R_LB_limsup">3</a> with \(D(\mu ) = \{ \lambda ^{(1)}, \ldots , \lambda ^{(K)}\} \). </p>
+<div class="displaymath" id="a0000000020">
+  \begin{align*}  (\sup _{j \in [K]} R_{H,\infty }(\mathcal A, \lambda ^{(j)}))^{-1} & \le \max _{\omega \in \triangle _K} \inf _{j \in [K]} H(\lambda ^{(j)})\sum _{k=1}^K \omega _k \mathrm{KL}(\mu _k, \lambda _k^{(j)}) \\ & = \max _{\omega \in \triangle _K} \inf _{j \in [K]} H(\lambda ^{(j)}) \omega _j \mathrm{KL}(\mu _j, \lambda _j^{(j)}) \:  . \end{align*}
+</div>
+<p> The optimal \(\omega \) equalizes \(H(\lambda ^{(j)}) \omega _j \mathrm{KL}(\mu _j, \lambda _j^{(j)})\) for all \(j\), which gives the result. </p>
+
+  </div>
+</div>
+<p>The sum on the right hand side of Corollary&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#cor:corner_lb">1</a> is very close to the quantity \(h^*\) defined in <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#carpentier2016tight" >CL16</a>
+	]
+</span> in the setting of Bernoulli bandits with \(H\) the sum of inverse squared gaps. This is due to the similar construction of a set of points in the alternative that each differ from a given \(\mu \in \mathcal D\) in one coordinate only. That construction was reused by <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#ariu2021policy" >AKK\(^{+}\)21</a>
+	]
+</span> to get a bound on a quantity called expected policy regret and by <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#yangminimax" >YT22</a>
+	]
+</span> to prove a lower bound for fixed budget BAI in linear bandits. </p>
+<p>The main advantage of Corollary&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#cor:corner_lb">1</a> is that it is simpler to use than Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-main_tool.html#thm:asm_R_LB">10</a>, but it can lead to worse bounds. For example in BAI in two-arms Gaussian bandits with known variance 1, with \(H = H_{\mathcal C^{sp}}\) Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#thm:asm_R_LB_limsup">3</a> gives \(\sup _{\lambda \in \mathcal D} R_{H, \infty }(\mathcal A, \lambda ) \ge 1\) while the best bound that can be achieved with Corollary&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#cor:corner_lb">1</a> is 1/2. That task is very simple, as remarked by <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#kaufmann2016complexity" >KCG16</a>
+	]
+</span>: the oracle fixed proportions are independent of the means (both arms are played equally), which means that the algorithm that plays those proportions has \(\sup _{\lambda \in \mathcal D} R_{H, \infty }(\mathcal A, \lambda ) \le 1\). Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#thm:asm_R_LB_limsup">3</a> shows that this is tight and that no adaptive algorithm can beat it everywhere. We could not arrive to that conclusion with the weaker Corollary&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#cor:corner_lb">1</a> since it only proves a \(1/2\) lower bound. </p>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-algorithmic_classes.html" title="Algorithmic classes"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html" title="On the Existence of a Complexity in Fixed Budget Bandit Identification"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-the_range_of_the_difficulty_ratio.html" title="The range of the difficulty ratio"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+</body>
+</html>

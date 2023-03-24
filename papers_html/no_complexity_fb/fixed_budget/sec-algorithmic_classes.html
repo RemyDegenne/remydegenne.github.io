@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>On the Existence of a Complexity in Fixed Budget Bandit Identification: Algorithmic classes</title>
+<link rel="next" href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html" title="Lower bounds on the difficulty ratio" />
+<link rel="prev" href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0001.html" title="Introduction" />
+<link rel="up" href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html" title="On the Existence of a Complexity in Fixed Budget Bandit Identification" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html">On the Existence of a Complexity in Fixed Budget Bandit Identification</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Introduction</span></a>
+ </li>
+<li class=" active current">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-algorithmic_classes.html"><span class="toc_ref">2</span> <span class="toc_entry">Algorithmic classes</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html"><span class="toc_ref">3</span> <span class="toc_entry">Lower bounds on the difficulty ratio</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-the_range_of_the_difficulty_ratio.html"><span class="toc_ref">4</span> <span class="toc_entry">The range of the difficulty ratio</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-no_complexity_in_best_arm_identification.html"><span class="toc_ref">5</span> <span class="toc_entry">No Complexity in Best Arm Identification</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-conclusion.html"><span class="toc_ref">6</span> <span class="toc_entry">Conclusion</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0002.html"><span class="toc_ref"></span> <span class="toc_entry">Acknowledgments</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html"><span class="toc_ref">7</span> <span class="toc_entry">Bibliography</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-algorithmic_classes.html"><span class="toc_ref">A</span> <span class="toc_entry">Proofs of results from Section 2</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-main_tool.html"><span class="toc_ref">B</span> <span class="toc_entry">Proofs of results from Section 3</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_of_results_from_section_sec-the_range_of_the_difficulty_ratio.html"><span class="toc_ref">C</span> <span class="toc_entry">Proofs of results from Section 4</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-no_complexity_in_best_arm_identification.html"><span class="toc_ref">D</span> <span class="toc_entry">Proofs of results from Section 5</span></a>
+ </li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="sec:algorithmic_classes">2 Algorithmic classes</h1>
+
+<p>We introduce several algorithm classes for which we will ask whether a complexity exists . We denote by \(\mathcal C_\infty \) the class of all algorithm families. </p>
+<h4 id="par:static_proportions">Static proportions</h4>
+<p>  Static proportions algorithms pull all arms according to a pre-defined allocation vector in the simplex, then return the empirical correct answer. That is, \(\hat{i}_T = i^\star (\hat{\mu }_T)\). Let \(\triangle _K^0 = \{ \omega \in \triangle _K \mid \forall k \in [K], \  \omega _k {\gt} 0\} \). A static proportions algorithm parametrized by \(\omega \in \triangle _K^0\) is any sampling rule which satisfies \(\vert N_{T,k} - T \omega _k \vert \le K\) for all \(k \in [K]\). Such a sampling rule exists: see the tracking procedure of <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#garivier2016optimal" >GK16</a>
+	]
+</span>, and the bound on the difference \(\vert N_{T,k} - T \omega _k \vert \) for that procedure derived by <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#degenne2020structure" >DSK20</a>
+	]
+</span>. </p>
+<p>Let \(\mathrm{Alt}(\mu ) = \{ \lambda \in \mathcal D \mid i^\star (\lambda ) \ne i^\star (\mu )\} \) be the set of <em>alternatives</em> to \(\mu \in \mathcal D\). For \(\lambda _k, \mu _k\) two means of distributions in an exponential family, we denote by \(\mathrm{KL}(\lambda _k, \mu _k)\) the Kullback-Leibler divergence between the two corresponding distributions. We give now a bound on the probability of error of static proportions algorithms, which is adapted from <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#glynn2004large" >GJ04</a>
+	]
+</span>. </p>
+<p><div class="theorem_thmwrapper theorem-style-plain" id="thm:oracle_difficulty_sp">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">1</span>
+  </div>
+  <div class="theorem_thmcontent">
+  <p> Let \(\mathcal A_\omega ^{sp}\) be a static proportions algorithm parametrized by \(\omega \in \triangle _K^0\). For all \(\mu \in \mathcal D\), </p>
+<div class="displaymath" id="a0000000009">
+  \begin{align*}  \lim _{T \to +\infty }\rho _{\mu , T}(\mathcal A^{sp}_\omega ) = \Big(\inf _{\lambda \in \mathrm{Alt}(\mu )} \sum _{k \in [K]} \omega _k \mathrm{KL}(\lambda _k, \mu _k) \Big)^{-1} \:  . \end{align*}
+</div>
+
+  </div>
+</div> As a consequence, the oracle difficulty of the class \(\mathcal C^{sp}\) of static proportions algorithms is </p>
+<div class="displaymath" id="a0000000010">
+  \begin{align*}  H_{\mathcal C^{sp}}(\mu ) = \inf _{\omega \in \triangle _K^0} \lim _{T \to +\infty }\rho _{\mu , T}(\mathcal A^{sp}_\omega ) = \Big( \max _{\omega \in \triangle _K^0} \inf _{\lambda \in \mathrm{Alt}(\mu )} \sum _{k \in [K]} \omega _k \mathrm{KL}(\lambda _k, \mu _k) \Big)^{-1} \:  . \end{align*}
+</div>
+<h4 id="par:consistent">Consistent and exponentially consistent</h4>
+
+<p>An algorithm family is said to be <em>consistent</em> <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#kaufmann2016complexity" >KCG16</a>
+	]
+</span> if for all \(\mu \in \mathcal D\), \(\lim _{T\to + \infty } p_{\mu , T} = 0\). We denote that class by \(\mathcal C_c\). It is said to be <em>exponentially consistent</em> <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#barrier2022best" >BGS22</a>
+	]
+</span> if for all \(\mu \in \mathcal D\), \(\limsup _{T \to +\infty } \rho _{\mu , T}(\mathcal A) {\lt} +\infty \). We denote that class \(\mathcal C_{ec}\). Consistent algorithms the largest class of algorithm families which are “good everywhere”, in the sense that they eventually get the right answer with high probability, no matter which problem \(\mu \in \mathcal D\) they face. Any exponentially consistent algorithm is consistent: \(\mathcal C_{ec} \subseteq \mathcal C_c\). Static proportions algorithms are exponentially consistent: \(\mathcal C^{sp} \subseteq \mathcal C_{ec}\). Indeed for any \(\omega \in \triangle _K^0\), under Assumption&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0001.html#asm:answer_nhds">1</a> the formula for \(\lim _{T \to + \infty } \rho _{\mu , T}(\mathcal A_\omega ^{sp})\) of Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-algorithmic_classes.html#thm:oracle_difficulty_sp">1</a> gives a finite value. This proves that \(\mathcal A_\omega ^{sp} \in \mathcal C_{ec}\) for all \(\omega \in \triangle _K^0\). We restricted the static proportions to \(\triangle _K^0\) instead of \(\triangle _K\) to ensure that the algorithms are exponentially consistent. </p>
+<h4 id="par:bounded_difficulty">Bounded difficulty</h4>
+
+<p>The approach of most fixed budget papers, which is however often not explicitly stated like this, is to suppose that some function \(H: \mathcal D \to \mathbb {R}\) represents a complexity of the fixed budget identification task and to look for algorithms that have error probability close to \(\exp (-T/H(\mu ))\). Such a function can be for example \(H_1(\mu ) = \sum _{k \ne i^\star (\mu )} (\mu _{i^\star (\mu )} - \mu _k)^{-2}\) for best arm identification. <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#komiyama2022minimax" >KTH22</a>
+	]
+</span> make that approach explicit, in which a possibly arbitrary function \(H\) is considered and where we are interested in the following class. </p>
+<div class="displaymath" id="a0000000011">
+  \begin{align*}  \mathcal C(H) & = \{ \mathcal A \mid \exists R \in \mathbb {R}, \:  \forall \mu \in \mathcal D, \  \limsup _{T \to \infty }\rho _{\mu , T}(\mathcal A) \le R H(\mu )\}  = \{ \mathcal A \mid \sup _{\mu \in \mathcal D} R_{H,\infty }(\mathcal A,\mu ) {\lt} +\infty \}  \:  . \end{align*}
+</div>
+<p> We don’t allow \(H\) to be infinite in \(\mathcal D\), which means in particular that \(\mathcal C(H) \subseteq \mathcal C_{ec}\) for all \(H\). Of course if \(H\) is chosen badly that class will be empty. The goal of <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#komiyama2022minimax" >KTH22</a>
+	]
+</span> is then to design algorithms which get the smallest maximal difficulty ratio, given an arbitrary function \(H\). They derive a theoretical algorithm for which the ratio approaches a proxy of the lower bound (but which is computationally intractable), and introduce a second heuristic based on neural networks. </p>
+<p>Given an algorithm class \(\mathcal C'\), we will consider its oracle difficulty \(H_{\mathcal C'}\) and then the class \(\mathcal C(H_{\mathcal C'})\) of algorithms with bounded difficulty ratio with respect to \(H_{\mathcal C'}\). We denote \(\mathcal C(H_{\mathcal C'})\) by \(\overline{\mathcal C'}\). The class \(\overline{\mathcal C'}\) might not contain \(\mathcal C'\). If \(\mathcal C' \subseteq \mathcal C''\), then from the definition \(\overline{\mathcal C''} \subseteq \overline{\mathcal C'}\). The class of static proportions satisfies \(\mathcal C^{sp} \subseteq \overline{\mathcal C^{sp}}\). The proof is a simple study of the ratio between \(\lim _{T \to + \infty } \rho _{\mu , T}(\mathcal A_\omega ^{sp})\) for different values of \(\omega \). See the proof of Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-the_range_of_the_difficulty_ratio.html#thm:uniform_upper_bound">4</a> in Section&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-the_range_of_the_difficulty_ratio.html">4</a>. </p>
+<h4 id="a0000000012">Within a constant of the uniform allocation</h4>
+<p>The uniform static proportions algorithm \(\mathcal A_u := \mathcal A_{(1/K, \ldots , 1/K)}^{sp} \in \mathcal C^{sp}\), that allocates an equal number of samples to every arm, is a natural baseline to which we can compare algorithms. We can for example look for algorithms that have a difficulty ratio to the complexity of the uniform allocation which is uniformly bounded on \(\mathcal D\). This is the class \(\overline{\{ \mathcal A_u\} } = \mathcal C(H_{\{ \mathcal A_u\} })\). Since \(\mathcal C^{sp} \subseteq \overline{\mathcal C^{sp}}\) and \(\{ \mathcal A_u\}  \subseteq \mathcal C^{sp}\), that class satisfies \(\mathcal C^{sp} \subseteq \overline{\mathcal C^{sp}} \subseteq \overline{\{ \mathcal A_u\} }\) . </p>
+<h4 id="par:summary">Summary</h4>
+
+<p>Consistent, exponentially consistent algorithms and the class of algorithm families within a constant of the uniform allocation all contain the static proportions algorithms \(\mathcal C^{sp}\) : \(\mathcal C^{sp} \subseteq \mathcal C_{ec} \subseteq \mathcal C_c\) and \(\mathcal C^{sp} \subseteq \overline{\{ \mathcal A_u\} }\). If we get a lower bound on \(R_{H_{\mathcal C^{sp}}, T}(\mathcal A, \mu )\) for an algorithm family \(\mathcal A\), then it is also a lower bound for the ratio to the difficulty of any of the classes \(\mathcal C_{c}\), \(\mathcal C_{ec}\), \(\overline{\{ \mathcal A_u\} }\). </p>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0001.html" title="Introduction"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html" title="On the Existence of a Complexity in Fixed Budget Bandit Identification"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html" title="Lower bounds on the difficulty ratio"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+</body>
+</html>

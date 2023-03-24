@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>On the Existence of a Complexity in Fixed Budget Bandit Identification: Proofs of results from Section 3</title>
+<link rel="next" href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_of_results_from_section_sec-the_range_of_the_difficulty_ratio.html" title="Proofs of results from Section 4" />
+<link rel="prev" href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-algorithmic_classes.html" title="Proofs of results from Section 2" />
+<link rel="up" href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html" title="On the Existence of a Complexity in Fixed Budget Bandit Identification" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html">On the Existence of a Complexity in Fixed Budget Bandit Identification</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Introduction</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-algorithmic_classes.html"><span class="toc_ref">2</span> <span class="toc_entry">Algorithmic classes</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html"><span class="toc_ref">3</span> <span class="toc_entry">Lower bounds on the difficulty ratio</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-the_range_of_the_difficulty_ratio.html"><span class="toc_ref">4</span> <span class="toc_entry">The range of the difficulty ratio</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-no_complexity_in_best_arm_identification.html"><span class="toc_ref">5</span> <span class="toc_entry">No Complexity in Best Arm Identification</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-conclusion.html"><span class="toc_ref">6</span> <span class="toc_entry">Conclusion</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0002.html"><span class="toc_ref"></span> <span class="toc_entry">Acknowledgments</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html"><span class="toc_ref">7</span> <span class="toc_entry">Bibliography</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-algorithmic_classes.html"><span class="toc_ref">A</span> <span class="toc_entry">Proofs of results from Section 2</span></a>
+ </li>
+<li class=" active current">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-main_tool.html"><span class="toc_ref">B</span> <span class="toc_entry">Proofs of results from Section 3</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_of_results_from_section_sec-the_range_of_the_difficulty_ratio.html"><span class="toc_ref">C</span> <span class="toc_entry">Proofs of results from Section 4</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-no_complexity_in_best_arm_identification.html"><span class="toc_ref">D</span> <span class="toc_entry">Proofs of results from Section 5</span></a>
+ </li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="sec:proofs_relative_to_section_sec:main_tool">B Proofs of results from Section 3</h1>
+
+<h2 id="sub:main_theorem">B.1 Proof of the lower bound Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#thm:R_LB">2</a></h2>
+
+<div class="proof_wrapper" id="a0000000029">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof of Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#thm:R_LB">2</a>
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p> The proof of this inequality follows the standard bandit lower bound argument, which can be found for example in <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#garivier2019explore" >GMS19</a>
+	]
+</span>. The Kullback-Leibler divergence between the observations up to \(T\) under models \(\mu \) and \(\lambda \) is \(\sum _{k=1}^K \mathbb {E}_\mu [N_{T,k}] \mathrm{KL}(\mu _k, \lambda _k)\). By the data processing inequality, this Kullback-Leibler divergence is larger than the KL between Bernoulli distributions of means \(\mathbb {P}_{\mu , \mathcal A}(E)\) and \(\mathbb {P}_{\lambda , \mathcal A}(E)\) for any event \(E\). We apply this to \(E = \{ \hat{i}_T = i^\star (\mu )\} \) to obtain </p>
+<div class="displaymath" id="a0000000030">
+  \begin{align*}  \mathrm{kl}(\mathbb {P}_{\mu , \mathcal A}(\hat{i}_T = i^\star (\mu )), \mathbb {P}_{\lambda , \mathcal A}(\hat{i}_T = i^\star (\mu ))) \le \sum _{k=1}^K \mathbb {E}_\mu [N_{T,k}] \mathrm{KL}(\mu _k, \lambda _k) \:  . \end{align*}
+</div>
+<p> We use the inequality \(\mathrm{kl}(a, b) \ge a \log \frac{1}{b} - \log 2\), then \(\mathbb {P}_{\mu , \mathcal A}(\hat{i}_T = i^\star (\mu )) = 1 - p_{\mu , T}(\mathcal A)\), \(\mathbb {P}_{\lambda , \mathcal A}(\hat{i}_T = i^\star (\mu )) \le p_{\lambda , T}(\mathcal A)\) (since \(i^\star (\lambda ) \ne i^\star (\mu )\)) to get </p>
+<div class="displaymath" id="a0000000031">
+  \begin{align*}  (1 - p_{\mu , T}(\mathcal A)) \log \frac{1}{p_{\lambda , T}(\mathcal A)} - \log 2 \le \sum _{k=1}^K \mathbb {E}_\mu [N_{T,k}] \mathrm{KL}(\mu _k, \lambda _k) \:  . \end{align*}
+</div>
+<p> By definition, \(p_{\lambda , T}(\mathcal A) = \exp (-T R_{H,T}(\mathcal A, \lambda )^{-1} H(\lambda )^{-1})\),. We get </p>
+<div class="displaymath" id="a0000000032">
+  \begin{align*}  (1 - p_{\mu , T}(\mathcal A)) T R_{H,T}(\mathcal A, \lambda )^{-1} H(\lambda )^{-1} - \log 2 \le \sum _{k=1}^K \mathbb {E}_\mu [N_{T,k}] \mathrm{KL}(\mu _k, \lambda _k) \:  . \end{align*}
+</div>
+<p> Dividing by \(T H(\lambda )^{-1}\) and using \(H(\lambda ) \le \sqrt{T}\) gives the result. </p>
+
+  </div>
+</div>
+<h2 id="sub:additional_results">B.2 Additional results</h2>
+
+<p><div class="theorem_thmwrapper theorem-style-plain" id="thm:asm_R_LB">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">10</span>
+  </div>
+  <div class="theorem_thmcontent">
+  <p> Let \(\mu \in \mathcal D\) and let \(\mathcal A\) be an algorithm with \(\lim _{T \to + \infty } p_{\mu , T}(\mathcal A) = 0\). Let \(D(\mu ) \subseteq \mathrm{Alt}(\mu )\) be a set such that \(\sup _{\lambda \in D(\mu )} H(\lambda ) {\lt} +\infty \). Then </p>
+<div class="displaymath" id="a0000000033">
+  \begin{align*}  (\liminf _{T\to +\infty }\sup _{\lambda \in D(\mu )}R_{H,T}(\mathcal A, \lambda ))^{-1} \le \max _{\omega \in \triangle _K} \inf _{\lambda \in D(\mu )} H(\lambda )\sum _{k=1}^K \omega _k \mathrm{KL}(\mu _k, \lambda _k) \:  . \end{align*}
+</div>
+
+  </div>
+</div> If \(\mathcal A\) is consistent, then it satisfies in particular the condition of the theorem \(\lim _{T \to + \infty } p_{\mu , T}(\mathcal A) = 0\). </p>
+<div class="proof_wrapper" id="a0000000034">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>For \(T\) large enough, we can apply Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#thm:R_LB">2</a> for any \(\lambda \in D(\mu )\), hence we can take an infimum over \(\lambda \in D(\mu )\) to get </p>
+<div class="displaymath" id="a0000000035">
+  \begin{align*}  (\sup _{\lambda \in D(\mu )}R_{H,T}(\mathcal A, \lambda ))^{-1} (1 - p_{\mu , T}(\mathcal A)) - \frac{\log 2}{\sqrt{T}} & \le \inf _{\lambda \in D(\mu )} H(\lambda )\sum _{k=1}^K \mathbb {E}_\mu [\frac{N_{T,k}}{T}] \mathrm{KL}(\mu _k, \lambda _k) \\ & \le \max _{\omega \in \triangle _K} \inf _{\lambda \in D(\mu )} H(\lambda )\sum _{k=1}^K \omega _k \mathrm{KL}(\mu _k, \lambda _k) \:  . \end{align*}
+</div>
+<p> Taking a limit when \(T \to +\infty \) and using \(\lim _{T \to + \infty } p_{\mu , T}(\mathcal A) = 0\), we get the inequality we want to prove. </p>
+
+  </div>
+</div>
+<p><div class="corollary_thmwrapper theorem-style-plain" id="a0000000036">
+  <div class="corollary_thmheading">
+    <span class="corollary_thmcaption">
+    Corollary
+    </span>
+    <span class="corollary_thmlabel">2</span>
+  </div>
+  <div class="corollary_thmcontent">
+  <p>For all \(x \in \mathbb {R}\), let \(\mathrm{Alt}_x(\mu ) = \mathrm{Alt}(\mu ) \cap \{ \lambda \in \mathcal D \mid H(\lambda ) \le x\} \). For all consistent algorithm families \(\mathcal A\), </p>
+<div class="displaymath" id="a0000000037">
+  \begin{align*}  (\liminf _{T\to +\infty }\sup _{\lambda \in \mathcal D}R_{H,T}(\mathcal A, \lambda ))^{-1} \le \liminf _{x \to \infty } \inf _{\mu \in \mathcal D} \max _{\omega \in \triangle _K} \inf _{\lambda \in \mathrm{Alt}_x(\mu )} H(\lambda )\sum _{k=1}^K \omega _k \mathrm{KL}(\mu _k, \lambda _k) \:  . \end{align*}
+</div>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000038">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>Let \(\mu \in \mathcal D\) and \(x {\gt} 0\). We apply Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-main_tool.html#thm:asm_R_LB">10</a> to \(\mathrm{Alt}_{x}(\mu )\). </p>
+<div class="displaymath" id="a0000000039">
+  \begin{align*}  (\liminf _{T\to +\infty }\sup _{\lambda \in \mathrm{Alt}_x(\mu )}R_{H,T}(\mathcal A, \lambda ))^{-1} \le \max _{\omega \in \triangle _K} \inf _{\lambda \in \mathrm{Alt}_{x}(\mu )} H(\lambda )\sum _{k=1}^K \omega _k \mathrm{KL}(\mu _k, \lambda _k) \:  . \end{align*}
+</div>
+<p> The left hand side is larger than \((\liminf _{T\to +\infty }\sup _{\lambda \in \mathcal D} R_{H,T}(\mathcal A, \lambda ))^{-1}\), which is now independent of \(\mu \) and \(x\). We then take on the right hand side first an infimum over \(\mu \), then a liminf over \(x\). Doing it in this order leads to the tighter bound (compared to \(\inf _\mu \liminf _x\)). </p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-algorithmic_classes.html" title="Proofs of results from Section 2"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html" title="On the Existence of a Complexity in Fixed Budget Bandit Identification"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_of_results_from_section_sec-the_range_of_the_difficulty_ratio.html" title="Proofs of results from Section 4"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+</body>
+</html>

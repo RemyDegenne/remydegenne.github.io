@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>On the Existence of a Complexity in Fixed Budget Bandit Identification: The range of the difficulty ratio</title>
+<link rel="next" href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-no_complexity_in_best_arm_identification.html" title="No Complexity in Best Arm Identification" />
+<link rel="prev" href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html" title="Lower bounds on the difficulty ratio" />
+<link rel="up" href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html" title="On the Existence of a Complexity in Fixed Budget Bandit Identification" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html">On the Existence of a Complexity in Fixed Budget Bandit Identification</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Introduction</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-algorithmic_classes.html"><span class="toc_ref">2</span> <span class="toc_entry">Algorithmic classes</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html"><span class="toc_ref">3</span> <span class="toc_entry">Lower bounds on the difficulty ratio</span></a>
+ </li>
+<li class=" active current">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-the_range_of_the_difficulty_ratio.html"><span class="toc_ref">4</span> <span class="toc_entry">The range of the difficulty ratio</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-no_complexity_in_best_arm_identification.html"><span class="toc_ref">5</span> <span class="toc_entry">No Complexity in Best Arm Identification</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-conclusion.html"><span class="toc_ref">6</span> <span class="toc_entry">Conclusion</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0002.html"><span class="toc_ref"></span> <span class="toc_entry">Acknowledgments</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html"><span class="toc_ref">7</span> <span class="toc_entry">Bibliography</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-algorithmic_classes.html"><span class="toc_ref">A</span> <span class="toc_entry">Proofs of results from Section 2</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-main_tool.html"><span class="toc_ref">B</span> <span class="toc_entry">Proofs of results from Section 3</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_of_results_from_section_sec-the_range_of_the_difficulty_ratio.html"><span class="toc_ref">C</span> <span class="toc_entry">Proofs of results from Section 4</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-no_complexity_in_best_arm_identification.html"><span class="toc_ref">D</span> <span class="toc_entry">Proofs of results from Section 5</span></a>
+ </li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="sec:the_range_of_the_difficulty_ratio">4 The range of the difficulty ratio</h1>
+
+<p>In asymptotic fixed confidence, the complexity of \(\delta \)-correct algorithm is given by the oracle difficulty of static proportions. There is an optimal sampling allocation at each \(\mu \in \mathcal D\), and the best any adaptive algorithm can do is match the performance of that allocation. The fixed confidence analogue of the difficulty ratio would be greater than \(1\) for any \(\delta \)-correct algorithm, and exactly \(1\) for TnS. We hence focus on the ratio of fixed budget algorithm families to the oracle difficulty of the class of static proportions algorithms, \(H_{\mathcal C^{sp}}(\mu ) = \left( \max _{\omega \in \triangle _k} \inf _{\lambda \in \mathrm{Alt}(\mu )} \sum _{k=1}^K \omega _k \mathrm{KL}(\lambda _k, \mu _k) \right)^{-1}\). In a general fixed budget identification task \((\mathcal D, \mathcal I, i^\star )\), two related questions remain open: </p>
+<ul class="itemize">
+  <li><p>Do fixed proportions indeed always define oracle algorithms, or could there exist an adaptive algorithm with a better rate everywhere? In technical terms, can we have the inequality \(\inf _{\mathcal A \in \mathcal C_\infty } \sup _{\lambda \in \mathcal D} R_{H_{\mathcal C^{sp}},\infty }(\mathcal A, \lambda ) {\lt} 1\) ? <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#ouhamma2021online" >ODGP21</a>
+	]
+</span> exhibit a setting close to fixed budget identification in which an adaptive algorithm can indeed beat any static proportions algorithm. However, their objective does not fit into our fixed budget identification framework and their example uses families of distributions in which the KL can be infinite. </p>
+</li>
+  <li><p>For Bernoulli BAI, a lower bound of <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#carpentier2016tight" >CL16</a>
+	]
+</span> and the upper bound on the Successive Rejects algorithm of <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#audibert2010best" >ABM10</a>
+	]
+</span> together show that for \(H_1\) the sum of inverse squared gaps, the value \(\inf _{\mathcal A \in \mathcal C_\infty } \sup _{\lambda \in \mathcal D} R_{H_1,\infty }(\mathcal A, \lambda )\) is of order \(\log K\), strictly greater than 1 for \(K\) large enough. Do we have the same bound for \(\mathcal H_{\mathcal C^{sp}}\) and are there problems on which the difficulty ratio can be much larger than \(\log K\)? </p>
+</li>
+</ul>
+<p>We study the possible values for the smallest maximal difficulty ratio over all algorithm: we prove upper and lower bounds on \(\inf _{\mathcal A \in \mathcal C_\infty } \sup _{\lambda \in \mathcal D} R_{H_{\mathcal C^{sp}},\infty }(\mathcal A, \lambda ) \) when we vary the task \((\mathcal D, \mathcal I, i^\star )\). </p>
+<h2 id="sub:upper_bound">4.1 Upper bound</h2>
+
+<p>We first prove that \(\inf _{\mathcal A \in \mathcal C_\infty } \sup _{\lambda \in \mathcal D} R_{H_{\mathcal C^{sp}}, \infty }(\mathcal A, \lambda ) \le K\) on any task \((\mathcal D, \mathcal I, i^\star )\) by showing that uniform sampling can be worse than the oracle static proportions by a factor of at most \(K\). We then exhibit a task on which there is equality. </p>
+<p><div class="theorem_thmwrapper theorem-style-plain" id="thm:uniform_upper_bound">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">4</span>
+  </div>
+  <div class="theorem_thmcontent">
+  <p> For all \(\omega \in \triangle _K^0\), the static proportions algorithm \(\mathcal A_\omega ^{sp}\) belongs to \(\overline{\mathcal C^{sp}}\) and satisfies \(\sup _{\lambda \in \mathcal D} R_{H_{\mathcal C^{sp}}, \infty }(\mathcal A_\omega ^{sp}, \lambda ) \le (\min _{j \in [K]} \omega _j)^{-1}\). In particular, for \(A_u \in \mathcal C^{sp}\) the uniform sampling algorithm (static proportions with proportion \(1/K\) for all arms), \( \sup _{\lambda \in \mathcal D} R_{H_{\mathcal C^{sp}}, \infty }(\mathcal A_u, \lambda ) \le K \:  . \) </p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000021">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>Let \(\omega ^\star (\mu ) \in \triangle _K\) be the oracle static proportions at \(\mu \) and let \(\omega \in \triangle _K^0\). Then for all \(k\), \(\omega _k \ge \omega ^\star _k(\mu ) \min _j \omega _j\) and, using Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-algorithmic_classes.html#thm:oracle_difficulty_sp">1</a>, </p>
+<div class="displaymath" id="a0000000022">
+  \begin{align*}  \limsup _{T \to +\infty } \rho _{\mu , T}(\mathcal A_\omega ^{sp}) & \le \frac{1}{\min _{j \in [K]} \omega _j}\left( \inf _{\lambda \in \mathrm{Alt}(\mu )} \sum _{k=1}^K \omega _k^\star (\mu ) \mathrm{KL}(\lambda _k, \mu _k) \right)^{-1} = \frac{1}{\min _{j \in [K]} \omega _j} H_{\mathcal C^{sp}}(\mu ) \:  . \end{align*}
+</div>
+<p> We proved that \(\limsup _{T \to +\infty } R_{H_{\mathcal C^{sp}}, T}(\mathcal A_\omega ^{sp}, \mu ) \le (\min _{j \in [K]} \omega _j)^{-1}\) for all \(\mu \in \mathcal D\). </p>
+
+  </div>
+</div>
+<p>Of course there are tasks for which uniform sampling is not the best algorithm: for Gaussian BAI the Successive-Rejects algorithm <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#audibert2010best" >ABM10</a>
+	]
+</span> has a ratio of order \(\log K\) (see also <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#barrier2022best" >BGS22</a>
+	]
+</span>). However, in some identification tasks \(K\) is the best achievable ratio. </p>
+<p><div class="theorem_thmwrapper theorem-style-plain" id="thm:positivity_LB">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">5</span>
+  </div>
+  <div class="theorem_thmcontent">
+  <p> On the Positivity problem, where we check whether there is an arm with mean lower than a threshold \(\theta \), \(\inf _{\mathcal A \in \mathcal C_\infty } \sup _{\lambda \in \mathcal D} R_{H_{\mathcal C^{sp}}, \infty }(\mathcal A, \lambda ) = K\). </p>
+
+  </div>
+</div> </p>
+<p>That theorem proves that on the positivity problem, if a class contains the static proportions algorithms then it does not have a complexity. Furthermore, the uniform sampling algorithm is optimal for the criterion \(\sup _{\lambda \in \mathcal D} R_{H_{\mathcal C^{sp}}, \infty }(\mathcal A, \lambda )\). </p>
+<div class="proof_wrapper" id="a0000000023">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>Let \(\mathcal A\) be any algorithm family. We use Corollary&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#cor:corner_lb">1</a> for \(\mu \) a tuple of \(K\) times the same distribution with mean \(m {\gt} \theta \). Either \(R_{H_{\mathcal C^{sp}}, \infty }(\mathcal A, \mu ) = + \infty \) and the lower bound is obvious or we can apply the corollary. For \(j \in [K]\), we define \(\lambda ^{(j)}\) identical to \(\mu \) except for \(\lambda ^{(j)}_j = \ell {\lt} \theta \). Then \( \max _{j \in [K]} R_{H_{\mathcal C^{sp}}, \infty }(\mathcal A, \lambda ^{(j)}) \ge \sum _{j = 1}^K (H_{\mathcal C^{sp}}(\lambda ^{(j)}) \mathrm{KL}(m, \ell ))^{-1}\) . Now for all \(j\), a simple computation gives \(H_{\mathcal C^{sp}}(\lambda ^{(j)}) = (\mathrm{KL}(\theta , \ell ))^{-1}\), such that the lower bound is \(K \mathrm{KL}(\theta , \ell ) / \mathrm{KL}(m, \ell )\). When \(\ell \) tends to the lower bound of the means in the exponential family, the KL ratio tends to 1. </p>
+
+  </div>
+</div>
+<p>The proof of Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-the_range_of_the_difficulty_ratio.html#thm:positivity_LB">5</a> exhibits \(K\) problems, each with a different arm with mean below the threshold, and the oracle algorithm for each samples only that arm. The lower bound shows that detecting which arm is below the threshold is harder than the identification task and that no matter the algorithm, it is as bad as uniform sampling on one of the problems (but we don’t know which). </p>
+<p>We established that the highest possible value for identification tasks \((\mathcal D, \mathcal I, i^\star )\) of the quantity \(\inf _{\mathcal A \in \mathcal C_\infty } \sup _{\lambda \in \mathcal D} R_{H_{\mathcal C^{sp}}, \infty }(\mathcal A, \lambda )\) is \(K\), and that this value is attained for the Positivity problem. </p>
+<h2 id="sub:lower_bounds">4.2 Lower bounds</h2>
+
+<p>We turn our attention to lower bounds. A natural conjecture is the following: <em>for all fixed budget tasks and all algorithm families,</em> \(\sup _{\lambda \in \mathcal D} R_{H_{\mathcal C^{sp}}, \infty }(\mathcal A, \lambda ) \ge 1\). If true, then no adaptive algorithm that can do everywhere better than the static proportions oracle. It could still have lower error probability on one problem \(\mu \in \mathcal D\), but would have to be worse somewhere else. First, we prove the conjecture for Gaussian half-space identification (Lemma&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_of_results_from_section_sec-the_range_of_the_difficulty_ratio.html#lem:half_space">4</a> in Appendix&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_of_results_from_section_sec-the_range_of_the_difficulty_ratio.html">C</a>). In that task, there are two answers and \(i^\star \) has a different value on each side of a hyperplane. We then extend that result to Gaussian distributions with piecewise linear boundaries between the answer sets. </p>
+<p><div class="theorem_thmwrapper theorem-style-plain" id="thm:flat_boundary">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">6</span>
+  </div>
+  <div class="theorem_thmcontent">
+  <p> Suppose that there is an \(L^2\) ball \(B(\eta , r)\) with center \(\eta \in \mathrm{cl}(\mathcal D)\) and radius \(r {\gt} 0\) such that \(i^\star \) takes only two values in \(B(\eta , r)\), say \(i\) and \(j\), and the boundary between \(B(\eta , r) \cap \{ \mu \mid i^\star (\mu ) = i\} \) and \(B(\eta , r) \cap \{ \mu \mid i^\star (\mu ) = j\} \) is the restriction of a hyperplane passing through \(\eta \). Then for Gaussian arms (each with a known but possibly different variance), the lowest maximal difficulty ratio is \(\inf _{\mathcal A \in \mathcal C_\infty } \sup _{\lambda \in \mathcal D} R_{H_{\mathcal C^{sp}}, \infty }(\mathcal A, \lambda ) \ge 1\). </p>
+
+  </div>
+</div> </p>
+<p>The idea of the proof is the following: if we consider \(\lambda \in \mathcal D\) close to the center of the ball, then the oracle difficulty \(H_{\mathcal C^{sp}}(\lambda )\) of static proportions for our task is the same as for half-space identification. Then if we choose \(\mu \) even closer to the center, we can apply Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#thm:asm_R_LB_limsup">3</a> to a set \(D(\mu )\) of points for which this equality holds. Up to border effects that disappear when \(\mu \) get closer to the center, we get the same lower bound as for half-space identification. Full proof in Appendix&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_of_results_from_section_sec-the_range_of_the_difficulty_ratio.html">C</a>. </p>
+<p>The hypothesis of that lemma applies to all examples of fixed budget identification we introduced. Indeed BAI, Thresholding bandits and Positivity all have piecewise linear boundaries. More generally, we could extend Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-the_range_of_the_difficulty_ratio.html#thm:flat_boundary">6</a> to tasks in which the boundary has bounded curvature at some point: we can zoom in on that point and find problems for which we recover the half-space bound. This remark also illustrates the limitation of Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-the_range_of_the_difficulty_ratio.html#thm:flat_boundary">6</a>: it is asymptotic in nature. The proof requires points that are much closer to the center of the ball than the radius. Either we need a very large ball (BAI when the two best arms have much higher means than other arms) or we need problems very close to the boundary. It should be possible to extend the theorem to any exponential family by using that locally the KL is quadratic. Again, we would describe the asymptotic behavior of an algorithm family on problems very close to a given boundary point. </p>
+<p>The lower bound \(\inf _{\mathcal A \in \mathcal C_\infty } \sup _{\lambda \in \mathcal D} R_{H_{\mathcal C^{sp}}, \infty }(\mathcal A, \lambda ) \ge 1\) shows that if a class \(\mathcal C\) contains \(\mathcal C^{sp}\) and admits a complexity, then that complexity has to be \(H_{\mathcal C^{sp}}\). </p>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html" title="Lower bounds on the difficulty ratio"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html" title="On the Existence of a Complexity in Fixed Budget Bandit Identification"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-no_complexity_in_best_arm_identification.html" title="No Complexity in Best Arm Identification"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+</body>
+</html>

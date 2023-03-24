@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>On the Existence of a Complexity in Fixed Budget Bandit Identification: Proofs of results from Section 5</title>
+<link rel="prev" href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_of_results_from_section_sec-the_range_of_the_difficulty_ratio.html" title="Proofs of results from Section 4" />
+<link rel="up" href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html" title="On the Existence of a Complexity in Fixed Budget Bandit Identification" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html">On the Existence of a Complexity in Fixed Budget Bandit Identification</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Introduction</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-algorithmic_classes.html"><span class="toc_ref">2</span> <span class="toc_entry">Algorithmic classes</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html"><span class="toc_ref">3</span> <span class="toc_entry">Lower bounds on the difficulty ratio</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-the_range_of_the_difficulty_ratio.html"><span class="toc_ref">4</span> <span class="toc_entry">The range of the difficulty ratio</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-no_complexity_in_best_arm_identification.html"><span class="toc_ref">5</span> <span class="toc_entry">No Complexity in Best Arm Identification</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-conclusion.html"><span class="toc_ref">6</span> <span class="toc_entry">Conclusion</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0002.html"><span class="toc_ref"></span> <span class="toc_entry">Acknowledgments</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html"><span class="toc_ref">7</span> <span class="toc_entry">Bibliography</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-algorithmic_classes.html"><span class="toc_ref">A</span> <span class="toc_entry">Proofs of results from Section 2</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-main_tool.html"><span class="toc_ref">B</span> <span class="toc_entry">Proofs of results from Section 3</span></a>
+ </li>
+<li class="">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_of_results_from_section_sec-the_range_of_the_difficulty_ratio.html"><span class="toc_ref">C</span> <span class="toc_entry">Proofs of results from Section 4</span></a>
+ </li>
+<li class=" active current">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-no_complexity_in_best_arm_identification.html"><span class="toc_ref">D</span> <span class="toc_entry">Proofs of results from Section 5</span></a>
+ </li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="sec:proofs_relative_to_section_sec:no_complexity_in_best_arm_identification">D Proofs of results from Section 5</h1>
+
+<h2 id="sub:gaussian_bai_proof">D.1 Gaussian bandits</h2>
+
+<div class="proof_wrapper" id="a0000000060">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof of Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-no_complexity_in_best_arm_identification.html#thm:gaussian_bai_no_complexity">7</a>
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p> First, since \(\mathcal C^{sp} \subseteq \mathcal C\), for any algorithm \(\mathcal A\) and \(\mu \in \mathcal D\), \(R_{H_{\mathcal C}, T}(\mathcal A, \mu ) \ge R_{H_{\mathcal C^{sp}}, T}(\mathcal A, \mu )\). It suffices to give a lower bound for \(H_{\mathcal C^{sp}}\). </p>
+<p>Let \(H_{\Delta }(\mu ) = \frac{2}{\min _{k : \Delta _k{\gt}0} \Delta _k^2} + \sum _{k:\Delta _k{\gt}0} \frac{2}{\Delta _k^2}\). It was shown in <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#garivier2016optimal" >GK16</a>
+	]
+</span> that for all \(\mu \in \mathcal D\), this function satisfies the inequalities \(H_\Delta (\mu ) \le H_{C^{sp}}(\mu ) \le 2 H_\Delta (\mu )\) . Thus \(R_{H_{\mathcal C}, T}(\mathcal A, \mu ) \ge R_{H_\Delta , T}(\mathcal A, \mu ) / 2\). From this point on, we use a construction similar to the one used in <span class="cite">
+	[
+	<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sect0003.html#carpentier2016tight" >CL16</a>
+	]
+</span> to prove a lower bound on the ratio to \(H_\Delta \) for Bernoulli bandits. We define a Gaussian problem \(\mu \) by \(\mu _1 = 0\) (or any arbitrary value) and \(\mu _k = \mu _1 - k \Delta \) for all \(k \in \{ 2, \ldots , K\} \) and some arbitrary \(\Delta {\gt} 0\). We apply Corollary&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#cor:corner_lb">1</a> to \(\mu \) and \(\lambda ^{(2)}, \ldots , \lambda ^{(K)}\) where each \(\lambda ^{(j)}\) is identical to \(\mu \) except that \(\lambda ^{(j)}_j = \mu _1 + (\mu _1 - \mu _j)\). </p>
+<div class="displaymath" id="a0000000061">
+  \begin{align*}  \sup _{j \in \{ 2, \ldots , K\} } \limsup _{T\to +\infty } R_{H_\Delta ,T}(\mathcal A, \lambda ^{(j)}) \ge \sum _{j=2}^K \frac{1}{H_\Delta (\lambda ^{(j)}) \mathrm{KL}(\mu _j, \lambda _j^{(j)})} = \sum _{j=2}^K \frac{1}{\frac{(\lambda _j^{(j)} - \mu _j)^2}{(\lambda _j^{(j)} - \mu _1)^2} + \sum _{k\ne j} \frac{(\lambda _j^{(j)} - \mu _j)^2}{(\lambda _j^{(j)} - \mu _k)^2}} \:  . \end{align*}
+</div>
+<p> For our specific choice of \(\lambda ^{(j)}\), </p>
+<div class="displaymath" id="a0000000062">
+  \begin{align*}  \frac{(\lambda _j^{(j)} - \mu _j)^2}{(\lambda _j^{(j)} - \mu _1)^2} + \sum _{k \ne j} \frac{(\lambda _j^{(j)} - \mu _j)^2}{(\lambda _j^{(j)} - \mu _k)^2} & \le 4 + 4 \sum _{k \ne j} \frac{(\mu _1 - \mu _j)^2}{(\mu _1 - \mu _j)^2 + (\mu _1 - \mu _k)^2} \le 4 j + 4\sum _{k {\gt} j} \frac{(\mu _1 - \mu _j)^2}{(\mu _1 - \mu _k)^2} \:  . \end{align*}
+</div>
+<p> We now use that \(\mu _k = \mu _1 - k \Delta \). </p>
+<div class="displaymath" id="a0000000063">
+  \begin{align*}  \frac{(\lambda _j^{(j)} - \mu _j)^2}{(\lambda _j^{(j)} - \mu _1)^2} + \sum _{k \ne j} \frac{(\lambda _j^{(j)} - \mu _j)^2}{(\lambda _j^{(j)} - \mu _k)^2} & \le 4 j + 4 j^2 \sum _{k {\gt} j} \frac{1}{k^2} \le 4 j + 4 j^2 \frac{1}{j} \le 8 j \:  . \end{align*}
+</div>
+<p> We finally have the lower bound </p>
+<div class="displaymath" id="a0000000064">
+  \begin{align*}  \sup _{j \in \{ 2, \ldots , K\} } \limsup _{T\to +\infty } R_{H_\Delta ,T}(\mathcal A, \lambda ^{(j)}) \ge \frac{1}{8}\sum _{j=2}^K \frac{1}{j} \ge \frac{1}{8}(\log (K+1) - \log 2) \ge \frac{3}{40} \log K \:  . \end{align*}
+</div>
+
+  </div>
+</div>
+<h2 id="sub:bernoulli_bai_proof">D.2 Bernoulli bandits</h2>
+
+<p>We consider the best arm identification task in bandits with two arms, both in the same exponential family with one parameter. Two distributions in that family with means \(\mu _1, \mu _2\) correspond to some natural parameters \(\xi _1, \xi _2\) and the Kullback-Leibler divergence can be written </p>
+<div class="displaymath" id="a0000000065">
+  \begin{align*}  \mathrm{KL}(\mu _1, \mu _2) = d(\xi _2, \xi _1) = \phi (\xi _2) - \phi (\xi _1) - (\xi _2 - \xi _1) \phi ’(\xi _1) \:  , \end{align*}
+</div>
+<p> where \(\phi : \mathbb {R} \to \mathbb {R}\) is a convex function specific to the exponential family and \(d\) is its Bregman divergence. The mean parameter \(\mu _1\) and the corresponding natural parameter \(\xi _1\) are related by the equation \(\phi '(\xi _1) = \mu _1\) (or \(\xi _1 = \phi '^{-1}(\mu _1)\) since \(\phi '\) is invertible). In that setting, we want to compute </p>
+<div class="displaymath" id="a0000000066">
+  \begin{align*}  (H_{\mathcal C^{sp}}(\mu ))^{-1} & = \max _{\omega \in \triangle _K} \inf _{\lambda \in \mathrm{Alt}(\mu )} \sum _{k=1}^K \omega _k \mathrm{KL}(\lambda _k, \mu _k) \\ & = \max _{\omega \in \triangle _2} \inf _{x} (\omega _1 \mathrm{KL}(x, \mu _1) + \omega _2 \mathrm{KL}(x, \mu _2)) \:  . \end{align*}
+</div>
+<p><div class="lemma_thmwrapper theorem-style-plain" id="lem:exp_fam_bai">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">7</span>
+  </div>
+  <div class="lemma_thmcontent">
+  <p> In the one-parameter exponential family setting described above, </p>
+<div class="displaymath" id="a0000000067">
+  \begin{align*}  (H_{\mathcal C^{sp}}(\mu ))^{-1} = \mathrm{KL}\left(\frac{\phi (\xi _1) - \phi (\xi _2)}{\xi _1 - \xi _2}, \mu _1\right) \:  . \end{align*}
+</div>
+<p> The infimum in the definition of the difficulty is attained for any \(\omega \) at \(x(\omega ) = \phi '(\omega _1 \xi _1 + \omega _2 \xi _2)\). The maximum over the simplex is attained at \(\omega ^\star \) such that \(\omega ^\star _1 = \frac{\phi '^{-1}(x^\star ) - \xi _2}{\xi _1 - \xi _2}\), with \(x^\star = x(\omega ^\star ) = \frac{\phi (\xi _1) - \phi (\xi _2)}{\xi _1 - \xi _2}\). </p>
+
+  </div>
+</div> We can also rewrite \(\frac{\phi (\xi _1) - \phi (\xi _2)}{\xi _1 - \xi _2} = \mu _2 + \frac{\mathrm{KL}(\mu _2, \mu _1)}{\xi _1 - \xi _2} = \mu _1 - \frac{\mathrm{KL}(\mu _1, \mu _2)}{\xi _1 - \xi _2}\). </p>
+<div class="proof_wrapper" id="a0000000068">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>We parametrize by the natural parameters: </p>
+<div class="displaymath" id="a0000000069">
+  \begin{align*}  \inf _{x} (\omega _1 \mathrm{KL}(x, \mu _1) + \omega _2 \mathrm{KL}(x, \mu _2)) = \inf _{y} (\omega _1 d(\xi _1, y) + \omega _2 d(\xi _2, y)) \end{align*}
+</div>
+<p>The optimality condition for \(y\) is \(\omega _1 \frac{\partial }{\partial y}d(\xi _1, y) + \omega _2 \frac{\partial }{\partial y}d(\xi _2, y) = 0\). That derivative is \(\frac{\partial }{\partial y}d(x, y) = - (x - y)\phi ''(y)\). We obtain </p>
+<div class="displaymath" id="a0000000070">
+  \begin{align*} & \omega _1 (\xi _1 - y)\phi ”(y) + \omega _2 (\xi _2 - y)\phi ”(y) = 0 \\ \implies \quad & y = \omega _1 \xi _1 + \omega _2 \xi _2 \:  . \end{align*}
+</div>
+<p>We note for later the property </p>
+<div class="displaymath" id="<plasTeX.TeXFragment object at 0x7f83b3427280>">
+  \begin{align} \label{eq:exp_fam_minimizer_grad} \omega _1 \frac{\partial }{\partial y}d(\xi _1, y) + \omega _2 \frac{\partial }{\partial y}d(\xi _2, y) = 0 \quad \text{at } y = \omega _1 \xi _1 + \omega _2 \xi _2 \:  . \end{align}
+</div>
+<p>We now want to compute </p>
+<div class="displaymath" id="a0000000071">
+  \begin{align*}  \max _{\omega \in \triangle _2} (\omega _1 d(\xi _1, \omega _1 \xi _1 + \omega _2 \xi _2) + \omega _2 d(\xi _2, \omega _1 \xi _1 + \omega _2 \xi _2)) \\ =\max _{\omega _1 \in [0,1]} (\omega _1 d(\xi _1, \omega _1 \xi _1 + (1 - \omega _1) \xi _2) + (1 - \omega _1) d(\xi _2, \omega _1 \xi _1 + (1 - \omega _1) \xi _2)) \end{align*}
+</div>
+<p>At the optimal value for \(\omega \) the gradient is zero: </p>
+<div class="displaymath" id="a0000000072">
+  \begin{align*} & d(\xi _1, \omega _1 \xi _1 + (1 - \omega _1) \xi _2) - d(\xi _2, \omega _1 \xi _1 + (1 - \omega _1) \xi _2) + \omega _1 \frac{\partial }{\partial y} d(\xi _1, \omega _1 \xi _1 + (1 - \omega _1) \xi _2) (\xi _1 - \xi _2) \\ & + (1 - \omega _1) \frac{\partial }{\partial y} d(\xi _2, \omega _1 \xi _1 + (1 - \omega _1) \xi _2) (\xi _1 - \xi _2) = 0 \end{align*}
+</div>
+<p> We use Equation&#160;?? to get that \(\omega _2 \frac{\partial }{\partial y} d(\xi _2, \omega _1 \xi _1 + (1 - \omega _1) \xi _2) = - \omega _1 \frac{\partial }{\partial y} d(\xi _1, \omega _1 \xi _1 + (1 - \omega _1) \xi _2)\). We simplify the equation to </p>
+<div class="displaymath" id="a0000000073">
+  \begin{align*}  d(\xi _1, \omega _1 \xi _1 + (1 - \omega _1) \xi _2) = d(\xi _2, \omega _1 \xi _1 + (1 - \omega _1) \xi _2) \end{align*}
+</div>
+<p> We expand the Bregman divergence. </p>
+<div class="displaymath" id="a0000000074">
+  \begin{align*} & \phi (\xi _1) - \phi (y) - (\xi _1 - y) \phi ’(y) - \phi (\xi _2) + \phi (y) + (\xi _2 - y) \phi ’(y) = 0 \\ \implies & \phi ’(y) = \frac{\phi (\xi _1) - \phi (\xi _2)}{\xi _1 - \xi _2} \end{align*}
+</div>
+<p>Solving this equation for \(y\) also gives the value of \(\omega \) thanks to \(y = \omega _1 \xi _1 + (1 - \omega _1) \xi _2\). We get \(\omega _1 = \frac{y - \xi _2}{\xi _1 - \xi _2}\), and \(y\) is given by the equation above. The value of the objective is then </p>
+<div class="displaymath" id="a0000000075">
+  \begin{align*}  \max _{\omega \in \triangle _2} \inf _{x} (\omega _1 \mathrm{KL}(x, \mu _1) + \omega _2 \mathrm{KL}(x, \mu _2)) = d(\xi _1, y) \\ \text{where } y = \phi ’^{-1}\left(\frac{\phi (\xi _1) - \phi (\xi _2)}{\xi _1 - \xi _2}\right) \:  . \end{align*}
+</div>
+<p> But we can simplify this further since \(d(\xi _1, y) = \mathrm{KL}(\phi '(y), \mu _1)\) (also equal to \(\mathrm{KL}(\phi '(y), \mu _2)\)). </p>
+<div class="displaymath" id="a0000000076">
+  \begin{align*}  \max _{\omega \in \triangle _2} \inf _{x} (\omega _1 \mathrm{KL}(x, \mu _1) + \omega _2 \mathrm{KL}(x, \mu _2)) = \mathrm{KL}(\frac{\phi (\xi _1) - \phi (\xi _2)}{\xi _1 - \xi _2}, \mu _1) \:  . \end{align*}
+</div>
+
+  </div>
+</div>
+<p><div class="lemma_thmwrapper theorem-style-plain" id="a0000000077">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">8</span>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>If the distributions with parameters \(\mu _1\) and \(\mu _2\) are \(\sigma ^2\)-sub-Gaussian, then </p>
+<div class="displaymath" id="a0000000078">
+  \begin{align*}  (H_{\mathcal C^{sp}}(\mu ))^{-1} \ge \frac{1}{2 \sigma ^2(\xi _1 - \xi _2)^2}\max \{ \mathrm{KL}(\mu _1, \mu _2)^2, \mathrm{KL}(\mu _2, \mu _1)^2\}  \:  . \end{align*}
+</div>
+<p> For an exponential family of Gaussians with same variance \(\sigma ^2\) there is equality, and the two terms of the maximum are equal. </p>
+
+  </div>
+</div> </p>
+<h4 id="a0000000079">Gaussian case</h4>
+<p> For Gaussian distributions, the functions used above are </p>
+<ul class="itemize">
+  <li><p>\(\phi (a) = \frac{1}{2} \sigma ^2 a^2\) with \(\phi '(a) = a \sigma ^2\), \(\phi '^{-1}(x) = x / \sigma ^2\), \(\phi (\phi '^{-1}(x)) = \frac{1}{2 \sigma ^2} x^2\) </p>
+</li>
+  <li><p>\(d(a, b) = \sigma ^2(\frac{1}{2} a^2 - \frac{1}{2} b^2 - (a - b) b) = \frac{1}{2}\sigma ^2(a - b)^2\) </p>
+</li>
+  <li><p>\(\mathrm{KL}(x, y) = \frac{1}{2 \sigma ^2}(x - y)^2\). </p>
+</li>
+</ul>
+<p>Using these values in Lemma&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-no_complexity_in_best_arm_identification.html#lem:exp_fam_bai">7</a> gives a static proportions difficulty equal to the inverse of \(\frac{1}{8 \sigma ^2}(\mu _1 - \mu _2)^2\). </p>
+<h4 id="a0000000080">Bernoulli case</h4>
+<p> For Bernoulli distributions, the functions used above are </p>
+<ul class="itemize">
+  <li><p>\(\phi (a) = \log (1 + e^a)\) with \(\phi '(a) = \frac{e^a}{1 + e^a}\), \(\phi '^{-1}(x) = \log \frac{x}{1 - x}\), \(\phi (\phi '^{-1}(x)) = - \log (1 - x)\) </p>
+</li>
+  <li><p>\(d(a, b) = \log (1 + e^a) - \log (1 + e^b) - (a - b) \frac{e^b}{1 + e^b}\) </p>
+</li>
+  <li><p>\(\mathrm{KL}(x, y) = x \log \frac{x}{y} + (1-x) \log \frac{1-x}{1-y}\). </p>
+</li>
+</ul>
+<p>Using these values in Lemma&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_relative_to_section_sec-no_complexity_in_best_arm_identification.html#lem:exp_fam_bai">7</a> proves Lemma&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-no_complexity_in_best_arm_identification.html#cor:bernoulli_bai_H">1</a>. </p>
+<div class="displaymath" id="a0000000081">
+  \begin{align*}  \max _{\omega \in \triangle _2} \inf _{x} (\omega _1 \mathrm{KL}(x, \mu _1) + \omega _2 \mathrm{KL}(x, \mu _2)) = \mathrm{KL}\left( \frac{\log \frac{1 - \mu _2}{1 - \mu _1}}{\log \frac{\mu _1(1 - \mu _2)}{(1 - \mu _1)\mu _2}}, \mu _1 \right) \:  . \end{align*}
+</div>
+<p>We gather now a few limits, which will be useful in the proof of Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-no_complexity_in_best_arm_identification.html#thm:bernoulli_bai_no_complexity">8</a>. These results use the explicit formulas for \(H_{\mathcal C^{sp}}\) derived above. </p>
+<div class="displaymath" id="a0000000082">
+  \begin{align*}  \lim _{x \to 0} H_{\mathcal C^{sp}}((x, 1/2)) & = 1/\log 2 \:  , \\ \lim _{x \to 0} \mathrm{KL}(x, 1/2) & = \log 2 \:  , \\ \lim _{x \to 0, y \to 0, x/y \to 1} \frac{1}{H_{\mathcal C^{sp}}((y/2, y)) \mathrm{KL}(x, y/2)} & = \frac{1 - \frac{1}{2 \log 2} - \frac{\log (2 \log 2)}{2 \log 2}}{\log 2 - 1/2} \approx 0.22 \:  . \end{align*}
+</div>
+<div class="proof_wrapper" id="a0000000083">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof of Theorem&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-no_complexity_in_best_arm_identification.html#thm:bernoulli_bai_no_complexity">8</a>
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p> For \(x \in (0,1/2)\), let \(\mu (x) = (x(1+x), x)\), \(\lambda ^{(1)}(x) = (x/2, x)\), \(\lambda ^{(2)}(x) = (x(1+x), 1/2)\). Then Corollary&#160;<a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-main_tool.html#cor:corner_lb">1</a> gives </p>
+<div class="displaymath" id="a0000000084">
+  \begin{align*}  \sup _{j \in [2]} R_{H_{\mathcal C^{sp}}, \infty }(\mathcal A, \lambda ^{(j)}(x)) & \ge \frac{1}{H_{\mathcal C^{sp}}(\lambda ^{(1)}(x))\mathrm{KL}(\mu _1(x), \lambda ^{(1)}_1(x))} + \frac{1}{H_{\mathcal C^{sp}}(\lambda ^{(2)}(x))\mathrm{KL}(\mu _2(x), \lambda ^{(2)}_2(x))} \\ & = \frac{1}{H_{\mathcal C^{sp}}((x/2, x)) \mathrm{KL}(x(1+x), x/2)} + \frac{1}{H_{\mathcal C^{sp}}((x(1+x), 1/2))\mathrm{KL}(x, 1/2)} \:  . \end{align*}
+</div>
+<p> The limit of the quantity on the right when \(x \to 0\) is strictly greater than 1 (it is approximately 1.22). </p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/sec-proofs_of_results_from_section_sec-the_range_of_the_difficulty_ratio.html" title="Proofs of results from Section 4"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html" title="On the Existence of a Complexity in Fixed Budget Bandit Identification"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+</body>
+</html>
