@@ -9,6 +9,9 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}{Definition}
+
+\newcommand{\indep}{\perp \!\!\! \perp}
 
 \title{Sequential Learning in Lean}
 \author{Rémy Degenne}
@@ -17,42 +20,33 @@
 \begin{document}
 \maketitle
 
-This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test 
+We implement sequential learning models and algorithms in \emph{mathlib}.
 
-This is a math test: $\mathbb{E}_{X \sim P}[X]$.
+\section{Goals}
 
-\section{Informal description}
+\input{goals}
 
-We describe a simple example of sequential learning: the stochastic bandit.
+\section{Other probability and machine learning formalizations}
+\label{sec:other_probability_and_machine_learning_formalizations}
 
-At each time $t \in \mathbb{N}$, an algorithm
-\begin{enumerate}
-	\item chooses an action $A_t$ based on previous observations,
-	\item observes a reward $X_t$, sampled from a distribution $\nu_{A_t}$.
-\end{enumerate}
+\input{related_work}
 
-\begin{lemma}\label{lem:best}
-Best Lemma ever
-\end{lemma}
-\begin{proof}
-Test. Can I fold this?
-\begin{proof}
-Can I put a proof in a proof?
-\end{proof}
-\end{proof}
+\section{Conditional Independence}
+\label{sec:conditional_independence}
 
-\subsection{Regret}
-
-This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test 
-\begin{equation}
-\mathbb{E}[R_T] = \sum_{k=1}^K \mathbb{E}[N_{T,k}] \Delta_k 
-\end{equation}
-This is explained in Lemma~\ref{lem:best}.
-
-\cite{lattimore2020bandit}
+\input{cond_indep}
 
 \section{Graphical Models}
 \label{sec:graphical_models}
+
+\input{graphical_models}
+
+\section{Concentration}
+\label{sec:concentration}
+
+\input{martingale_concentration}
+
+
 
 \bibliographystyle{alpha}
 

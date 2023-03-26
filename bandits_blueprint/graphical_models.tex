@@ -1,0 +1,65 @@
+% !TeX root = blueprint.tex
+
+A graphical model encodes independence properties. We want more than that. We want to specify conditional kernels.
+
+A distribution factorizes in a DAG if there exists kernels such that the distribution is equal to a product of kernels that reflect the graph structure.
+We want to encode that the distribution is equal to the product of specific kernels.
+
+A POMDP might be represented by $\mathbb{N} \to \kappa (\mathcal S \times \mathcal X \times \mathcal A \times \mathbb{R}) (\mathcal S \times \mathcal X \times \mathcal A \times \mathbb{R})$.
+
+Then the internal structure of the kernel from one product space to the next should be specified. This is a sort of hierarchical specification of the POMDP.
+
+There will be many probability distributions compatible with that labeled directed graph. We can get a default distribution by the Ionescu-Tulcea theorem.
+
+A probability distribution is compatible with the labeled DAG with kernels $(\kappa_u)_{u \in \mathcal V}$ if for all $u \in \mathcal V$
+\begin{align*}
+\mathbb{P}((X_u)_{u \in \mathcal V}) = \prod_{u \in \mathcal V} \kappa_u(X_u \mid X_{\pi(u)}) \: .
+\end{align*}
+
+Do we want partially labeled DAGs? We could specify the kernels in some places and leave them unspecified elsewhere.
+
+\subsection{String diagrams}
+\label{sub:string_diagrams}
+
+See \cite{fritz2023d}.
+
+Do we want multiple output boxes like in those string diagrams? We can encode kernels $K(X,Y|Z,W)$ like this, while a DAG cannot have multiple outputs (the factorization uses only kernels of the form $K(X | Z, W)$).
+
+\subsection{Directed acyclic graphs}
+\label{sub:directed_acyclic_graphs}
+
+A directed graph on a type of vertices $\mathcal V$ can be described by directed edges $E : \mathcal V \to \mathcal V \to Prop$: $E(u,v)$ is true if there is an edge from $u$ to $v$ in the graph.
+
+We can follow the API of non-directed graphs already in mathlib to define similarly paths in directed graphs.
+
+A directed graph is acyclic if the only path from $u$ to $v$ is the empty path (the trivial path?).
+
+The set of parents of a vertex $u$ is the set $\pi(u) = \{v \in \mathcal V \mid E(v, u)\}$.
+
+\begin{theorem}
+Directed acyclic graphs are the directed graphs for which there exists a linear order on the vertices such that all parents of a vertex are strictly lower than that vertex.
+\end{theorem}
+
+\subsection{Directed graphical models} % (fold)
+\label{sub:directed_graphical_models}
+
+A probability distribution $\mathbb{P}$ over a product space $\Pi_{u \in \mathcal V}, \mathcal X_u$ is said to factorize in a graph $G$ if there exists kernels $(\kappa_u)_{u \in \mathcal V}$ such that
+\begin{align*}
+\mathbb{P}((X_u)_{u \in \mathcal V}) = \prod_{u \in \mathcal V} \kappa_u(X_u \mid X_{\pi(u)}) \: .
+\end{align*}
+We write $\mathbb{P} \in \mathcal L(G)$ when $\mathbb{P}$ factorizes in $G$.
+
+
+
+
+\subsection{Getting independence properties from a graphical model}
+\label{sub:getting_independence_properties_from_a_graphical_model}
+
+Once we represent the sequential learning interaction with a graphical model, we need to get conditional independence properties out of the model.
+
+For a DAG: TODO: introduce more stuff to get
+\begin{theorem}
+\begin{align*}
+\mathbb{P} \in \mathcal L(G) \iff \forall u \in \mathcal V, X_u \indep X_{nd(u)} \mid X_{\pi(u)}
+\end{align*}
+\end{theorem}

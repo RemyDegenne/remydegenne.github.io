@@ -1,0 +1,119 @@
+% !TeX root = blueprint.tex
+
+\subsection{Sequential learning}
+\label{sub:sequential_learning}
+
+\paragraph{Stochastic bandit}
+
+We describe a simple example of sequential learning: the stochastic bandit. That model is parametrized by a set of distributions over $\mathbb{R}$, $\{\nu_a \mid a \in \mathcal A\}$, for some set of \emph{actions} $\mathcal A$.
+
+At each time $t \in \mathbb{N}$, an algorithm
+\begin{enumerate}
+	\item chooses an action $A_t \in \mathcal A$ based on previous observations,
+	\item observes $X_t \in \mathbb{R}$, sampled from $\nu_{A_t}$.
+\end{enumerate}
+
+This interaction generates a sequence $(A_0, X_0, A_1, \ldots, A_t, X_t)$. There might be a finite end time, or we might continue indefinitely ($t = \infty$).
+
+The sequence of random variables verifies \cite{lattimore2020bandit}
+\begin{enumerate}
+    \item The conditional distribution of $X_t$ given $A_0, X_0, \ldots, A_{t-1}, X_{t-1}, A_t$ is $\nu_{A_t}$ ,
+    \item We have a sequence $(\pi_t)_{t\in \mathbb{N}}$ of kernels such that the law of $A_t$ given $A_0, X_0, \ldots, A_{t-1}, X_{t-1}$ is $\pi_t(\cdot \mid A_0, X_0, \ldots, A_{t-1}, X_{t-1})$.
+\end{enumerate}
+
+The algorithm does not know the distributions but only observes the \emph{rewards} $X_t$. We usually look for algorithms that maximize the sum of expected rewards.
+
+\begin{remark}
+We want to model a sequence of random variables $A_0, X_0, A_1, \ldots, A_t, X_t, \ldots$ such that the law of each variable is given by a prescribed kernel from the space of the previous variables.
+\end{remark}
+
+\begin{remark}
+The kernels $(\nu_a)_{a \in \mathcal A}$ describe the environement, while the kernels $(\pi_t)_{t \in \mathbb{N}}$ describe the algorithm: we might want to allow some of them to be unspecified.
+\end{remark}
+
+\paragraph{Oblivious adversarial bandit}
+
+
+
+\paragraph{Non-stationary stochastic bandit}
+
+A generalization of both stochastic and adversarial bandit is the non-stationary stochastic bandit: the distribution of $X_t$ given $A_t$ is $\nu_{t, A_t}$, a time dependent distribution.
+Stochastic bandits correspond to setting $\nu_{t, a} = \nu_a$ for all $t$ and $a \in [K]$ and adversarial bandits correspond to $\nu_{t, a} = \delta_{x_{t,a}}$, the dirac distribution at $x_{t,a}$ (up to the loss/gain switch).
+
+\begin{remark}
+We need to allow time-dependent kernels for both observarions and actions.
+\end{remark}
+
+\paragraph{Markov decision process}
+
+This can be seen as a generalization of a bandit in which actions change the environement.
+
+We have a state space $\mathcal S$ and an action space $\mathcal A$. Taking action $a$ in a state $s$ changes the state to $s'$, where the distribution of $s'$ depends on $s$ and $a$, and generates a reward. Both the state and the reward are observed, which means that the action can depend on both.
+
+State, action, reward
+
+\begin{center}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAFgBoAmAXVJADcBDAGwFcYkQBBAfRxAF9S6TLnyEU5CtTpNW7bsBwBaAIx9+gkBmx4CRMsqkMWbRCADKXBQGpV6odtFEADKQM0js0xYUq1A+yK64q6GMibmPHaawjpiyMqkTqHG7ABKlkq2-tEOQcgAzInJniDpvHxSMFAA5vBEoABmAE4QALZILiA4EEjk2c1tSAldPYjE-S3tYzTdvRODiIUjSOMaA1NLs4gArDSMWGDhUPRwABZVUesrM6O7IPuH7MdnF-NTZMuIAGx7B0cn5ygl0mvRuSB+9z+TwBrzWIMQnS2EIARjAwEDFp0Hv8XkC3kMwTsaKj0Uh8lioaZnoDgQtNqNVHCFh8tk4KnwgA
+\begin{tikzcd}
+                                                  & R_{t-1} &                                                                  & R_t &                                              \\
+S_{t-1} \arrow[rr] \arrow[ru, dashed] \arrow[rrd] &         & S_t \arrow[rr] \arrow[lu, dashed] \arrow[ru, dashed] \arrow[rrd] &     & S_{t+1} \arrow[lu, dashed]                   \\
+                                                  &         & A_{t-1} \arrow[u] \arrow[luu, dashed, bend left]                 &     & A_t \arrow[u] \arrow[luu, dashed, bend left]
+\end{tikzcd}
+\end{center}
+
+
+\paragraph{Partially observable Markov decision process}
+
+State, observation, action, reward
+
+\begin{center}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAFgBoAmAXVJADcBDAGwFcYkQBBAfRxAF9S6TLnyEU5CtTpNW7bsBwBaAIx9+gkBmx4CRAKySaDFm0QgAGlwUBqVeqHbRRAMyHpJ9pd4CHI3SmU3Y1kzSwUVNR9NYR0xElJlKWDTEABlKxxbSI0tPziABgSkmRT08Lso3NiiCUSjEvZ07xyYpwDSfOKPMwAlDIj7aMd-ZFdO+u6QPu8pGCgAc3giUAAzACcIAFskMhAcCCRVDXWtpFc9g8R8qJPtq5p9pD0bjbuDC6RyF9PEADYHy7Eb53QIfRAAdmBSHBALOUIhsMQz2OryQ-zBkJRP3Rj0QAA4aIwsGAUlB6HAABZzQa3aGIgkgIkk9hkynU+EwsEATkJxNJ5KpUBpqKRiJ5jL5LIF7Kxd0K3JoACMYGAhYhnPKmfy2UL4aDcQzlaqzprJWZWYL+JQ+EA
+\begin{tikzcd}
+                                                 & R_{t-1}           &                                                                 & R_t           &                                              &         \\
+S_{t-1} \arrow[rd] \arrow[rr] \arrow[ru, dashed] &                   & S_t \arrow[rd] \arrow[rr] \arrow[lu, dashed] \arrow[ru, dashed] &               & S_{t+1} \arrow[rd] \arrow[lu, dashed]        &         \\
+                                                 & X_{t-1} \arrow[r] & A_{t-1} \arrow[u] \arrow[luu, dashed, bend left]                & X_t \arrow[r] & A_t \arrow[u] \arrow[luu, dashed, bend left] & X_{t+1}
+\end{tikzcd}
+\end{center}
+
+\subsection{Analyzing algorithms}
+\label{sub:analyzing_algorithms}
+
+\subsubsection{Regret minimization in stochastic bandits}
+\label{subs:regret_minimization_in_stochastic_bandits}
+
+Once we are able to state sequential learning problems, we need to analyse algorithms. We now reproduce a proof of the regret bound of the UCB algorihtm and highlight the notions we need to carry it out.
+
+\begin{definition}
+The regret of an algorithm in a non-stationary stochastic bandit at time $T$ is a random variable defined as
+\begin{align*}
+R_T = \max_{a \in \mathcal A} \sum_{t=1}^T \mu_{t, a} - \sum_{t=1}^T \mu_{t, A_t} \: .
+\end{align*}
+\end{definition}
+
+\begin{theorem}
+TODO regret of UCB
+\end{theorem}
+\begin{proof}
+TODO
+\end{proof}
+
+\begin{remark}[Shopping list]
+\begin{itemize}
+    \item todo
+\end{itemize}
+\end{remark}
+
+\subsubsection{Convergence of value iteration}
+\label{ssub:convergence_of_value_iteration}
+
+TODO
+
+\subsection{Formalization}
+
+All examples can be written as a sequence of random variables indexed by $\mathbb{N}$, where the law of each given the past is given by a particular kernel. This is the setting of the Ionescu-Tulcea theorem, which will give us the existence of a common probability space for all those random variables and allow us to talk easily about the probability of an event. 
+
+However, we don't want to force the user to rename $S_0, X_0, A_0$ to $Y_1, Y_2, Y_3$, etc. We want to have a flexible input representation to specify the model. We need a flexible representation that comes with the guarantee that we can convert it to the sequence model and encodes all the dependence structure we require.
+
+We will use probabilistic graphical models.
+
+

@@ -1,0 +1,39 @@
+% !TeX root = blueprint.tex
+
+As of the time of writing this document, mathlib contains a definition of independence, but not conditional independence.
+
+\begin{definition}
+Two $\sigma$-algebras $\mathcal S, \mathcal T$ are independent given a third $\sigma$-algebra $\mathcal Q$ if for all $s \in \mathcal S$ and $t \in \mathcal T$, almost surely
+\begin{align*}
+\mathbb{E}[\mathbb{1}_{s \cap t} \mid \mathcal Q] = \mathbb{E}[\mathbb{1}_{s} \mid \mathcal Q] \: \mathbb{E}[\mathbb{1}_{t} \mid \mathcal Q]
+\: .
+\end{align*}
+\end{definition}
+
+This is close to the definition of (unconditional) independence, which we write below.
+\begin{definition}
+Two $\sigma$-algebras $\mathcal S, \mathcal T$ are independent if for all $s \in \mathcal S$ and $t \in \mathcal T$,
+\begin{align*}
+\mathbb{P}(s \cap t) = \mathbb{P}(s) \: \mathbb{P}(t)
+\: .
+\end{align*}
+\end{definition}
+
+The main difference when we go from independence to conditional independence is that we replace equality of probabilities of sets by almost everywhere equality of functions $\Omega \to \text{set}(\Omega) \to \mathbb{R}_{+,\infty}$. We can prove that conditional expectations define measures: we have almost everywhere equality of expressions involving functions $\Omega \to \mathcal M(\Omega)$. This motivates the following more abstract definition.
+
+\begin{definition}\label{def:independence_wrt_map}
+Two $\sigma$-algebras $\mathcal S, \mathcal T$ are independent given a map $\kappa : \Omega' \to \mathcal M(\Omega)$ and a measure $\mu'$ on $\Omega'$ if for all $s \in \mathcal S$ and $t \in \mathcal T$, for $\mu'$-almost all $\omega' \in \Omega'$,
+\begin{align*}
+\kappa (\omega') (s \cap t) = \kappa (\omega') (s) \: \kappa (\omega') (t)
+\: .
+\end{align*}
+\end{definition}
+
+Unconditional independence is obtained by setting $\Omega' = \star$ (a single point), $\mu' = \delta_\star$ and $\kappa : \omega' \mapsto \mathbb{P}$.
+
+Conditional independence is obtained with $\Omega' = \Omega$, $\mu' = \mathbb{P}$ and $\kappa = (\omega' \mapsto (s \mapsto \mathbb{E}[\mathbb{1}_{s} \mid \mathcal Q](\omega')))$, where we need to verify that $s \mapsto \mathbb{E}[\mathbb{1}_{s} \mid \mathcal Q](\omega')$ defines a measure for all $\omega'$. That $\kappa$ is even a kernel when $\Omega$ is standard Borel (that is, $\kappa$ is measurable), but we don't need that property.
+
+Beyond the benefit of allowing us to prove properties of both types of independence at the same time, Definition~\ref{def:independence_wrt_map} simplifies the way proofs about conditional expectations are written in Lean, since they replace complicated expressions of the form $\mathbb{E}[\mathbb{1}_{s} \mid \mathcal Q]$ by $\kappa$.
+
+TODO: there is a very general version of independence of kernels given other kernels, which is slightly stronger than the definitions we have here (but equivalent in standard Borel spaces). See \cite{forre2021transitional}.
+See also the categorical generalization of that definition in \cite{fritz2023d}.

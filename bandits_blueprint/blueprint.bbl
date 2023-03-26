@@ -1,0 +1,38 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{VST{\etalchar{+}}21}
+
+\bibitem[FK23]{fritz2023d}
+Tobias Fritz and Andreas Klingler.
+\newblock The d-separation criterion in categorical probability.
+\newblock {\em Journal of Machine Learning Research}, 24(46):1--49, 2023.
+
+\bibitem[For21]{forre2021transitional}
+Patrick Forr{\'e}.
+\newblock Transitional conditional independence.
+\newblock {\em arXiv preprint arXiv:2104.11547}, 2021.
+
+\bibitem[H{\"o}l17]{holzl2017markov}
+Johannes H{\"o}lzl.
+\newblock Markov processes in isabelle/hol.
+\newblock In {\em Proceedings of the 6th ACM SIGPLAN Conference on Certified
+  Programs and Proofs}, pages 100--111, 2017.
+
+\bibitem[LS20]{lattimore2020bandit}
+Tor Lattimore and Csaba Szepesv{\'a}ri.
+\newblock {\em Bandit algorithms}.
+\newblock Cambridge University Press, 2020.
+
+\bibitem[VST{\etalchar{+}}21]{vajjha2021certrl}
+Koundinya Vajjha, Avraham Shinnar, Barry Trager, Vasily Pestun, and Nathan
+  Fulton.
+\newblock Certrl: formalizing convergence proofs for value and policy iteration
+  in coq.
+\newblock In {\em Proceedings of the 10th ACM SIGPLAN International Conference
+  on Certified Programs and Proofs}, pages 18--31, 2021.
+
+\bibitem[VTSP22]{vajjha2022formalization}
+Koundinya Vajjha, Barry Trager, Avraham Shinnar, and Vasily Pestun.
+\newblock Formalization of a stochastic approximation theorem.
+\newblock {\em arXiv preprint arXiv:2202.05959}, 2022.
+
+\end{thebibliography}
