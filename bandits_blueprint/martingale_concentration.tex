@@ -45,14 +45,14 @@ Let $(X_i)_{i\in \mathbb{N}}$ be a martingale difference sequence with natural f
 TODO: with the def of sub-Gaussian we have above, which is centered at 0, the sub-Gaussian condition on the $X_i$ implies the martingale difference sequence hypothesis.
 
 \begin{proof}
-Let $\lambda \ge 0$.
+Let $\lambda \ge 0$. Since $x \mapsto e^{\lambda x}$, $\mathbb{P}(\sum_{i=1}^n X_i \ge \varepsilon) = \mathbb{P}(e^{\lambda\sum_{i=1}^n X_i} \ge e^{\lambda\varepsilon})$. We then use Chernov's inequality to get
 \begin{align*}
 \mathbb{P}(\sum_{i=1}^n X_i \ge \varepsilon)
-&= \mathbb{P}(e^{\lambda\sum_{i=1}^n X_i} \ge e^{\lambda\varepsilon})
 \le e^{-\lambda \varepsilon} \mathbb{E}\left[ e^{\lambda\sum_{i=1}^n X_i} \right]
 \: .
 \end{align*}
 
+We use the tower rule to introduce conditioning on the $\sigma$-algebras $\mathcal F_i$.
 \begin{align*}
 \mathbb{E}\left[ e^{\lambda\sum_{i=1}^n X_i} \right]
 = \mathbb{E}\left[ \mathbb{E}\left[ e^{\lambda\sum_{i=1}^n X_i} \mid \mathcal F_{n-1} \right] \right]
@@ -63,6 +63,7 @@ Let $\lambda \ge 0$.
 \end{align*}
 Formally, the last equality requires a proof by induction.
 
+We now use the sub-Gaussian hypothesis.
 \begin{align*}
 \mathbb{E}\left[ e^{\lambda\sum_{i=1}^n X_i} \right]
 &= \mathbb{E}\left[\prod_{i=1}^n \mathbb{E}\left[ e^{\lambda X_i} \mid \mathcal F_{i-1} \right] \right]
@@ -71,5 +72,5 @@ Formally, the last equality requires a proof by induction.
 \: .
 \end{align*}
 
-Then optimize over $\lambda \ge 0$ to get the result.
+We finally optimize over $\lambda \ge 0$ to get the result.
 \end{proof}
