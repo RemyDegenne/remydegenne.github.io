@@ -24,7 +24,7 @@ A random variable $X : \Omega \to \mathbb{R}$ is said to be $\sigma^2$-sub-Gauss
 Can we generalize these two definitions in the same way we generalized independence?
 
 \begin{definition}
-A random variable $X : \Omega \to \mathbb{R}$ is said to be $\sigma^2$-sub-Gaussian with respect to a map $\kappa : \Omega' \to \mathcal M(\Omega)$ and a measure $\mu' : \Omega'$ if for all $\lambda \in \mathbb{R}$, $\mu'$-almost surely
+A random variable $X : \Omega \to \mathbb{R}$ is said to be $\sigma^2$-sub-Gaussian with respect to a map $\kappa : \Omega' \to \mathcal M(\Omega)$ and a measure $\mu' \in \mathcal M(\Omega')$ if for all $\lambda \in \mathbb{R}$, $\mu'$-almost surely
 \begin{align*}
 \kappa(\omega')[e^{\lambda X}] \le e^{\frac{1}{2}\sigma^2\lambda^2} \: .
 \end{align*}
@@ -32,17 +32,28 @@ A random variable $X : \Omega \to \mathbb{R}$ is said to be $\sigma^2$-sub-Gauss
 
 Does that definition help? TODO: check that the expectation with respect to the measure associated to the conditional expectation is the conditional expectation: $(s \mapsto \mathbb{E}[\mathbb{1}_s \mid \mathcal G](\omega'))[f] = \mathbb{E}[f \mid \mathcal G](\omega')$.
 
+Since a random variable is a deterministic kernel, we can seek to extend that definitions to kernels.
+
+TODO notation: if $\kappa$ is a kernel $\Omega' \to \Omega$ and $\eta$ is a kernel $\Omega' \times \Omega \to \Sigma$, then $\eta \circ' \kappa$ is a kernel $\Omega' \to \Sigma$, obtained by taking the projection of the composition-product.
+
+\begin{definition}
+A kernel $\eta : \Omega' \times \Omega \to \mathcal M(\mathbb{R})$ is said to be $\sigma^2$-sub-Gaussian with respect to a map $\kappa : \Omega' \to \mathcal M(\Omega)$ and a measure $\mu' \in \mathcal M(\Omega')$ if for all $\lambda \in \mathbb{R}$, $\mu'$-almost surely
+\begin{align*}
+(\eta \circ' \kappa)(\omega')[e^{\lambda X}] \le e^{\frac{1}{2}\sigma^2\lambda^2} \: .
+\end{align*}
+\end{definition}
+
 \subsection{Azuma-Hoeffding inequality}
 \label{sub:azuma_hoeffding_inequality}
 
 \begin{theorem}
-Let $(X_i)_{i\in \mathbb{N}}$ be a martingale difference sequence with natural filtration $(\mathcal F_i)_{i\in \mathbb{N}}$ such that $X_i$ is $\sigma^2$-sub-Gaussian conditionally on $\mathcal F_{i-1}$. Let $n \in \mathbb{N}$ and $\varepsilon > 0$. Then
+Let $(X_i)_{i\in \mathbb{N}}$ be stochastic process with natural filtration $(\mathcal F_i)_{i\in \mathbb{N}}$ such that $X_i$ is $\sigma^2$-sub-Gaussian conditionally on $\mathcal F_{i-1}$. Let $n \in \mathbb{N}$ and $\varepsilon > 0$. Then
 \begin{align*}
 \mathbb{P}(\sum_{i=1}^n X_i \ge \varepsilon) \le \exp \left( - \frac{\varepsilon^2}{2 \sum_{i=1}^n \sigma_i^2} \right) \: .
 \end{align*}
 \end{theorem}
 
-TODO: with the def of sub-Gaussian we have above, which is centered at 0, the sub-Gaussian condition on the $X_i$ implies the martingale difference sequence hypothesis.
+With the definition of sub-Gaussian we have above, which is centered at 0 (TODO change this?), the sub-Gaussian condition on the $X_i$ implies the martingale difference sequence hypothesis usually seen in Azuma's inequality.
 
 \begin{proof}
 Let $\lambda \ge 0$. Since $x \mapsto e^{\lambda x}$, $\mathbb{P}(\sum_{i=1}^n X_i \ge \varepsilon) = \mathbb{P}(e^{\lambda\sum_{i=1}^n X_i} \ge e^{\lambda\varepsilon})$. We then use Chernov's inequality to get
