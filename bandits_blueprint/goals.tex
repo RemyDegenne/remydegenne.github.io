@@ -75,6 +75,8 @@ S_{t-1} \arrow[rd] \arrow[rr] \arrow[ru, dashed] &                   & S_t \arro
 \end{tikzcd}
 \end{center}
 
+If $R_t$ is not a function of $X_t$, we call it partial monitoring.
+
 \subsection{Analyzing algorithms}
 \label{sub:analyzing_algorithms}
 
@@ -90,9 +92,16 @@ R_T = \max_{a \in \mathcal A} \sum_{t=1}^T \mu_{t, a} - \sum_{t=1}^T \mu_{t, A_t
 \end{align*}
 \end{definition}
 
+TODO define UCB.
+
 \begin{theorem}
-TODO regret of UCB
+Let $(\mu_a)_{a \in \mathcal A} \in \mathbb{R}^{\mathcal A}$. Let $\mu^* = \max_{a \in \mathcal A} \mu_a$. Suppose that $\mathcal A = \{1, \ldots, K\}$ for some $K \in \mathbb{N}$. If for all $t \in \mathbb{N}$, $X_{t,A_t} - \mu_{A_t}$ has $\sigma^2$-sub-Gaussian distribution given $A_0, X_0, \ldots, A_{t-1}, X_{t-1}, A_t$, then
+\begin{align*}
+\mathbb{E}[R_T] \le \sum_{a: \mu_a < \mu^*} \frac{8 \sigma^2 \log(T)}{(\mu^* - \mu_a)^2} + 2\sum_{a = 1}^K (\mu^* - \mu_a) \: .
+\end{align*}
 \end{theorem}
+Note: usually we say that $\nu_a$ is sub-Gaussian for all $a \in \mathcal A$, rather than the condition written here.
+
 \begin{proof}
 TODO
 \end{proof}
@@ -109,6 +118,8 @@ TODO
 TODO
 
 \subsection{Formalization}
+
+``Given $X, Y$, the distribution of $Z$ is $\nu_Y$'' $\to$ $Z$ is a kernel from $\mathcal X \times \mathcal Y$ to $\mathcal Z$ which is independent of $X$ given $Y$, of the form prod_mk_left $\nu_Y$ $\mathcal X$ ($\nu_Y$ is itself a kernel).
 
 All examples can be written as a sequence of random variables indexed by $\mathbb{N}$, where the law of each given the past is given by a particular kernel. This is the setting of the Ionescu-Tulcea theorem, which will give us the existence of a common probability space for all those random variables and allow us to talk easily about the probability of an event. 
 
