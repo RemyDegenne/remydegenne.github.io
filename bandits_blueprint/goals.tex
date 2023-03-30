@@ -17,7 +17,7 @@ This interaction generates a sequence $(A_0, X_0, A_1, \ldots, A_t, X_t)$. There
 
 The sequence of random variables verifies \cite{lattimore2020bandit}
 \begin{enumerate}
-    \item The conditional distribution of $X_t$ given $A_0, X_0, \ldots, A_{t-1}, X_{t-1}, A_t$ is $\nu_{A_t}$ ,
+    \item The conditional distribution of $X_t$ given $A_0, X_0, \ldots, A_{t-1}, X_{t-1}, A_t$ is $\nu_{A_t}$. That is, $\nu$ is a kernel from $\mathcal A$ to $\mathbb{R}$ (not just a map to measures, since we will need it to be measurable), and $X_t$ is a kernel from $(\mathcal A \times \mathbb{R})^t \times \mathcal A$ given by the extension of $\nu$ to that space.
     \item We have a sequence $(\pi_t)_{t\in \mathbb{N}}$ of kernels such that the law of $A_t$ given $A_0, X_0, \ldots, A_{t-1}, X_{t-1}$ is $\pi_t(\cdot \mid A_0, X_0, \ldots, A_{t-1}, X_{t-1})$.
 \end{enumerate}
 
