@@ -17,7 +17,7 @@ This interaction generates a sequence $(A_0, X_0, A_1, \ldots, A_t, X_t)$. There
 
 The sequence of random variables verifies \cite{lattimore2020bandit}
 \begin{enumerate}
-    \item The conditional distribution of $X_t$ given $A_0, X_0, \ldots, A_{t-1}, X_{t-1}, A_t$ is $\nu_{A_t}$. That is, $\nu$ is a kernel from $\mathcal A$ to $\mathbb{R}$ (not just a map to measures, since we will need it to be measurable), and $X_t$ is a kernel from $(\mathcal A \times \mathbb{R})^t \times \mathcal A$ given by the extension of $\nu$ to that space.
+    \item The conditional distribution of $X_t$ given $A_0, X_0, \ldots, A_{t-1}, X_{t-1}, A_t$ is $\nu_{A_t}$. That is, $\nu$ is a kernel from $\mathcal A$ to $\mathbb{R}$ and $X_t$ is a kernel from $(\mathcal A \times \mathbb{R})^t \times \mathcal A$ given by the extension of $\nu$ to that space.
     \item We have a sequence $(\pi_t)_{t\in \mathbb{N}}$ of kernels such that the law of $A_t$ given $A_0, X_0, \ldots, A_{t-1}, X_{t-1}$ is $\pi_t(\cdot \mid A_0, X_0, \ldots, A_{t-1}, X_{t-1})$.
 \end{enumerate}
 
@@ -103,12 +103,23 @@ Let $(\mu_a)_{a \in \mathcal A} \in \mathbb{R}^{\mathcal A}$. Let $\mu^* = \max_
 Note: usually we say that $\nu_a$ is sub-Gaussian for all $a \in \mathcal A$, rather than the condition written here.
 
 \begin{proof}
+
 TODO
+
+We write the expected regret as $\mathbb{E}[R_T] = \sum_{a=1}^K \mathbb{E}[N_{T,a}] \Delta_a$ with $\Delta_a = \mu^* - \mu_a$. It is sufficient to bound $\mathbb{E}[N_{T,a}]$ for all $a$ such that $\Delta_a > 0$.
+
+\begin{align*}
+\sum_{t=1}^T \mathbb{I}\{A_t = a\} = ...
+\end{align*}
+
+
 \end{proof}
 
 \begin{remark}[Shopping list]
 \begin{itemize}
-    \item todo
+    \item Make sure that there is a global probability measure $\mathbb{P}$ and a space $\Omega$ such that we have random variables with all properties we want, including conditional independence.
+    \item Have a measurability tactic that is good enough to discharge 90\% of goals. We don't want to ever prove measurability.
+    \item Define conditionally sub-Gaussian random variables (and processes?).
 \end{itemize}
 \end{remark}
 

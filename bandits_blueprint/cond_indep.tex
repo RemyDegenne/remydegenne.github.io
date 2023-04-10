@@ -1,16 +1,37 @@
 % !TeX root = blueprint.tex
 
+\subsection{Standard Borel spaces}
+\label{sub:standard_borel_spaces}
+
+Thanks to the ongoing work of Felix Weilacher, we will soon get that every Polish Borel space is measurably equivalent to either a finite set, $\mathbb{Z}$ or $\mathbb{R}$. Such a space is called a standard Borel space.
+
+We need an induction principle to reduce to those three cases.
+
+\begin{lemma}
+If a property is true in finite borel spaces, in $\mathbb{Z}$ and in $\mathbb{R}$, and that property is stable by measurable equivalence, then it is true in all standard Borel spaces.
+\end{lemma}
+
+It will be easier to have multiple versions of this lemma, depending on the cardinality of the space. Also, using $[0, 1]$ instead of $\mathbb{R}$ might be useful sometimes.
+
 \subsection{Conditional expectation as a kernel}
 \label{sub:conditional_expectation_as_a_kernel}
 
 
-The conditional expectation with respect to a $\sigma$-algebra $\mathcal Q$ defines a map $\Omega \to \mathcal M(\Omega)$, where $\mathcal M(\Omega)$ denotes the measures over $\Omega$.
-Indeed, we can verify that $s \mapsto \mathbb{E}[\mathbb{1}_{s} \mid \mathcal Q](\omega)$ defines a measure for all $\omega \in \Omega$.
-
-Let's denote that map by $\mathbb{P}_{| \mathcal Q}: \Omega \to \mathcal M(\Omega)$.
-That map is even a kernel when $\Omega$ is standard Borel. That is, $\mathbb{P}_{| \mathcal Q}$ is measurable (or there is a measurable version, which means that it is a.e.-measurable?). We might not need that property? Perhaps we do.
+In a standard Borel space, the conditional expectation with respect to a $\sigma$-algebra $\mathcal Q$ defines a kernel from $\Omega$ to $\Omega$, that is a measurable map from $\Omega$ to $\mathcal M(\Omega)$, the measures over $\Omega$.
+Indeed, we can verify that $s \mapsto \mathbb{E}[\mathbb{1}_{s} \mid \mathcal Q](\omega)$ defines a measure for all $\omega \in \Omega$, and that the map is measurable.
+Let's denote that kernel by $\mathbb{P}_{| \mathcal Q}: \Omega \to \mathcal M(\Omega)$.
 
 TODO: check that the expectation with respect to the measure associated to the conditional expectation is the conditional expectation: $\mathbb{P}_{| \mathcal Q}(\omega)[f] = \mathbb{E}[f \mid \mathcal Q](\omega')$.
+
+If the space is not standard Borel, then the conditional expectation exists and we can talk about $\mathbb{E}[\mathbb{1}_{s} \mid \mathcal Q](\omega)$ for any set $s$ and any $\omega$, but this does not in general define a measure.
+
+TODO: we can define conditional independence in the general setting, but we cannot refactor it as a special case of the kernel notion of independence.
+
+\paragraph{Disintegration of kernels}
+
+TODO: do we really need it? When we build the sequential learning problem, we input kernels for some conditional distributions. We don't need to prove they exist. We can also talk about conditional independence without having kernels. But we might need to consider other conditionals, and might need that they define kernels? Unsure.
+
+Need Radon-Nikodym for kernels. Then the proof is similar to disintegration of measures.
 
 \subsection{Conditional independence}
 \label{sub:conditional_independence}
@@ -37,10 +58,10 @@ $
 $
 \end{definition}
 
-The main difference when we go from independence to conditional independence is that we replace equality of probabilities of sets by almost everywhere equality of kernels (or maps to measures). This motivates the following more abstract definition.
+The main difference when we go from independence to conditional independence is that we replace equality of probabilities of sets by almost everywhere equality of kernels (in the standard Borel case). This motivates the following more abstract definition.
 
 \begin{definition}\label{def:independence_wrt_map}
-Two $\sigma$-algebras $\mathcal S, \mathcal T$ are independent given a map $\kappa : \Omega' \to \mathcal M(\Omega)$ and a measure $\mu'$ on $\Omega'$ if for all $s \in \mathcal S$ and $t \in \mathcal T$, for $\mu'$-almost all $\omega' \in \Omega'$,
+Two $\sigma$-algebras $\mathcal S, \mathcal T$ are independent given a kernel $\kappa : \Omega' \to \mathcal M(\Omega)$ and a measure $\mu'$ on $\Omega'$ if for all $s \in \mathcal S$ and $t \in \mathcal T$, for $\mu'$-almost all $\omega' \in \Omega'$,
 \begin{align*}
 \kappa (\omega') (s \cap t) = \kappa (\omega') (s) \: \kappa (\omega') (t)
 \: .
