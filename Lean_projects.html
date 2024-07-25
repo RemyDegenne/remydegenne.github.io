@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<!--
+	Read Only by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Lean projects</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<script type="text/javascript"
+		  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+		</script>
+	</head>
+	<body>
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<span class="image avatar"><img src="images/avatar2.jpg" alt="" /></span>
+					<h1 id="logo"><a href="#">Lean projects</a></h1>
+					<p>Rémy Degenne</p>
+				</header>
+				<footer>
+					<ul class="icons">
+						<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+					</ul>
+				</footer>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Three-->
+							<section id="one">
+								<div class="container">
+									<h3>Lean projects in probability</h3>
+									This is a list of results that are currently missing from <a href="https://leanprover-community.github.io/">Mathlib</a>, the mathematics library of Lean. I put them here with the hope that someone feels tempted to formalize them and add them to Mathlib.
+									The selection is purely subjective: I chose results that interest me or that I will need for other developments.
+									<ul>
+										<li><b>Jensen's inequality for the conditional expectation</b> - Proposition 2.6.29 in [2]. The Mathlib definition of the conditional expectation is here: <a href="https://leanprover-community.github.io/mathlib4_docs/Mathlib/MeasureTheory/Function/ConditionalExpectation/Basic.html#MeasureTheory.condexp">MeasureTheory.condexp</a>. </br>
+										In the proof of Proposition 2.6.29, we need to write a convex function as a supremum over linear functions: this is the main step missing in Mathlib. </li>
+
+										<li><b>Randomization of Markov kernels and measures</b> - Lemma 4.22 in [1]. In standard Borel spaces, we can isolate the randomness and have it be only over \(\mathbb{R}\): we can write a Markov kernel \(\kappa : \mathcal X \rightsquigarrow \mathcal Y\) as the map by a deterministic function \(f : \mathcal X \times [0,1] \to \mathcal Y\) of a uniform measure on [0,1]. </li>
+
+										<li><b>Sub-Gaussian random variables</b> - define random variables with cumulant generating function bounded by a given function. Define sub-Gaussian random variables as a special case. </br>
+										It might be better to define a sub-Gaussian measure instead of a sub-Gaussian random variable.
+										A generalization of both conditional sub-Gaussian and sub-Gaussian could then be the following: a kernel \(P : \mathcal X \rightsquigarrow \mathcal Y\) is \(\sigma^2\)-sub-Gaussian with respect to a measure \(\mu\) on \(\mathcal X\) if for \(\mu\)-almost all \(x\), for all \(\lambda \in \mathbb{R}\),
+										$$\log P(x)[y \mapsto e^{\lambda y}] \le \frac{\sigma^2}{2}\lambda^2 \: .$$
+										This definition gives in particular a definition of a sub-Gaussian measure if we apply it to a constant kernel. </li>
+
+										<li><b>Integration by parts for Stieltjes functions</b> - If \(f\) and \(g\) are <a href="https://leanprover-community.github.io/mathlib4_docs/Mathlib/MeasureTheory/Measure/Stieltjes.html#StieltjesFunction">Stieltjes functions</a> (monotone right continuous functions) then they define <a href="https://leanprover-community.github.io/mathlib4_docs/Mathlib/MeasureTheory/Measure/Stieltjes.html#StieltjesFunction.measure">measures</a> \(\gamma_f, \gamma_g\) and under some integrability conditions (find out what are the weakest hypotheses),
+										$$\int_a^b f(x) \partial \gamma_g(x) + \int_a^b g(x) \partial \gamma_f(x) = f(b)g(b) - f(a)g(a) \: .$$ </li>
+
+										<li><b>Monoidal composition for kernels</b> - measurable spaces and s-finite Markov kernels are a symmetric monoidal category.
+										We could hope to adapt the tactics from those categories to use them with kernels: see <a href="https://leanprover-community.github.io/mathlib4_docs/Mathlib/Tactic/CategoryTheory/MonoidalComp.html">MonoidalComp</a>. </li>
+									</ul>
+								</div>
+								<div class="container">
+									<h4>References</h4>
+									<ul>
+										<li>[1]- Olav Kallenberg, Foundations of Modern Probability, third edition, 2021 </li>
+										<li>[2]- Tuomas Hytönen, Jan van Neerven, Mark Veraar, Lutz Weis, Analysis in Banach Spaces, volume I, 2016 </li>
+									</ul>
+								</div>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="container">
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollzer.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
