@@ -59,7 +59,7 @@ example {α X : Type*} {m mα : MeasurableSpace α} [NormedAddCommGroup X] [Norm
     (hm : m ≤ mα) {μ : Measure α} [SigmaFinite (μ.trim hm)]
     {f : α → X} {φ : X → ℝ} (hφ_cvx : ConvexOn ℝ Set.univ φ) (hφ_cont : LowerSemicontinuous φ)
     (hf_int : Integrable f μ) (hφ_int : Integrable (φ ∘ f) μ) :
-    ∀ᵐ x ∂μ, φ ((μ[f | m]) x) ≤ (μ[φ ∘ f | m]) x :=
+    ∀ᵐ x ∂μ, φ (μ[f | m] x) ≤ μ[φ ∘ f | m] x := by
   sorry
 										</code>
 										</pre> </li>
