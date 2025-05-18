@@ -46,7 +46,23 @@
 									The selection is purely subjective: I chose results that interest me or that I will need for other developments.
 									<ul>
 										<li><b>Jensen's inequality for the conditional expectation</b> - Proposition 2.6.29 in [2]. The Mathlib definition of the conditional expectation is here: <a href="https://leanprover-community.github.io/mathlib4_docs/Mathlib/MeasureTheory/Function/ConditionalExpectation/Basic.html#MeasureTheory.condexp">MeasureTheory.condexp</a>. </br>
-										In the proof of Proposition 2.6.29, we need to write a convex function as a supremum over linear functions: this is the main step missing in Mathlib. </li>
+										In the proof of Proposition 2.6.29, we need to write a convex function as a supremum over linear functions: this is the main step missing from Mathlib.
+										The result should be close to this:
+										<pre>
+										<code>
+import Mathlib
+
+open ProbabilityTheory MeasureTheory
+
+example {α X : Type*} {m mα : MeasurableSpace α} [NormedAddCommGroup X] [NormedSpace ℝ X]
+    [CompleteSpace X]
+    (hm : m ≤ mα) {μ : Measure α} [SigmaFinite (μ.trim hm)]
+    {f : α → X} {φ : X → ℝ} (hφ_cvx : ConvexOn ℝ Set.univ φ) (hφ_cont : LowerSemicontinuous φ)
+    (hf_int : Integrable f μ) (hφ_int : Integrable (φ ∘ f) μ) :
+    ∀ᵐ x ∂μ, φ ((μ[f | m]) x) ≤ (μ[φ ∘ f | m]) x :=
+  sorry
+										</code>
+										</pre> </li>
 
 										<li><b>Randomization of Markov kernels and measures</b> - Lemma 4.22 in [1]. In standard Borel spaces, we can isolate the randomness and have it be only over \(\mathbb{R}\): we can write a Markov kernel \(\kappa : \mathcal X \rightsquigarrow \mathcal Y\) as the map by a deterministic function \(f : \mathcal X \times [0,1] \to \mathcal Y\) of a uniform measure on [0,1]. </li>
 
@@ -60,8 +76,8 @@
 								<div class="container">
 									<h4>References</h4>
 									<ul>
-										<li>[1]- Olav Kallenberg, Foundations of Modern Probability, third edition, 2021 </li>
-										<li>[2]- Tuomas Hytönen, Jan van Neerven, Mark Veraar, Lutz Weis, Analysis in Banach Spaces, volume I, 2016 </li>
+										<li>[1] Olav Kallenberg, Foundations of Modern Probability, third edition, 2021 </li>
+										<li>[2] Tuomas Hytönen, Jan van Neerven, Mark Veraar, Lutz Weis, Analysis in Banach Spaces, volume I, 2016 </li>
 									</ul>
 								</div>
 							</section>
