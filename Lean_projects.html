@@ -50,12 +50,6 @@
 
 										<li><b>Randomization of Markov kernels and measures</b> - Lemma 4.22 in [1]. In standard Borel spaces, we can isolate the randomness and have it be only over \(\mathbb{R}\): we can write a Markov kernel \(\kappa : \mathcal X \rightsquigarrow \mathcal Y\) as the map by a deterministic function \(f : \mathcal X \times [0,1] \to \mathcal Y\) of a uniform measure on [0,1]. </li>
 
-										<li><b>Sub-Gaussian random variables</b> - define random variables with cumulant generating function bounded by a given function. Define sub-Gaussian random variables as a special case. </br>
-										It might be better to define a sub-Gaussian measure instead of a sub-Gaussian random variable.
-										A generalization of both conditional sub-Gaussian and sub-Gaussian could then be the following: a kernel \(P : \mathcal X \rightsquigarrow \mathcal Y\) is \(\sigma^2\)-sub-Gaussian with respect to a measure \(\mu\) on \(\mathcal X\) if for \(\mu\)-almost all \(x\), for all \(\lambda \in \mathbb{R}\),
-										$$\log P(x)[y \mapsto e^{\lambda y}] \le \frac{\sigma^2}{2}\lambda^2 \: .$$
-										This definition gives in particular a definition of a sub-Gaussian measure if we apply it to a constant kernel. </li>
-
 										<li><b>Integration by parts for Stieltjes functions</b> - If \(f\) and \(g\) are <a href="https://leanprover-community.github.io/mathlib4_docs/Mathlib/MeasureTheory/Measure/Stieltjes.html#StieltjesFunction">Stieltjes functions</a> (monotone right continuous functions) then they define <a href="https://leanprover-community.github.io/mathlib4_docs/Mathlib/MeasureTheory/Measure/Stieltjes.html#StieltjesFunction.measure">measures</a> \(\gamma_f, \gamma_g\) and under some integrability conditions (find out what are the weakest hypotheses),
 										$$\int_a^b f(x) \partial \gamma_g(x) + \int_a^b g(x) \partial \gamma_f(x) = f(b)g(b) - f(a)g(a) \: .$$ </li>
 
