@@ -42,14 +42,36 @@
 							<section id="one">
 								<div class="container">
 									<h3>Lean projects in probability</h3>
-									This is a list of results that are currently missing from <a href="https://leanprover-community.github.io/">Mathlib</a>, the mathematics library of Lean. I put them here with the hope that someone feels tempted to formalize them and add them to Mathlib.
+									Consider taking part in one of the following collaborative projects:
+									<ul>
+										<li>
+											<b><a href="https://remydegenne.github.io/brownian-motion/">Brownian motion</a></b>
+											- After having completed the construction of a Brownian motion, we are now working on the definition of stochastic integrals.
+										</li>
+										<li>
+											<b><a href="https://remydegenne.github.io/lean-bandits/">LeanBandits</a></b>
+											- We are formalizing multi-armed bandit algorithms and their theory.
+										</li>
+									</ul>
+
+									Below is a list of results that are currently missing from <a href="https://leanprover-community.github.io/">Mathlib</a>, the mathematics library of Lean. I put them here with the hope that someone feels tempted to formalize them and add them to Mathlib.
 									The selection is purely subjective: I chose results that interest me or that I will need for other developments.
 									<ul>
-										<li><b>Jensen's inequality for the conditional expectation</b> - Proposition 2.6.29 in [2]. The Mathlib definition of the conditional expectation is here: <a href="https://leanprover-community.github.io/mathlib4_docs/Mathlib/MeasureTheory/Function/ConditionalExpectation/Basic.html#MeasureTheory.condexp">MeasureTheory.condexp</a>. </br>
-										In the proof of Proposition 2.6.29, we need to write a convex function as a supremum over linear functions: this is the main step missing from Mathlib.
-										The result should be close to this:
-										<pre>
-										<code>
+
+										<li><b>Integration by parts for Stieltjes functions</b> - If \(f\) and \(g\) are <a href="https://leanprover-community.github.io/mathlib4_docs/Mathlib/MeasureTheory/Measure/Stieltjes.html#StieltjesFunction">Stieltjes functions</a> (monotone right continuous functions) then they define <a href="https://leanprover-community.github.io/mathlib4_docs/Mathlib/MeasureTheory/Measure/Stieltjes.html#StieltjesFunction.measure">measures</a> \(\gamma_f, \gamma_g\) and under some integrability conditions (find out what are the weakest hypotheses),
+										$$\int_a^b f(x) \partial \gamma_g(x) + \int_a^b g(x) \partial \gamma_f(x) = f(b)g(b) - f(a)g(a) \: .$$ </li>
+
+										<li><b>Monoidal composition for kernels</b> - measurable spaces and s-finite Markov kernels are a symmetric monoidal category.
+										We could hope to adapt the tactics from those categories to use them with kernels: see <a href="https://leanprover-community.github.io/mathlib4_docs/Mathlib/Tactic/CategoryTheory/MonoidalComp.html">MonoidalComp</a>. </li>
+
+										<li>
+											<b>Jensen's inequality for the conditional expectation</b>
+											<span style="color: #4a97ca;">[Done by Yongxi Lin]</span>
+											 - Proposition 2.6.29 in [2]. The Mathlib definition of the conditional expectation is here: <a href="https://leanprover-community.github.io/mathlib4_docs/Mathlib/MeasureTheory/Function/ConditionalExpectation/Basic.html#MeasureTheory.condexp">MeasureTheory.condexp</a>. </br>
+											In the proof of Proposition 2.6.29, we need to write a convex function as a supremum over linear functions: this is the main step missing from Mathlib.
+											The result should be close to this:
+											<pre>
+											<code>
 import Mathlib
 
 open ProbabilityTheory MeasureTheory
@@ -61,16 +83,15 @@ example {α X : Type*} {m mα : MeasurableSpace α} [NormedAddCommGroup X] [Norm
     (hf_int : Integrable f μ) (hφ_int : Integrable (φ ∘ f) μ) :
     ∀ᵐ x ∂μ, φ (μ[f | m] x) ≤ μ[φ ∘ f | m] x := by
   sorry
-										</code>
-										</pre> </li>
+											</code>
+											</pre>
+										</li>
 
-										<li><b>Randomization of Markov kernels and measures</b> - Lemma 4.22 in [1]. In standard Borel spaces, we can isolate the randomness and have it be only over \(\mathbb{R}\): we can write a Markov kernel \(\kappa : \mathcal X \rightsquigarrow \mathcal Y\) as the map by a deterministic function \(f : \mathcal X \times [0,1] \to \mathcal Y\) of a uniform measure on [0,1]. </li>
-
-										<li><b>Integration by parts for Stieltjes functions</b> - If \(f\) and \(g\) are <a href="https://leanprover-community.github.io/mathlib4_docs/Mathlib/MeasureTheory/Measure/Stieltjes.html#StieltjesFunction">Stieltjes functions</a> (monotone right continuous functions) then they define <a href="https://leanprover-community.github.io/mathlib4_docs/Mathlib/MeasureTheory/Measure/Stieltjes.html#StieltjesFunction.measure">measures</a> \(\gamma_f, \gamma_g\) and under some integrability conditions (find out what are the weakest hypotheses),
-										$$\int_a^b f(x) \partial \gamma_g(x) + \int_a^b g(x) \partial \gamma_f(x) = f(b)g(b) - f(a)g(a) \: .$$ </li>
-
-										<li><b>Monoidal composition for kernels</b> - measurable spaces and s-finite Markov kernels are a symmetric monoidal category.
-										We could hope to adapt the tactics from those categories to use them with kernels: see <a href="https://leanprover-community.github.io/mathlib4_docs/Mathlib/Tactic/CategoryTheory/MonoidalComp.html">MonoidalComp</a>. </li>
+										<li>
+											<b>Randomization of Markov kernels and measures</b>
+											<span style="color: #4a97ca;">[Done by Gaëtan Serré]</span>
+											- Lemma 4.22 in [1]. In standard Borel spaces, we can isolate the randomness and have it be only over \(\mathbb{R}\): we can write a Markov kernel \(\kappa : \mathcal X \rightsquigarrow \mathcal Y\) as the map by a deterministic function \(f : \mathcal X \times [0,1] \to \mathcal Y\) of a uniform measure on [0,1].
+										</li>
 									</ul>
 								</div>
 								<div class="container">
