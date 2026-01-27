@@ -2,14 +2,14 @@ To run the notebook locally, download the .ipynb file and install the required l
 
     Setup virtual environment (optional but recommended):
 
-conda create -n fitted_q python=3.9
+conda create -n fitted_q python=3.10
 conda activate fitted_q
 
     to deactivate the environnement (don't do that now), use 'conda deactivate'
 
 	Install required libraries:
 
-pip install jupyter scipy scikit_learn git+https://github.com/rlberry-py/rlberry@v0.6.0
+pip install jupyter scipy scikit_learn rlberry
 
     Then you are all set to start the notebook, running the "jupyter notebook" command 
 
