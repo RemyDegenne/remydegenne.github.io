@@ -61,7 +61,9 @@
 										<li><b>Integration by parts for Stieltjes functions</b> - If \(f\) and \(g\) are <a href="https://leanprover-community.github.io/mathlib4_docs/Mathlib/MeasureTheory/Measure/Stieltjes.html#StieltjesFunction">Stieltjes functions</a> (monotone right continuous functions) then they define <a href="https://leanprover-community.github.io/mathlib4_docs/Mathlib/MeasureTheory/Measure/Stieltjes.html#StieltjesFunction.measure">measures</a> \(\gamma_f, \gamma_g\) and under some integrability conditions (find out what are the weakest hypotheses),
 										$$\int_a^b f(x) \partial \gamma_g(x) + \int_a^b g(x) \partial \gamma_f(x) = f(b)g(b) - f(a)g(a) \: .$$ </li>
 
-										<li><b>Monoidal composition for kernels</b> - measurable spaces and s-finite Markov kernels are a symmetric monoidal category.
+										<li><b>Monoidal composition for kernels</b>
+										<span style="color: #4a97ca;">[Done by Gaëtan Serré - see <a href="https://gaetanserre.fr/KernelHom/">https://gaetanserre.fr/KernelHom/</a>]</span>
+										- measurable spaces and s-finite Markov kernels are a symmetric monoidal category.
 										We could hope to adapt the tactics from those categories to use them with kernels: see <a href="https://leanprover-community.github.io/mathlib4_docs/Mathlib/Tactic/CategoryTheory/MonoidalComp.html">MonoidalComp</a>. </li>
 
 										<li>
