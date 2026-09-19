@@ -1,0 +1,45 @@
+{
+  "_comment": "News entries, newest first. 'recent' is shown on index.html, 'older' on older_news.html; move an entry from one list to the other to archive it. In 'text': {{Name}} links to that person's homepage from people.json, [label](url) is a link, and **text** is bold. Run 'python3 build_site.py' after editing.",
+
+  "recent": [
+    {
+      "date": "July 2026",
+      "text": "I am giving a tutorial at ICML 2026 on Proving Theorems with Lean and Machine Learning, with {{Wenda Li}}."
+    },
+    {
+      "date": "January 2026",
+      "text": "I organized the [Lean Together 2026](https://leanprover-community.github.io/lt2026/) online conference, the annual meeting for users, developers, and fans of the Lean programming language and theorem prover and its library Mathlib."
+    },
+    {
+      "date": "December 2025",
+      "text": "I gave talks about probability theory in Lean and the Brownian motion project at [ItaLean 2025](https://pitmonticone.github.io/ItaLean2025/) (Bologna, Italy, December 9-12), a workshop about bridging formal mathematics and AI."
+    },
+    {
+      "date": "October 2025",
+      "text": "With {{Michael Rothgang}}, I am leading a [workshop on Lean for PDEs](https://www.slmath.org/workshops/1180) at the Simons Laufer Mathematical Sciences Institute (SLMath), co-organized by the new Institute for Computer-Aided Reasoning in Mathematics (ICARM)."
+    },
+    {
+      "date": "July 2025",
+      "text": "I am launching the [FORMAL Inria exploratory action](https://www.inria.fr/index%2ephp/fr/formal). Its goal is to formalize bandit and reinforcement learning algorithms and their theory in the Lean theorem prover. A post-doc will join the team in 2026 to work on this project."
+    },
+    {
+      "date": "November 2023",
+      "text": "I am contributing to the formalization of the polynomial Freiman-Ruzsa conjecture in Lean. This is a project led by Terence Tao, who recently proved this result with W. T. Gowers, Ben Green and Freddie Manners. See [this post on Terence Tao's blog](https://terrytao.wordpress.com/2023/11/18/formalizing-the-proof-of-pfr-in-lean4-using-blueprint-a-short-tour/) for a tour of the project."
+    }
+  ],
+
+  "older": [
+    {
+      "date": "January 2025",
+      "text": "I am looking for a post-doc who would join the [Inria Scool team](https://team.inria.fr/scool/) and work on bandits and sequential testing (Position filled)."
+    },
+    {
+      "date": "2022",
+      "text": "I was awarded an ANR JCJC funding for my project FATE (Frugal and adaptive testing). This project will fund a PhD and a post-doc on bandits and sequential testing."
+    },
+    {
+      "date": "July 2022",
+      "text": "I co-organize the [**Complex Feedback in Online Learning**](https://cfol-workshop.github.io/) workshop at ICML 2022 (Baltimore, July 23). This workshop aims to present a broad overview of the feedback types being actively researched in sequential learning (reinforcement learning, bandits, games...), highlight recent advances and provide a networking forum for researchers and practitioners."
+    }
+  ]
+}

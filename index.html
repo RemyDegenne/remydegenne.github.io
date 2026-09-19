@@ -15,6 +15,59 @@
 		<script type="text/javascript"
 		  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 		</script>
+		<link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+		<style>
+			/* Buttons echoing the visual identity of the linked sites */
+			.brand-buttons {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: 0.9em;
+				margin: 1.5em 0 2em 0;
+			}
+
+			.brand-btn {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				text-decoration: none !important;
+				white-space: nowrap;
+				transition: background 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+			}
+
+			/* leanprover-community.github.io: its link blue, Merriweather headings */
+			.brand-btn.mathlib {
+				font-family: "Merriweather", Georgia, serif;
+				font-size: 0.95em;
+				padding: 0.8em 1.7em;
+				border-radius: 0.25rem;
+				border: 2px solid #004d99;
+				background: #ffffff;
+				color: #004d99 !important;
+			}
+
+			.brand-btn.mathlib:hover {
+				background: #004d99;
+				color: #ffffff !important;
+			}
+
+			/* leanmachinelearning.org: rounded salmon hero buttons, Open Sans */
+			.brand-btn.lml {
+				font-family: "Open Sans", -apple-system, "Segoe UI", sans-serif;
+				font-size: 0.95em;
+				font-weight: 500;
+				padding: 0.8em 1.7em;
+				border-radius: 0.5rem;
+				border: 2px solid #d65d5d;
+				background: #ffffff;
+				color: #d65d5d !important;
+			}
+
+			.brand-btn.lml:hover {
+				background: #d65d5d;
+				color: #ffffff !important;
+			}
+		</style>
 	</head>
 	<body>
 
@@ -57,14 +110,22 @@
 									<p> I am a tenured researcher in the <a href="https://team.inria.fr/scool/">Scool team</a> at the <a href="https://www.inria.fr/en/inria-centre-university-lille">Inria centre at the University of Lille</a>. I work on sequential machine learning, mostly bandit theory, and I am interested in all forms of online and reinforcement learning as well as statistics and optimization. I am also passionate about formal mathematics and AI for maths and I want to transform machine learning theory by ensuring it can be written and verified in proof assistants like Lean.
 									</p>
 
-									<p>I am a maintainer of <a href="https://leanprover-community.github.io/">the mathematical library <i>Mathlib</i> for the Lean theorem prover</a>.</br>
+									<p>I am a maintainer of <a href="https://leanprover-community.github.io/">the mathematical library <i>Mathlib</i> for the Lean theorem prover</a> and of the <a href="https://leanmachinelearning.org">Lean Machine Learning</a> project.
+									</p>
+
+									<div class="brand-buttons">
+										<a class="brand-btn mathlib" href="https://leanprover-community.github.io/">Mathlib</a>
+										<a class="brand-btn lml" href="https://leanmachinelearning.org">Lean Machine Learning</a>
+									</div>
+
+									<p>
 									If you are looking for something to contribute to Mathlib related to probability, here is a <a href="https://remydegenne.github.io/Lean_projects">list of projects</a>.
 									</p>
 									
 									<!-- <p>Since February 2026, I am working with <a href="https://www.logosresearch.ai/">Logos Research</a> to build and maintain a large AI generated library of formal mathematics.
 									</p> -->
 
-									<p>In 2020 I was a post-doctoral researcher at Inria Paris, in the <a href="https://www.di.ens.fr/sierra/">SIERRA Team</a>. In 2018-2019 I spent a year in the <a href="https://www.cwi.nl/research/groups/machine-learning">Machine Learning group at CWI Amsterdam</a>, working with <a href="https://wouterkoolen.info/">Wouter M. Koolen</a>. From 2015 to 2019 I was a PhD student under the supervision of <a href="https://sites.google.com/site/vianneyperchet/">Vianney Perchet</a> at the <a href="http://www.cmla.ens-cachan.fr/">CMLA research center of Ecole Normale Supérieure Paris-Saclay</a> and the <a href="http://www.lpsm.paris">LPSM</a> lab at <a href="https://u-paris.fr/en/"> Université Paris Cité</a>.
+									<p>In 2020 I was a post-doctoral researcher at Inria Paris, in the <a href="https://www.di.ens.fr/sierra/">SIERRA Team</a>. In 2018-2019 I spent a year in the <a href="https://www.cwi.nl/research/groups/machine-learning">Machine Learning group at CWI Amsterdam</a>, working with <a href="https://wouterkoolen.info/">Wouter M. Koolen</a>. From 2015 to 2019 I was a PhD student under the supervision of <a href="https://vianney.ai/">Vianney Perchet</a> at the <a href="http://www.cmla.ens-cachan.fr/">CMLA research center of Ecole Normale Supérieure Paris-Saclay</a> and the <a href="http://www.lpsm.paris">LPSM</a> lab at <a href="https://u-paris.fr/en/"> Université Paris Cité</a>.
 									</p>
 									
 								</div>
@@ -75,25 +136,26 @@
 									<header class="major">
 										<h3>News</h3>
 									</header>
+									<!-- NEWS:START generated from data/ by build_site.py - edit the JSON, not this block -->
 									<p>
-										<b style="color:#B2B2B2";>[July 2026]</b> I am giving a tutorial at ICML 2026 on Proving Theorems with Lean and Machine Learning, with <a href="https://wenda302.github.io/">Wenda Li</a>.
+										<b style="color:#B2B2B2;">[July 2026]</b> I am giving a tutorial at ICML 2026 on Proving Theorems with Lean and Machine Learning, with <a href="https://wenda302.github.io/">Wenda Li</a>.
 									</p>
 									<p>
-										<b style="color:#B2B2B2";>[January 2026]</b> I organized the <a href="https://leanprover-community.github.io/lt2026/">Lean Together 2026</a> online conference, the annual meeting for users, developers, and fans of the Lean programming language and theorem prover and its library Mathlib.
+										<b style="color:#B2B2B2;">[January 2026]</b> I organized the <a href="https://leanprover-community.github.io/lt2026/">Lean Together 2026</a> online conference, the annual meeting for users, developers, and fans of the Lean programming language and theorem prover and its library Mathlib.
 									</p>
 									<p>
-										<b style="color:#B2B2B2";>[December 2025]</b> I gave talks about probability theory in Lean and the Brownian motion project at <a href="https://pitmonticone.github.io/ItaLean2025/">ItaLean 2025</a> (Bologna, Italy, December 9-12), a workshop about bridging formal mathematics and AI.
+										<b style="color:#B2B2B2;">[December 2025]</b> I gave talks about probability theory in Lean and the Brownian motion project at <a href="https://pitmonticone.github.io/ItaLean2025/">ItaLean 2025</a> (Bologna, Italy, December 9-12), a workshop about bridging formal mathematics and AI.
 									</p>
 									<p>
-										<b style="color:#B2B2B2";>[October 2025]</b> With <a href="https://www.math.uni-bonn.de/people/rothgang/">Michael Rothgang</a>, I am leading a <a href="https://www.slmath.org/workshops/1180">workshop on Lean for PDEs</a> at the Simons Laufer Mathematical Sciences Institute (SLMath), co-organized by the new Institute for Computer-Aided Reasoning in Mathematics (ICARM).
+										<b style="color:#B2B2B2;">[October 2025]</b> With <a href="https://www.math.uni-bonn.de/people/rothgang/">Michael Rothgang</a>, I am leading a <a href="https://www.slmath.org/workshops/1180">workshop on Lean for PDEs</a> at the Simons Laufer Mathematical Sciences Institute (SLMath), co-organized by the new Institute for Computer-Aided Reasoning in Mathematics (ICARM).
 									</p>
 									<p>
-										<b style="color:#B2B2B2";>[July 2025]</b> I am launching the <a href="https://www.inria.fr/index%2ephp/fr/formal">FORMAL Inria exploratory action</a>. Its goal is to formalize bandit and reinforcement learning algorithms and their theory in the Lean theorem prover. A post-doc will join the team in 2026 to work on this project.
+										<b style="color:#B2B2B2;">[July 2025]</b> I am launching the <a href="https://www.inria.fr/index%2ephp/fr/formal">FORMAL Inria exploratory action</a>. Its goal is to formalize bandit and reinforcement learning algorithms and their theory in the Lean theorem prover. A post-doc will join the team in 2026 to work on this project.
 									</p>
 									<p>
-										<b style="color:#B2B2B2";>[November 2023]</b> I am contributing to the formalization of the polynomial Freiman-Ruzsa conjecture in Lean. This is a project led by Terence Tao, who recently proved this result with W. T. Gowers, Ben Green and Freddie Manners.
-										See <a href="https://terrytao.wordpress.com/2023/11/18/formalizing-the-proof-of-pfr-in-lean4-using-blueprint-a-short-tour/">this post on Terence Tao's blog</a> for a tour of the project.
+										<b style="color:#B2B2B2;">[November 2023]</b> I am contributing to the formalization of the polynomial Freiman-Ruzsa conjecture in Lean. This is a project led by Terence Tao, who recently proved this result with W. T. Gowers, Ben Green and Freddie Manners. See <a href="https://terrytao.wordpress.com/2023/11/18/formalizing-the-proof-of-pfr-in-lean4-using-blueprint-a-short-tour/">this post on Terence Tao's blog</a> for a tour of the project.
 									</p>
+									<!-- NEWS:END -->
 									Older news can be found on the <a href="older_news.html">Older News</a> page.
 								</div>
 							</section>
@@ -104,56 +166,58 @@
 									<h3>Publications</h3>
 									Last updated: January 2026. For a perhaps more up-to-date list, see my <a href="https://scholar.google.com/citations?user=H-uIBOwAAAAJ">Google Scholar profile</a>.
 									<ul ><!--class="feature-icons">-->
-	<li ><b><a href="https://arxiv.org/pdf/2511.20118">Formalization of Brownian motion in Lean</a></b>, preprint</br>
-		  RD, David Ledvinka, Etienne Marion, Peter Pfaffelhuber.
-	<li ><b><a href="https://arxiv.org/pdf/2510.04070">Markov kernels in Mathlib's probability library</a></b>, preprint</br>
-		  RD.
-	<li ><b><a href="https://arxiv.org/pdf/2502.01425">The Batch Complexity of Bandit Pure Exploration</a></b>, ICML 2025</br>
-		  <a href="https://adriennetuynman.github.io/">Adrienne Tyunman</a>, RD.
-	<li ><b><a href="https://arxiv.org/pdf/2411.01898">Best-Arm Identification in Unimodal Bandits</a></b>, AISTATS 2025</br>
-		  Riccardo Poiani, <a href="https://marcjourdan.github.io/">Marc Jourdan</a>, <a href="https://emiliekaufmann.github.io/">Emilie Kaufmann</a>, RD.</li>
-	<li ><b><a href="https://arxiv.org/pdf/2405.17108">Finding good policies in average-reward Markov Decision Processes without prior knowledge</a></b>, NeurIPS 2024</br>
-		  <a href="https://adriennetuynman.github.io/">Adrienne Tyunman</a>, RD, <a href="https://emiliekaufmann.github.io/">Emilie Kaufmann</a>.</li>
-	<li ><b><a href="https://arxiv.org/pdf/2406.03033">Optimal Multi-Fidelity Best-Arm Identification</a></b>, NeurIPS 2024</br>
-		  Riccardo Poiani, RD, <a href="https://emiliekaufmann.github.io/">Emilie Kaufmann</a>, Alberto Maria Metelli, Marcello Restelli.</li>
-	<li ><b><a href="https://arxiv.org/abs/2305.16041">An ε-Best-Arm Identification Algorithm for Fixed-Confidence and Beyond</a></b>, NeurIPS 2023,</br>
-		  <a href="https://marcjourdan.github.io/">Marc Jourdan</a>, RD, <a href="https://emiliekaufmann.github.io/">Emilie Kaufmann</a>.
-	<li ><b><a href="https://arxiv.org/abs/2210.05431">Non-Asymptotic Analysis of a UCB-based Top Two Algorithm</a></b>, NeurIPS 2023,</br>
-		  <a href="https://marcjourdan.github.io/">Marc Jourdan</a>, RD.
-	<li ><b><a href="https://inria.hal.science/hal-04337742/">Fast Asymptotically Optimal Algorithms for Non-Parametric Stochastic Bandits</a></b>, NeurIPS 2023,</br>
-		  <a href="https://dbaudry.github.io/">Dorian Baudry</a>, Fabien Pesquerel, RD, Odalric-Ambrym Maillard.
-	<li ><b><a href="https://arxiv.org/abs/2303.09468">On the Existence of a Complexity in Fixed Budget Bandit Identification</a></b>, Colt 2023. <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html">[HTML Version]</a></br>
-		  RD.</li>
-	<li ><b><a href="https://arxiv.org/abs/2210.00974">Dealing with Unknown Variances in Best-Arm Identification</a></b>, ALT 2023,</br>
-		  <a href="https://marcjourdan.github.io/">Marc Jourdan</a>, RD, <a href="https://emiliekaufmann.github.io/">Emilie Kaufmann</a>.
-	<li ><b><a href="https://arxiv.org/abs/2212.05578">A formalization of Doob's martingale convergence theorems in mathlib</a></b>, CPP 2023,</br>
-          Kexing Ying, RD.
-	<li ><b><a href="https://arxiv.org/abs/2206.05979">Top Two Algorithms Revisited</a></b>, NeurIPS 2022,</br>
-          <a href="https://marcjourdan.github.io/">Marc Jourdan</a>, RD, <a href="https://dbaudry.github.io/">Dorian Baudry</a>, Rianne de Heide, <a href="https://emiliekaufmann.github.io/">Emilie Kaufmann</a>.
-	<li ><b><a href="https://arxiv.org/abs/2205.10936">On Elimination Strategies for Bandit Fixed-Confidence Identification</a></b>, NeurIPS 2022,</br>
-          <a href="https://scholar.google.com/citations?user=MmW0yrwAAAAJ&hl=en">Andrea Tirinzoni</a>, RD.
-  <li ><b><a href="https://arxiv.org/abs/2206.04456">Choosing Answers in Epsilon-Best-Answer Identification for Linear Bandits</a></b>, ICML 2022,</br>
-          <a href="https://marcjourdan.github.io/">Marc Jourdan</a>, RD.
-	<li ><b><a href="https://arxiv.org/abs/2110.09133">Online Sign Identification: Minimization of the Number of Errors in Thresholding Bandits</a></b>, NeurIPS 2021,</br>
-          <a href="https://scholar.google.com/citations?hl=en&user=DYe2NmQAAAAJ">Reda Ouhamma</a>, RD, <a href="https://vianney.ai/">Vianney Perchet</a>, <a href="http://pierre.gaillard.me/index.html">Pierre Gaillard</a>.
-	<li ><b><a href="https://arxiv.org/abs/2111.01479">Dealing With Misspecification In Fixed-Confidence Linear Top-m Identification</a></b>, NeurIPS 2021,</br>
-          <a href="https://clreda.github.io/">Clémence Reda</a>, <a href="https://andreatirinzoni.github.io/">Andrea Tirinzoni</a>, RD.
-	<li ><b><a href="https://arxiv.org/abs/2007.00969">Structure Adaptive Algorithms for Stochastic Bandits</a></b>, ICML 2020,</br>
-          RD, <a href="https://sites.google.com/view/hanshao">Han Shao</a>, <a href="https://wouterkoolen.info/">Wouter M. Koolen</a>.
-  <li ><b><a href="https://arxiv.org/abs/2007.00953">Gamification of Pure Exploration for Linear Bandits</a></b>, ICML 2020,</br>
-          RD, <a href="https://perso.math.univ-toulouse.fr/pmenard/">Pierre Ménard</a>, <a href="https://xuedong.github.io/">Xuedong Shang</a>, <a href="http://researchers.lille.inria.fr/~valko/hp/">Michal Valko</a>.
-	<li ><b><a href="https://arxiv.org/abs/1906.10431">Non-asymptotic pure exploration by solving games</a></b>, NeurIPS 2019,</br>
-          RD, <a href="https://wouterkoolen.info/">Wouter M. Koolen</a>, <a href="https://perso.math.univ-toulouse.fr/pmenard/">Pierre Ménard</a>.</li>
-  <li ><b><a href="https://arxiv.org/abs/1902.03475">Pure exploration with multiple correct answers</a></b>, NeurIPS 2019,</br>
-          RD, <a href="https://wouterkoolen.info/">Wouter M. Koolen</a>.</li>
-  <li ><b><a href="https://arxiv.org/abs/1810.04088">Bridging the gap between regret minimization and best arm identification, with application to A/B tests</a></b>, AISTATS 2019,</br>
-          RD, Thomas Nedelec, Clément Calauzènes, <a href="https://vianney.ai/">Vianney Perchet</a>.</li>
-  <li ><b><a href="https://arxiv.org/abs/1807.03558">Bandits with side observations: bounded vs. logarithmic regret</a></b>, UAI 2018,</br>
-          RD, Evrard Garcelon, <a href="https://vianney.ai/">Vianney Perchet</a>.</li>
-	<li ><b><a href="https://papers.nips.cc/paper/6137-combinatorial-semi-bandit-with-known-covariance.pdf">Combinatorial semi-bandit with known covariance</a></b>, NIPS 2016,</br>
-          RD, <a href="https://vianney.ai/">Vianney Perchet</a>.</li>
-	<li ><b><a href="http://www.jmlr.org/proceedings/papers/v48/degenne16.pdf">Anytime optimal algorithms in stochastic multi-armed bandits</a></b>, ICML 2016</br>
-          RD, <a href="https://vianney.ai/">Vianney Perchet</a>.</li>
+									<!-- PUBLICATIONS:START generated from data/ by build_site.py - edit the JSON, not this block -->
+									<li><b><a href="https://arxiv.org/pdf/2511.20118">Formalization of Brownian motion in Lean</a></b>, preprint</br>
+										RD, David Ledvinka, Etienne Marion, <a href="https://www.stochastik.uni-freiburg.de/en/professors/peter-pfaffelhuber/peter-pfaffelhuber">Peter Pfaffelhuber</a>.</li>
+									<li><b><a href="https://arxiv.org/pdf/2510.04070">Markov kernels in Mathlib's probability library</a></b>, preprint</br>
+										RD.</li>
+									<li><b><a href="https://arxiv.org/pdf/2502.01425">The Batch Complexity of Bandit Pure Exploration</a></b>, ICML 2025</br>
+										<a href="https://adriennetuynman.github.io/">Adrienne Tuynman</a>, RD.</li>
+									<li><b><a href="https://arxiv.org/pdf/2411.01898">Best-Arm Identification in Unimodal Bandits</a></b>, AISTATS 2025</br>
+										Riccardo Poiani, <a href="https://marcjourdan.github.io/">Marc Jourdan</a>, <a href="https://emiliekaufmann.github.io/">Emilie Kaufmann</a>, RD.</li>
+									<li><b><a href="https://arxiv.org/pdf/2405.17108">Finding good policies in average-reward Markov Decision Processes without prior knowledge</a></b>, NeurIPS 2024</br>
+										<a href="https://adriennetuynman.github.io/">Adrienne Tuynman</a>, RD, <a href="https://emiliekaufmann.github.io/">Emilie Kaufmann</a>.</li>
+									<li><b><a href="https://arxiv.org/pdf/2406.03033">Optimal Multi-Fidelity Best-Arm Identification</a></b>, NeurIPS 2024</br>
+										Riccardo Poiani, RD, <a href="https://emiliekaufmann.github.io/">Emilie Kaufmann</a>, <a href="https://albertometelli.github.io/">Alberto Maria Metelli</a>, <a href="https://restelli.faculty.polimi.it/MyWebSite/">Marcello Restelli</a>.</li>
+									<li><b><a href="https://arxiv.org/abs/2305.16041">An ε-Best-Arm Identification Algorithm for Fixed-Confidence and Beyond</a></b>, NeurIPS 2023</br>
+										<a href="https://marcjourdan.github.io/">Marc Jourdan</a>, RD, <a href="https://emiliekaufmann.github.io/">Emilie Kaufmann</a>.</li>
+									<li><b><a href="https://arxiv.org/abs/2210.05431">Non-Asymptotic Analysis of a UCB-based Top Two Algorithm</a></b>, NeurIPS 2023</br>
+										<a href="https://marcjourdan.github.io/">Marc Jourdan</a>, RD.</li>
+									<li><b><a href="https://inria.hal.science/hal-04337742/">Fast Asymptotically Optimal Algorithms for Non-Parametric Stochastic Bandits</a></b>, NeurIPS 2023</br>
+										<a href="https://dbaudry.github.io/">Dorian Baudry</a>, <a href="https://fabienpesquerel.github.io/">Fabien Pesquerel</a>, RD, <a href="https://odalric-ambrymmaillard.github.io/">Odalric-Ambrym Maillard</a>.</li>
+									<li><b><a href="https://arxiv.org/abs/2303.09468">On the Existence of a Complexity in Fixed Budget Bandit Identification</a></b>, Colt 2023. <a href="https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html">[HTML Version]</a></br>
+										RD.</li>
+									<li><b><a href="https://arxiv.org/abs/2210.00974">Dealing with Unknown Variances in Best-Arm Identification</a></b>, ALT 2023</br>
+										<a href="https://marcjourdan.github.io/">Marc Jourdan</a>, RD, <a href="https://emiliekaufmann.github.io/">Emilie Kaufmann</a>.</li>
+									<li><b><a href="https://arxiv.org/abs/2212.05578">A formalization of Doob's martingale convergence theorems in mathlib</a></b>, CPP 2023</br>
+										<a href="https://kex-y.github.io/">Kexing Ying</a>, RD.</li>
+									<li><b><a href="https://arxiv.org/abs/2206.05979">Top Two Algorithms Revisited</a></b>, NeurIPS 2022</br>
+										<a href="https://marcjourdan.github.io/">Marc Jourdan</a>, RD, <a href="https://dbaudry.github.io/">Dorian Baudry</a>, <a href="https://riannedeheide.github.io/">Rianne de Heide</a>, <a href="https://emiliekaufmann.github.io/">Emilie Kaufmann</a>.</li>
+									<li><b><a href="https://arxiv.org/abs/2205.10936">On Elimination Strategies for Bandit Fixed-Confidence Identification</a></b>, NeurIPS 2022</br>
+										<a href="https://andreatirinzoni.github.io/">Andrea Tirinzoni</a>, RD.</li>
+									<li><b><a href="https://arxiv.org/abs/2206.04456">Choosing Answers in Epsilon-Best-Answer Identification for Linear Bandits</a></b>, ICML 2022</br>
+										<a href="https://marcjourdan.github.io/">Marc Jourdan</a>, RD.</li>
+									<li><b><a href="https://arxiv.org/abs/2110.09133">Online Sign Identification: Minimization of the Number of Errors in Thresholding Bandits</a></b>, NeurIPS 2021</br>
+										<a href="https://scholar.google.com/citations?hl=en&amp;user=DYe2NmQAAAAJ">Reda Ouhamma</a>, RD, <a href="https://vianney.ai/">Vianney Perchet</a>, <a href="http://pierre.gaillard.me/index.html">Pierre Gaillard</a>.</li>
+									<li><b><a href="https://arxiv.org/abs/2111.01479">Dealing With Misspecification In Fixed-Confidence Linear Top-m Identification</a></b>, NeurIPS 2021</br>
+										<a href="https://clreda.github.io/">Clémence Reda</a>, <a href="https://andreatirinzoni.github.io/">Andrea Tirinzoni</a>, RD.</li>
+									<li><b><a href="https://arxiv.org/abs/2007.00969">Structure Adaptive Algorithms for Stochastic Bandits</a></b>, ICML 2020</br>
+										RD, <a href="https://sites.google.com/view/hanshao">Han Shao</a>, <a href="https://wouterkoolen.info/">Wouter M. Koolen</a>.</li>
+									<li><b><a href="https://arxiv.org/abs/2007.00953">Gamification of Pure Exploration for Linear Bandits</a></b>, ICML 2020</br>
+										RD, <a href="https://perso.math.univ-toulouse.fr/pmenard/">Pierre Ménard</a>, <a href="https://xuedong.github.io/">Xuedong Shang</a>, <a href="http://researchers.lille.inria.fr/~valko/hp/">Michal Valko</a>.</li>
+									<li><b><a href="https://arxiv.org/abs/1906.10431">Non-asymptotic pure exploration by solving games</a></b>, NeurIPS 2019</br>
+										RD, <a href="https://wouterkoolen.info/">Wouter M. Koolen</a>, <a href="https://perso.math.univ-toulouse.fr/pmenard/">Pierre Ménard</a>.</li>
+									<li><b><a href="https://arxiv.org/abs/1902.03475">Pure exploration with multiple correct answers</a></b>, NeurIPS 2019</br>
+										RD, <a href="https://wouterkoolen.info/">Wouter M. Koolen</a>.</li>
+									<li><b><a href="https://arxiv.org/abs/1810.04088">Bridging the gap between regret minimization and best arm identification, with application to A/B tests</a></b>, AISTATS 2019</br>
+										RD, <a href="https://thomasnedelec.github.io/">Thomas Nedelec</a>, <a href="https://clementcalauzenes.com/">Clément Calauzènes</a>, <a href="https://vianney.ai/">Vianney Perchet</a>.</li>
+									<li><b><a href="https://arxiv.org/abs/1807.03558">Bandits with side observations: bounded vs. logarithmic regret</a></b>, UAI 2018</br>
+										RD, <a href="https://evrardgarcelon.github.io/">Evrard Garcelon</a>, <a href="https://vianney.ai/">Vianney Perchet</a>.</li>
+									<li><b><a href="https://papers.nips.cc/paper/6137-combinatorial-semi-bandit-with-known-covariance.pdf">Combinatorial semi-bandit with known covariance</a></b>, NIPS 2016</br>
+										RD, <a href="https://vianney.ai/">Vianney Perchet</a>.</li>
+									<li><b><a href="http://www.jmlr.org/proceedings/papers/v48/degenne16.pdf">Anytime optimal algorithms in stochastic multi-armed bandits</a></b>, ICML 2016</br>
+										RD, <a href="https://vianney.ai/">Vianney Perchet</a>.</li>
+									<!-- PUBLICATIONS:END -->
 									</ul>
 								</div>
 							</section>
@@ -234,7 +298,7 @@
 								PhD students
 								<ul>
 									<li><b>Redouane Yagouti</b>, co-advised with Emilie Kaufmann, since October 2025.</li>
-									<li><b><a href="https://adriennetuynman.github.io/">Adrienne Tyunman</a></b>, co-advised with Emilie Kaufmann, since October 2023.</li>
+									<li><b><a href="https://adriennetuynman.github.io/">Adrienne Tuynman</a></b>, co-advised with Emilie Kaufmann, since October 2023.</li>
 									<li><b><a href="https://marcjourdan.github.io/">Marc Jourdan</a></b>, co-advised with Emilie Kaufmann, October 2021 - June 2024.</li>
 								</ul>
 								Post-docs
@@ -246,7 +310,7 @@
 								<ul>
 									<li><b>Redouane Yagouti</b>, co-supervised with Emilie Kaufmann, April-September 2025</li>
 									<li><b>Lorenzo Luccioli</b>, April-September 2024</li>
-									<li><b>Adrienne Tyunman</b>, co-supervised with Emilie Kaufmann, April-August 2023</li>
+									<li><b>Adrienne Tuynman</b>, co-supervised with Emilie Kaufmann, April-August 2023</li>
 									<li><b>Marc Jourdan</b>, April-August 2021</li>
 								</ul>
 								Check out my <a href="https://remydegenne.github.io/student_resources">page on useful resources for PhD students</a>.

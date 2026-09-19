@@ -1,0 +1,164 @@
+{
+  "_comment": "Publication list, newest first. Each entry: title, url, venue, authors (names; those listed in people.json become links), and optionally links (extra links shown after the venue). Run 'python3 build_site.py' after editing.",
+
+  "last_updated": "January 2026",
+
+  "publications": [
+    {
+      "title": "Formalization of Brownian motion in Lean",
+      "url": "https://arxiv.org/pdf/2511.20118",
+      "venue": "preprint",
+      "authors": ["RD", "David Ledvinka", "Etienne Marion", "Peter Pfaffelhuber"]
+    },
+    {
+      "title": "Markov kernels in Mathlib's probability library",
+      "url": "https://arxiv.org/pdf/2510.04070",
+      "venue": "preprint",
+      "authors": ["RD"]
+    },
+    {
+      "title": "The Batch Complexity of Bandit Pure Exploration",
+      "url": "https://arxiv.org/pdf/2502.01425",
+      "venue": "ICML 2025",
+      "authors": ["Adrienne Tuynman", "RD"]
+    },
+    {
+      "title": "Best-Arm Identification in Unimodal Bandits",
+      "url": "https://arxiv.org/pdf/2411.01898",
+      "venue": "AISTATS 2025",
+      "authors": ["Riccardo Poiani", "Marc Jourdan", "Emilie Kaufmann", "RD"]
+    },
+    {
+      "title": "Finding good policies in average-reward Markov Decision Processes without prior knowledge",
+      "url": "https://arxiv.org/pdf/2405.17108",
+      "venue": "NeurIPS 2024",
+      "authors": ["Adrienne Tuynman", "RD", "Emilie Kaufmann"]
+    },
+    {
+      "title": "Optimal Multi-Fidelity Best-Arm Identification",
+      "url": "https://arxiv.org/pdf/2406.03033",
+      "venue": "NeurIPS 2024",
+      "authors": ["Riccardo Poiani", "RD", "Emilie Kaufmann", "Alberto Maria Metelli", "Marcello Restelli"]
+    },
+    {
+      "title": "An ε-Best-Arm Identification Algorithm for Fixed-Confidence and Beyond",
+      "url": "https://arxiv.org/abs/2305.16041",
+      "venue": "NeurIPS 2023",
+      "authors": ["Marc Jourdan", "RD", "Emilie Kaufmann"]
+    },
+    {
+      "title": "Non-Asymptotic Analysis of a UCB-based Top Two Algorithm",
+      "url": "https://arxiv.org/abs/2210.05431",
+      "venue": "NeurIPS 2023",
+      "authors": ["Marc Jourdan", "RD"]
+    },
+    {
+      "title": "Fast Asymptotically Optimal Algorithms for Non-Parametric Stochastic Bandits",
+      "url": "https://inria.hal.science/hal-04337742/",
+      "venue": "NeurIPS 2023",
+      "authors": ["Dorian Baudry", "Fabien Pesquerel", "RD", "Odalric-Ambrym Maillard"]
+    },
+    {
+      "title": "On the Existence of a Complexity in Fixed Budget Bandit Identification",
+      "url": "https://arxiv.org/abs/2303.09468",
+      "venue": "Colt 2023",
+      "authors": ["RD"],
+      "links": [
+        {
+          "label": "[HTML Version]",
+          "url": "https://remydegenne.github.io/papers_html/no_complexity_fb/fixed_budget/index.html"
+        }
+      ]
+    },
+    {
+      "title": "Dealing with Unknown Variances in Best-Arm Identification",
+      "url": "https://arxiv.org/abs/2210.00974",
+      "venue": "ALT 2023",
+      "authors": ["Marc Jourdan", "RD", "Emilie Kaufmann"]
+    },
+    {
+      "title": "A formalization of Doob's martingale convergence theorems in mathlib",
+      "url": "https://arxiv.org/abs/2212.05578",
+      "venue": "CPP 2023",
+      "authors": ["Kexing Ying", "RD"]
+    },
+    {
+      "title": "Top Two Algorithms Revisited",
+      "url": "https://arxiv.org/abs/2206.05979",
+      "venue": "NeurIPS 2022",
+      "authors": ["Marc Jourdan", "RD", "Dorian Baudry", "Rianne de Heide", "Emilie Kaufmann"]
+    },
+    {
+      "title": "On Elimination Strategies for Bandit Fixed-Confidence Identification",
+      "url": "https://arxiv.org/abs/2205.10936",
+      "venue": "NeurIPS 2022",
+      "authors": ["Andrea Tirinzoni", "RD"]
+    },
+    {
+      "title": "Choosing Answers in Epsilon-Best-Answer Identification for Linear Bandits",
+      "url": "https://arxiv.org/abs/2206.04456",
+      "venue": "ICML 2022",
+      "authors": ["Marc Jourdan", "RD"]
+    },
+    {
+      "title": "Online Sign Identification: Minimization of the Number of Errors in Thresholding Bandits",
+      "url": "https://arxiv.org/abs/2110.09133",
+      "venue": "NeurIPS 2021",
+      "authors": ["Reda Ouhamma", "RD", "Vianney Perchet", "Pierre Gaillard"]
+    },
+    {
+      "title": "Dealing With Misspecification In Fixed-Confidence Linear Top-m Identification",
+      "url": "https://arxiv.org/abs/2111.01479",
+      "venue": "NeurIPS 2021",
+      "authors": ["Clémence Reda", "Andrea Tirinzoni", "RD"]
+    },
+    {
+      "title": "Structure Adaptive Algorithms for Stochastic Bandits",
+      "url": "https://arxiv.org/abs/2007.00969",
+      "venue": "ICML 2020",
+      "authors": ["RD", "Han Shao", "Wouter M. Koolen"]
+    },
+    {
+      "title": "Gamification of Pure Exploration for Linear Bandits",
+      "url": "https://arxiv.org/abs/2007.00953",
+      "venue": "ICML 2020",
+      "authors": ["RD", "Pierre Ménard", "Xuedong Shang", "Michal Valko"]
+    },
+    {
+      "title": "Non-asymptotic pure exploration by solving games",
+      "url": "https://arxiv.org/abs/1906.10431",
+      "venue": "NeurIPS 2019",
+      "authors": ["RD", "Wouter M. Koolen", "Pierre Ménard"]
+    },
+    {
+      "title": "Pure exploration with multiple correct answers",
+      "url": "https://arxiv.org/abs/1902.03475",
+      "venue": "NeurIPS 2019",
+      "authors": ["RD", "Wouter M. Koolen"]
+    },
+    {
+      "title": "Bridging the gap between regret minimization and best arm identification, with application to A/B tests",
+      "url": "https://arxiv.org/abs/1810.04088",
+      "venue": "AISTATS 2019",
+      "authors": ["RD", "Thomas Nedelec", "Clément Calauzènes", "Vianney Perchet"]
+    },
+    {
+      "title": "Bandits with side observations: bounded vs. logarithmic regret",
+      "url": "https://arxiv.org/abs/1807.03558",
+      "venue": "UAI 2018",
+      "authors": ["RD", "Evrard Garcelon", "Vianney Perchet"]
+    },
+    {
+      "title": "Combinatorial semi-bandit with known covariance",
+      "url": "https://papers.nips.cc/paper/6137-combinatorial-semi-bandit-with-known-covariance.pdf",
+      "venue": "NIPS 2016",
+      "authors": ["RD", "Vianney Perchet"]
+    },
+    {
+      "title": "Anytime optimal algorithms in stochastic multi-armed bandits",
+      "url": "http://www.jmlr.org/proceedings/papers/v48/degenne16.pdf",
+      "venue": "ICML 2016",
+      "authors": ["RD", "Vianney Perchet"]
+    }
+  ]
+}
