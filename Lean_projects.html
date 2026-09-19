@@ -1,42 +1,41 @@
-<!DOCTYPE HTML>
-<!--
-	Read Only by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Lean projects</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		<script type="text/javascript"
-		  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-		</script>
-	</head>
-	<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lean projects</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+	<link rel="stylesheet" href="assets/css/site.css">
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+	<a class="skip-link" href="#content">Skip to content</a>
 
-		<!-- Header -->
-			<section id="header">
-				<header>
-					<span class="image avatar"><a href="https://remydegenne.github.io/"><img src="images/avatar2.jpg" alt="Rémy Degenne" /></a></span>
-					<h1 id="logo"><a href="#">Lean projects</a></h1>
-					<p>Rémy Degenne</p>
-				</header>
-				<footer>
-					<ul class="icons">
-						<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-					</ul>
-				</footer>
-			</section>
+	<header class="masthead">
+		<div class="wrap">
+			<a class="masthead-back" href="index.html">R&eacute;my Degenne</a>
+			<h1 class="masthead-name">Lean projects</h1>
+		</div>
+	</header>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+	<nav class="topnav" aria-label="Sections">
+		<div class="wrap">
+			<ul>
+			<li><a href="index.html#one">About</a></li>
+			<li><a href="index.html#news">News</a></li>
+			<li><a href="index.html#two">Publications</a></li>
+			<li><a href="index.html#mathlib">Mathlib</a></li>
+			<li><a href="index.html#three">Teaching</a></li>
+			<li><a href="index.html#four">Collaborators</a></li>
+			</ul>
+		</div>
+	</nav>
 
-				<!-- Main -->
-					<div id="main">
+	<main id="content">
+		<div class="wrap">
+
 
 						<!-- Three-->
 							<section id="one">
@@ -62,19 +61,17 @@
 										$$\int_a^b f(x) \partial \gamma_g(x) + \int_a^b g(x) \partial \gamma_f(x) = f(b)g(b) - f(a)g(a) \: .$$ </li>
 
 										<li><b>Monoidal composition for kernels</b>
-										<span style="color: #4a97ca;">[Done by Gaëtan Serré - see <a href="https://gaetanserre.fr/KernelHom/">https://gaetanserre.fr/KernelHom/</a>]</span>
+										<span class="done">[Done by Gaëtan Serré - see <a href="https://gaetanserre.fr/KernelHom/">https://gaetanserre.fr/KernelHom/</a>]</span>
 										- measurable spaces and s-finite Markov kernels are a symmetric monoidal category.
 										We could hope to adapt the tactics from those categories to use them with kernels: see <a href="https://leanprover-community.github.io/mathlib4_docs/Mathlib/Tactic/CategoryTheory/MonoidalComp.html">MonoidalComp</a>. </li>
 
 										<li>
 											<b>Jensen's inequality for the conditional expectation</b>
-											<span style="color: #4a97ca;">[Done by Yongxi Lin]</span>
+											<span class="done">[Done by Yongxi Lin]</span>
 											 - Proposition 2.6.29 in [2]. The Mathlib definition of the conditional expectation is here: <a href="https://leanprover-community.github.io/mathlib4_docs/Mathlib/MeasureTheory/Function/ConditionalExpectation/Basic.html#MeasureTheory.condexp">MeasureTheory.condexp</a>. </br>
 											In the proof of Proposition 2.6.29, we need to write a convex function as a supremum over linear functions: this is the main step missing from Mathlib.
 											The result should be close to this:
-											<pre>
-											<code>
-import Mathlib
+											<pre><code>import Mathlib
 
 open ProbabilityTheory MeasureTheory
 
@@ -84,14 +81,12 @@ example {α X : Type*} {m mα : MeasurableSpace α} [NormedAddCommGroup X] [Norm
     {f : α → X} {φ : X → ℝ} (hφ_cvx : ConvexOn ℝ Set.univ φ) (hφ_cont : LowerSemicontinuous φ)
     (hf_int : Integrable f μ) (hφ_int : Integrable (φ ∘ f) μ) :
     ∀ᵐ x ∂μ, φ (μ[f | m] x) ≤ μ[φ ∘ f | m] x := by
-  sorry
-											</code>
-											</pre>
+  sorry</code></pre>
 										</li>
 
 										<li>
 											<b>Randomization of Markov kernels and measures</b>
-											<span style="color: #4a97ca;">[Done by Gaëtan Serré]</span>
+											<span class="done">[Done by Gaëtan Serré]</span>
 											- Lemma 4.22 in [1]. In standard Borel spaces, we can isolate the randomness and have it be only over \(\mathbb{R}\): we can write a Markov kernel \(\kappa : \mathcal X \rightsquigarrow \mathcal Y\) as the map by a deterministic function \(f : \mathcal X \times [0,1] \to \mathcal Y\) of a uniform measure on [0,1].
 										</li>
 									</ul>
@@ -104,28 +99,17 @@ example {α X : Type*} {m mα : MeasurableSpace α} [NormedAddCommGroup X] [Norm
 									</ul>
 								</div>
 							</section>
+		</div>
+	</main>
 
-					</div>
-
-				<!-- Footer -->
-					<section id="footer">
-						<div class="container">
-							<ul class="copyright">
-								<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</section>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollzer.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-
-	</body>
+	<footer class="site-footer">
+		<div class="wrap">
+			<ul>
+				<li>&copy; R&eacute;my Degenne</li>
+				<li><a href="https://github.com/RemyDegenne">GitHub</a></li>
+				<li><a href="https://scholar.google.com/citations?user=H-uIBOwAAAAJ">Google Scholar</a></li>
+			</ul>
+		</div>
+	</footer>
+</body>
 </html>

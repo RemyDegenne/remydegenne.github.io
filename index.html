@@ -1,105 +1,46 @@
-<!DOCTYPE HTML>
-<!--
-	Read Only by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Rémy Degenne</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		<script type="text/javascript"
-		  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-		</script>
-		<link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-		<style>
-			/* Buttons echoing the visual identity of the linked sites */
-			.brand-buttons {
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: center;
-				gap: 0.9em;
-				margin: 1.5em 0 2em 0;
-			}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Rémy Degenne</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+	<link rel="stylesheet" href="assets/css/site.css">
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+	<a class="skip-link" href="#content">Skip to content</a>
 
-			.brand-btn {
-				display: inline-flex;
-				align-items: center;
-				justify-content: center;
-				text-decoration: none !important;
-				white-space: nowrap;
-				transition: background 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-			}
+	<header class="masthead">
+		<div class="wrap">
+			<a class="masthead-name" href="index.html">R&eacute;my Degenne</a>
+			<p class="masthead-role">Tenured researcher in the <a href="https://team.inria.fr/scool/">Scool team</a> at the <a href="https://www.inria.fr/en/inria-centre-university-lille">Inria centre at the University of Lille</a>.</br> Sequential machine learning and formal mathematics in Lean.</p>
+			<ul class="masthead-meta">
+				<li>firstname.lastname(at)inria.fr</li>
+				<li><a href="https://github.com/RemyDegenne"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a></li>
+				<li><a href="https://scholar.google.com/citations?user=H-uIBOwAAAAJ">Google Scholar</a></li>
+			</ul>
+		</div>
+	</header>
 
-			/* leanprover-community.github.io: its link blue, Merriweather headings */
-			.brand-btn.mathlib {
-				font-family: "Merriweather", Georgia, serif;
-				font-size: 0.95em;
-				padding: 0.8em 1.7em;
-				border-radius: 0.25rem;
-				border: 2px solid #004d99;
-				background: #ffffff;
-				color: #004d99 !important;
-			}
+	<nav class="topnav" aria-label="Sections">
+		<div class="wrap">
+			<ul>
+			<li><a href="#one">About</a></li>
+			<li><a href="#news">News</a></li>
+			<li><a href="#two">Publications</a></li>
+			<li><a href="#mathlib">Mathlib</a></li>
+			<li><a href="#three">Teaching</a></li>
+			<li><a href="#four">Collaborators</a></li>
+			</ul>
+		</div>
+	</nav>
 
-			.brand-btn.mathlib:hover {
-				background: #004d99;
-				color: #ffffff !important;
-			}
+	<main id="content">
+		<div class="wrap">
 
-			/* leanmachinelearning.org: rounded salmon hero buttons, Open Sans */
-			.brand-btn.lml {
-				font-family: "Open Sans", -apple-system, "Segoe UI", sans-serif;
-				font-size: 0.95em;
-				font-weight: 500;
-				padding: 0.8em 1.7em;
-				border-radius: 0.5rem;
-				border: 2px solid #d65d5d;
-				background: #ffffff;
-				color: #d65d5d !important;
-			}
-
-			.brand-btn.lml:hover {
-				background: #d65d5d;
-				color: #ffffff !important;
-			}
-		</style>
-	</head>
-	<body>
-
-		<!-- Header -->
-			<section id="header">
-				<header>
-					<span class="image avatar"><img src="images/avatar2.jpg" alt="Rémy Degenne" /></span>
-					<h1 id="logo"><a href="#">Rémy Degenne</a></h1>
-					<p>firstname.lastname(at)inria.fr</p>
-				</header>
-				<nav id="nav">
-					<ul>
-						<li><a href="#one" class="active">About</a></li>
-						<li><a href="#news">News</a></li>
-						<li><a href="#two">Publications</a></li>
-						<li><a href="#mathlib">Mathlib contributions</a></li>
-						<li><a href="#three">Teaching</a></li>
-						<li><a href="#four">Collaborators</a></li>
-					</ul>
-				</nav>
-				<footer>
-					<ul class="icons">
-						<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-					</ul>
-				</footer>
-			</section>
-
-		<!-- Wrapper -->
-			<div id="wrapper">
-
-				<!-- Main -->
-					<div id="main">
 
 						<!-- One -->
 							<section id="one">
@@ -107,8 +48,13 @@
 									<header class="major">
 										<h3>About me</h3>
 									</header>
-									<p> I am a tenured researcher in the <a href="https://team.inria.fr/scool/">Scool team</a> at the <a href="https://www.inria.fr/en/inria-centre-university-lille">Inria centre at the University of Lille</a>. I work on sequential machine learning, mostly bandit theory, and I am interested in all forms of online and reinforcement learning as well as statistics and optimization. I am also passionate about formal mathematics and AI for maths and I want to transform machine learning theory by ensuring it can be written and verified in proof assistants like Lean.
-									</p>
+									<div class="intro">
+										<div class="intro-text">
+											<p> I am a tenured researcher in the <a href="https://team.inria.fr/scool/">Scool team</a> at the <a href="https://www.inria.fr/en/inria-centre-university-lille">Inria centre at the University of Lille</a>. I work on sequential machine learning, mostly bandit theory, and I am interested in all forms of online and reinforcement learning as well as statistics and optimization. I am also passionate about formal mathematics and AI for maths and I want to transform machine learning theory by ensuring it can be written and verified in proof assistants like Lean.
+											</p>
+										</div>
+										<div class="portrait"><img src="images/avatar2.jpg" alt="R&eacute;my Degenne"></div>
+									</div>
 
 									<p>I am a maintainer of <a href="https://leanprover-community.github.io/">the mathematical library <i>Mathlib</i> for the Lean theorem prover</a> and of the <a href="https://leanmachinelearning.org">Lean Machine Learning</a> project.
 									</p>
@@ -138,22 +84,22 @@
 									</header>
 									<!-- NEWS:START generated from data/ by build_site.py - edit the JSON, not this block -->
 									<p>
-										<b style="color:#B2B2B2;">[July 2026]</b> I am giving a tutorial at ICML 2026 on Proving Theorems with Lean and Machine Learning, with <a href="https://wenda302.github.io/">Wenda Li</a>.
+										<span class="news-date">[July 2026]</span> I am giving a tutorial at ICML 2026 on Proving Theorems with Lean and Machine Learning, with <a href="https://wenda302.github.io/">Wenda Li</a>.
 									</p>
 									<p>
-										<b style="color:#B2B2B2;">[January 2026]</b> I organized the <a href="https://leanprover-community.github.io/lt2026/">Lean Together 2026</a> online conference, the annual meeting for users, developers, and fans of the Lean programming language and theorem prover and its library Mathlib.
+										<span class="news-date">[January 2026]</span> I organized the <a href="https://leanprover-community.github.io/lt2026/">Lean Together 2026</a> online conference, the annual meeting for users, developers, and fans of the Lean programming language and theorem prover and its library Mathlib.
 									</p>
 									<p>
-										<b style="color:#B2B2B2;">[December 2025]</b> I gave talks about probability theory in Lean and the Brownian motion project at <a href="https://pitmonticone.github.io/ItaLean2025/">ItaLean 2025</a> (Bologna, Italy, December 9-12), a workshop about bridging formal mathematics and AI.
+										<span class="news-date">[December 2025]</span> I gave talks about probability theory in Lean and the Brownian motion project at <a href="https://pitmonticone.github.io/ItaLean2025/">ItaLean 2025</a> (Bologna, Italy, December 9-12), a workshop about bridging formal mathematics and AI.
 									</p>
 									<p>
-										<b style="color:#B2B2B2;">[October 2025]</b> With <a href="https://www.math.uni-bonn.de/people/rothgang/">Michael Rothgang</a>, I am leading a <a href="https://www.slmath.org/workshops/1180">workshop on Lean for PDEs</a> at the Simons Laufer Mathematical Sciences Institute (SLMath), co-organized by the new Institute for Computer-Aided Reasoning in Mathematics (ICARM).
+										<span class="news-date">[October 2025]</span> With <a href="https://www.math.uni-bonn.de/people/rothgang/">Michael Rothgang</a>, I am leading a <a href="https://www.slmath.org/workshops/1180">workshop on Lean for PDEs</a> at the Simons Laufer Mathematical Sciences Institute (SLMath), co-organized by the new Institute for Computer-Aided Reasoning in Mathematics (ICARM).
 									</p>
 									<p>
-										<b style="color:#B2B2B2;">[July 2025]</b> I am launching the <a href="https://www.inria.fr/index%2ephp/fr/formal">FORMAL Inria exploratory action</a>. Its goal is to formalize bandit and reinforcement learning algorithms and their theory in the Lean theorem prover. A post-doc will join the team in 2026 to work on this project.
+										<span class="news-date">[July 2025]</span> I am launching the <a href="https://www.inria.fr/index%2ephp/fr/formal">FORMAL Inria exploratory action</a>. Its goal is to formalize bandit and reinforcement learning algorithms and their theory in the Lean theorem prover. A post-doc will join the team in 2026 to work on this project.
 									</p>
 									<p>
-										<b style="color:#B2B2B2;">[November 2023]</b> I am contributing to the formalization of the polynomial Freiman-Ruzsa conjecture in Lean. This is a project led by Terence Tao, who recently proved this result with W. T. Gowers, Ben Green and Freddie Manners. See <a href="https://terrytao.wordpress.com/2023/11/18/formalizing-the-proof-of-pfr-in-lean4-using-blueprint-a-short-tour/">this post on Terence Tao's blog</a> for a tour of the project.
+										<span class="news-date">[November 2023]</span> I am contributing to the formalization of the polynomial Freiman-Ruzsa conjecture in Lean. This is a project led by Terence Tao, who recently proved this result with W. T. Gowers, Ben Green and Freddie Manners. See <a href="https://terrytao.wordpress.com/2023/11/18/formalizing-the-proof-of-pfr-in-lean4-using-blueprint-a-short-tour/">this post on Terence Tao's blog</a> for a tour of the project.
 									</p>
 									<!-- NEWS:END -->
 									Older news can be found on the <a href="older_news.html">Older News</a> page.
@@ -295,50 +241,43 @@
 						<section id="four">
 							<div class="container">
 								<h3>Collaborators</h3>
-								PhD students
+								<!-- COLLABORATORS:START generated from data/ by build_site.py - edit the JSON, not this block -->
+								<p class="group-label">PhD students</p>
 								<ul>
-									<li><b>Redouane Yagouti</b>, co-advised with Emilie Kaufmann, since October 2025.</li>
-									<li><b><a href="https://adriennetuynman.github.io/">Adrienne Tuynman</a></b>, co-advised with Emilie Kaufmann, since October 2023.</li>
-									<li><b><a href="https://marcjourdan.github.io/">Marc Jourdan</a></b>, co-advised with Emilie Kaufmann, October 2021 - June 2024.</li>
+									<li><b><a href="https://ryagouti.github.io/">Redouane Yagouti</a></b>, co-advised with <a href="https://emiliekaufmann.github.io/">Emilie Kaufmann</a>, since October 2025.</li>
+									<li><b><a href="https://adriennetuynman.github.io/">Adrienne Tuynman</a></b>, co-advised with <a href="https://emiliekaufmann.github.io/">Emilie Kaufmann</a>, since October 2023.</li>
+									<li><b><a href="https://marcjourdan.github.io/">Marc Jourdan</a></b>, co-advised with <a href="https://emiliekaufmann.github.io/">Emilie Kaufmann</a>, October 2021 - June 2024.</li>
 								</ul>
-								Post-docs
+								<p class="group-label">Post-docs</p>
 								<ul>
-									<li><b><a href="https://namtrankekl.github.io/">Nam Phuong Tran</a></b> Since January 2026</li>
-									<li><b>Andrea Tirinzoni</b> -- 2021</li>
+									<li><b><a href="https://gaetanserre.fr/">Gaëtan Serré</a></b>, starting December 2026.</li>
+									<li><b><a href="https://namtrankekl.github.io/">Nam Phuong Tran</a></b>, since January 2026.</li>
+									<li><b><a href="https://andreatirinzoni.github.io/">Andrea Tirinzoni</a></b>, 2021.</li>
 								</ul>
-								Master students
+								<p class="group-label">Master students</p>
 								<ul>
-									<li><b>Redouane Yagouti</b>, co-supervised with Emilie Kaufmann, April-September 2025</li>
-									<li><b>Lorenzo Luccioli</b>, April-September 2024</li>
-									<li><b>Adrienne Tuynman</b>, co-supervised with Emilie Kaufmann, April-August 2023</li>
-									<li><b>Marc Jourdan</b>, April-August 2021</li>
+									<li><b><a href="https://ryagouti.github.io/">Redouane Yagouti</a></b>, co-supervised with <a href="https://emiliekaufmann.github.io/">Emilie Kaufmann</a>, April-September 2025.</li>
+									<li><b><a href="https://github.com/LorenzoLuccioli">Lorenzo Luccioli</a></b>, April-September 2024.</li>
+									<li><b><a href="https://adriennetuynman.github.io/">Adrienne Tuynman</a></b>, co-supervised with <a href="https://emiliekaufmann.github.io/">Emilie Kaufmann</a>, April-August 2023.</li>
+									<li><b><a href="https://marcjourdan.github.io/">Marc Jourdan</a></b>, April-August 2021.</li>
 								</ul>
+								<!-- COLLABORATORS:END -->
 								Check out my <a href="https://remydegenne.github.io/student_resources">page on useful resources for PhD students</a>.
 							</div>
 						</section>
+		</div>
+	</main>
 
+	<footer class="site-footer">
+		<div class="wrap">
+			<ul>
+				<li>&copy; R&eacute;my Degenne</li>
+				<li><a href="https://github.com/RemyDegenne">GitHub</a></li>
+				<li><a href="https://scholar.google.com/citations?user=H-uIBOwAAAAJ">Google Scholar</a></li>
+			</ul>
+		</div>
+	</footer>
 
-					</div>
-
-				<!-- Footer -->
-					<section id="footer">
-						<div class="container">
-							<ul class="copyright">
-								<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</section>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollzer.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-
-	</body>
+	<script src="assets/js/site.js"></script>
+</body>
 </html>

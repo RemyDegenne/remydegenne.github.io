@@ -1,0 +1,61 @@
+{
+  "_comment": "The Collaborators section of index.html. Each group renders as a label and a list. A member's 'name' is linked when it appears in people.json; in 'note', {{Name}} links to that person, [label](url) is a link and **text** is bold. Run 'python3 build_site.py' after editing.",
+
+  "groups": [
+    {
+      "label": "PhD students",
+      "members": [
+        {
+          "name": "Redouane Yagouti",
+          "note": "co-advised with {{Emilie Kaufmann}}, since October 2025"
+        },
+        {
+          "name": "Adrienne Tuynman",
+          "note": "co-advised with {{Emilie Kaufmann}}, since October 2023"
+        },
+        {
+          "name": "Marc Jourdan",
+          "note": "co-advised with {{Emilie Kaufmann}}, October 2021 - June 2024"
+        }
+      ]
+    },
+    {
+      "label": "Post-docs",
+      "members": [
+        {
+          "name": "Gaëtan Serré",
+          "note": "starting December 2026"
+        },
+        {
+          "name": "Nam Phuong Tran",
+          "note": "since January 2026"
+        },
+        {
+          "name": "Andrea Tirinzoni",
+          "note": "2021"
+        }
+      ]
+    },
+    {
+      "label": "Master students",
+      "members": [
+        {
+          "name": "Redouane Yagouti",
+          "note": "co-supervised with {{Emilie Kaufmann}}, April-September 2025"
+        },
+        {
+          "name": "Lorenzo Luccioli",
+          "note": "April-September 2024"
+        },
+        {
+          "name": "Adrienne Tuynman",
+          "note": "co-supervised with {{Emilie Kaufmann}}, April-August 2023"
+        },
+        {
+          "name": "Marc Jourdan",
+          "note": "April-August 2021"
+        }
+      ]
+    }
+  ]
+}

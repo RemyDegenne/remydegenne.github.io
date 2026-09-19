@@ -132,11 +132,38 @@ def render_news(entries, people, used, indent, listname):
 
         lines.append("{}<p>".format(indent))
         lines.append(
-            '{}{}<b style="color:#B2B2B2;">[{}]</b> {}'.format(
+            '{}{}<span class="news-date">[{}]</span> {}'.format(
                 indent, TAB, esc(entry["date"]), inline(entry["text"], people, used, where)
             )
         )
         lines.append("{}</p>".format(indent))
+    return lines
+
+
+def render_collaborators(groups, people, used, indent):
+    lines = []
+    for i, group in enumerate(groups):
+        label = group.get("label")
+        members = group.get("members") or []
+        if not label:
+            raise BuildError("collaborator group {}: missing 'label'".format(i + 1))
+
+        lines.append('{}<p class="group-label">{}</p>'.format(indent, esc(label)))
+        lines.append("{}<ul>".format(indent))
+        for j, member in enumerate(members):
+            where = "{} entry {} ({})".format(label, j + 1, member.get("name", "unnamed"))
+            if not member.get("name"):
+                raise BuildError("{}: missing 'name'".format(where))
+
+            item = "<b>{}</b>".format(person(member["name"], people, used))
+            note = (member.get("note") or "").strip()
+            if note:
+                note = inline(note, people, used, where)
+                # One separator and one full stop for every entry, whatever the
+                # note happens to start or end with.
+                item += ", " + note + ("" if note.endswith(".") else ".")
+            lines.append("{}{}<li>{}</li>".format(indent, TAB, item))
+        lines.append("{}</ul>".format(indent))
     return lines
 
 
@@ -169,6 +196,7 @@ def build(check_only=False):
     people = {k: v for k, v in load("people.json").items() if not k.startswith("_")}
     pubs_data = load("publications.json")
     news_data = load("news.json")
+    collab_data = load("collaborators.json")
 
     publications = pubs_data["publications"]
     used = set()
@@ -191,6 +219,14 @@ def build(check_only=False):
         render_news(news_data["recent"], people, used, indent_of(index, "NEWS"), "recent"),
         index_path,
     )
+    index = splice(
+        index,
+        "COLLABORATORS",
+        render_collaborators(
+            collab_data["groups"], people, used, indent_of(index, "COLLABORATORS")
+        ),
+        index_path,
+    )
     older = splice(
         older,
         "OLDER_NEWS",
@@ -202,7 +238,7 @@ def build(check_only=False):
     # one side or the other, so it is worth saying out loud.
     unused = sorted(set(people) - used)
     if unused:
-        print("note: never used in publications.json or news.json: " + ", ".join(unused))
+        print("note: in people.json but never used: " + ", ".join(unused))
 
     changed = []
     for path, before, after in (
@@ -222,9 +258,10 @@ def build(check_only=False):
         return 0
 
     print(
-        "{} publications, {} news entries, {} people -> {}".format(
+        "{} publications, {} news entries, {} collaborators, {} people -> {}".format(
             len(publications),
             len(news_data["recent"]) + len(news_data["older"]),
+            sum(len(g.get("members") or []) for g in collab_data["groups"]),
             len(people),
             ", ".join(changed) if changed else "no change",
         )
