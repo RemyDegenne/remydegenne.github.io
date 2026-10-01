@@ -1,0 +1,35 @@
+/* verso-slides' own lib/slides-highlight.css sets font-size on
+   .reveal code.hl.lean.block, .reveal code.hl.lean.inline, and
+   .reveal pre:not(.code-with-panel pre), and that stylesheet is linked
+   *after* custom.css in _slides/index.html. Equal-or-greater-specificity
+   rules loaded later in the cascade win, so a plain ".reveal pre" rule
+   here has no visible effect. Match the library's selectors (and use
+   !important as a safety margin against load order) to actually override
+   them. */
+.reveal pre:not(.code-with-panel pre),
+.reveal code.hl.lean.block {
+  font-size: 0.4em !important;
+}
+
+.reveal code.hl.lean.inline {
+  font-size: 0.6em !important;
+}
+
+/* Infoview (right-hand panel) text size is set on .info-panel in
+   lib/panel.css, also loaded after custom.css — same !important reasoning. */
+.info-panel {
+  font-size: 0.4em !important;
+}
+
+/* Slightly reduce the default text size (--r-main-font-size is 42px
+   in lib/reveal.js/dist/theme/white.css). */
+.reveal {
+  --r-main-font-size: 38px;
+}
+
+/* Bullets and numbers use the same blue as link text (--r-link-color
+   in lib/reveal.js/dist/theme/white.css). */
+.reveal ul li::marker,
+.reveal ol li::marker {
+  color: #2a76dd;
+}
