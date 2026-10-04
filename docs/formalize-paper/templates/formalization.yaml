@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+# formalization.yaml (v0.4): repo-root metadata for formalization projects.
+# See https://github.com/mathlib-initiative/formalization.yaml for the fields.
+
+version: "v0.4"
+
+project:
+  name: "<Name>"
+  description: >-
+    <One paragraph: which paper, which results, on which libraries, in which generality, and
+    the two-phase plan (phase 1 sorry-ed headline statements with comparator challenges, phase
+    2 proofs).>
+  authors:
+    - "<Author>"
+  responsible_maintainers:
+    - "<Author>"
+  license: "Apache-2.0"
+  repository: "https://github.com/<user>/<Name>"
+  blueprint: "https://<user>.github.io/<Name>/blueprint/"
+
+repository:
+  role: "substantive-development"
+
+sources:
+  - title: "<Paper title>"
+    authors:
+      - "<Paper author>"
+    id: "<Venue year, paper number or arXiv id>"
+    type: "conference-paper"
+    location: "<Which results of the paper are formalized; see status.scope>"
+    relationship: "formalizes"
+    license: ""
+    author_endorsement: "not-contacted"
+    note: >-
+      <Where the paper source lives (e.g. vendored under `source/`), that the blueprint is a
+      derived artifact of this project, and whether the formalizer is an author.>
+
+related_formalizations: []   # earlier or parallel formalizations of this paper, if any
+
+classification:
+  arxiv: ["<primary arXiv category>"]
+  msc2020:
+    - "<MSC code>"   # <meaning>
+
+status:
+  scope: >-
+    <Phase 1: list every headline result with its Lean name and blueprint label.
+    Phase 2: what is proved, what is not, and the dated history of major changes.>
+  sorry_count: 0
+  sorry_in_definitions: 0

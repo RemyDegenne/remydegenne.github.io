@@ -1,0 +1,37 @@
+# Template lakefile: replace <Lib> by the Lean library name. Mathlib is not required directly:
+# it comes through LML, at the revision LML pins, so the two never disagree.
+name = "<Lib>"
+defaultTargets = ["<Lib>"]
+lintDriver = "batteries/runLinter"
+
+[leanOptions]
+pp.unicode.fun = true
+autoImplicit = false
+relaxedAutoImplicit = false
+weak.linter.mathlibStandardSet = true
+
+[[require]]
+name = "LeanMachineLearning"
+git = "https://github.com/LeanMachineLearning/LML"
+rev = "main"
+
+[[require]]
+name = "checkdecls"
+git = "https://github.com/PatrickMassot/checkdecls.git"
+
+[[lean_lib]]
+name = "<Lib>"
+
+# Comparator (https://github.com/leanprover/comparator) challenge/solution modules for the
+# headline results listed in formalization.yaml; see comparator/README.md. One library with a
+# stub root: tools that import every library root (checkdecls) must not load the
+# challenge modules, which redeclare project and LML names, so those are globs, not roots.
+# Add one "Challenge_<name>" entry per line of comparator/targets.txt.
+[[lean_lib]]
+name = "Comparator"
+srcDir = "comparator"
+leanOptions = { weak.linter.mathlibStandardSet = false }
+globs = [
+  "Comparator",
+  "Solution",
+]

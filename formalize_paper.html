@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Formalizing a paper in Lean</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+	<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+	<a class="skip-link" href="#content">Skip to content</a>
+
+	<header class="masthead">
+		<div class="wrap">
+			<a class="masthead-back" href="index.html">R&eacute;my Degenne</a>
+			<h1 class="masthead-name">Formalizing a paper in Lean</h1>
+		</div>
+	</header>
+
+	<nav class="topnav" aria-label="Sections">
+		<div class="wrap">
+			<ul>
+			<li><a href="index.html#one">About</a></li>
+			<li><a href="index.html#news">News</a></li>
+			<li><a href="index.html#two">Publications</a></li>
+			<li><a href="index.html#mathlib">Mathlib</a></li>
+			<li><a href="index.html#three">Teaching</a></li>
+			<li><a href="index.html#four">Collaborators</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<main id="content">
+		<div class="wrap">
+
+							<section id="skill">
+								<div class="container">
+									<h3>The formalize-paper skill</h3>
+
+									<p>
+									This is the workflow I follow to formalize a machine learning paper in Lean 4, on top of <a href="https://leanprover-community.github.io/">Mathlib</a> and <a href="https://leanmachinelearning.org">Lean Machine Learning</a> (LML).
+									It is written as a skill for <a href="https://code.claude.com/docs/en/overview">Claude Code</a>: a folder of instructions and template files that an AI agent reads when it starts, extends or checks a formalization.
+									The instructions are plain Markdown, so they can just as well be read by a person.
+									</p>
+
+									<p>
+									<b><a href="https://github.com/RemyDegenne/remydegenne.github.io/tree/master/docs/formalize-paper">Get the formalize-paper skill</a></b> (a folder on GitHub). It contains:
+									</p>
+									<ul>
+										<li><a href="https://github.com/RemyDegenne/remydegenne.github.io/blob/master/docs/formalize-paper/SKILL.md"><code>SKILL.md</code></a>: the layout of a project, the workflow and the checks to run;</li>
+										<li><a href="https://github.com/RemyDegenne/remydegenne.github.io/blob/master/docs/formalize-paper/bootstrap.md"><code>bootstrap.md</code></a>: how to start from an empty directory, step by step;</li>
+										<li><a href="https://github.com/RemyDegenne/remydegenne.github.io/blob/master/docs/formalize-paper/tools.md"><code>tools.md</code></a>: where each tool comes from, resources to learn Lean, and pitfalls met along the way;</li>
+										<li><a href="https://github.com/RemyDegenne/remydegenne.github.io/tree/master/docs/formalize-paper/templates"><code>templates/</code></a>: files to copy into a new project (lakefile, CI workflows, scripts, <code>formalization.yaml</code>).</li>
+									</ul>
+
+									<p>
+									To use it with Claude Code, copy the folder <code>formalize-paper</code> to <code>~/.claude/skills/</code> (for all your projects) or to <code>.claude/skills/</code> inside the repository of your formalization.
+									Claude then loads it when the task calls for it, or when you type <code>/formalize-paper</code>.
+									</p>
+
+									<p>
+									The skill was written during the formalization of a COLT 2026 paper by Maiti, Xu and Jamieson, and its examples use the names from that project (the Lean library <code>Maiti2026Power</code>, the repository <code>colt-2026-83</code>).
+									A few of those names also appear in the templates; <code>bootstrap.md</code> says which ones to change for another paper.
+									</p>
+								</div>
+							</section>
+
+							<section id="content-of-the-skill">
+								<div class="container">
+									<h3>What the skill says</h3>
+
+									<p>
+									The goal is a formalization that someone can trust without reading all of it.
+									Two ideas serve that goal.
+									First, the statements are fixed before the proofs: the main results of the paper are stated in Lean with <code>sorry</code>, and those statements are then frozen.
+									Second, the main results are checked by <a href="https://github.com/leanprover/comparator">comparator</a>.
+									For each main theorem, <a href="https://github.com/LeanTrustBuilders/challenge-gen">challenge-gen</a> writes a self-contained file that imports only Mathlib, with the statement and every definition it uses copied into it.
+									A reader checks that this short file says what the paper claims, and comparator checks that the project proves exactly that statement, with no axioms beyond the three standard ones.
+									</p>
+
+									<h4>Project layout</h4>
+									<ul>
+										<li><code>source/</code> holds the TeX sources of the paper, and <code>notes/blueprint-outline.md</code> breaks the paper down into labelled lemmas before any Lean is written.</li>
+										<li><code>blueprint/</code> is a <a href="https://github.com/PatrickMassot/leanblueprint">leanblueprint</a>. Part I follows the paper; Part II gathers the prerequisites that belong in Mathlib or LML (concentration inequalities, information theory, algorithms).</li>
+										<li>The Lean library has three parts: <code>Mathlib/</code> and <code>LeanMachineLearning/</code> for general material, which mirror the upstream layouts so that it can later be contributed there, and one directory for the paper itself, with one file per result.</li>
+										<li><code>formalization.yaml</code> (<a href="https://github.com/mathlib-initiative/formalization.yaml">schema</a>) lists the main statements and the status of the project. <code>comparator/</code> holds one generated challenge per main theorem.</li>
+									</ul>
+
+									<h4>Workflow</h4>
+									<ol>
+										<li><b>Outline first.</b> Before any Lean or blueprint, write the outline: the results, the lemmas they need, what Mathlib and LML already provide, and the modelling choices. The outline fixes the labels and the proof routes; the blueprint chapters are then written from it.</li>
+										<li><b>Phase 1: statements.</b> Define the objects in the generality a library would want, not only the special case the paper needs. State each main result with <code>sorry</code>, list it in <code>formalization.yaml</code> and generate its comparator challenge. From then on the statements are frozen, and phase 2 must prove exactly them.</li>
+										<li><b>Phase 2: proofs, driven by the blueprint.</b> Before attacking a large theorem, expand its blueprint entry into small labelled lemmas with their dependencies. Formalize one coherent area at a time (for example a whole prerequisite chapter) rather than scattered lemmas. Prove the general, Mathlib-style statement and obtain the paper's version as a one-line special case.</li>
+										<li><b>Keep everything in sync.</b> Each Lean declaration is linked from the blueprint and marked as done as soon as it compiles. Hypotheses that the proof does not use are removed, and the docstring says so.</li>
+										<li><b>Record.</b> Update the status in <code>formalization.yaml</code>, the list of candidates for upstreaming to Mathlib and LML, and the README.</li>
+									</ol>
+
+									<h4>Checks</h4>
+									<p>
+									After every batch of Lean edits, the library must build with warnings treated as errors, pass the Mathlib linters, contain no <code>sorry</code> once in phase 2, and use <code>theorem</code> only for the main results (everything else is a <code>lemma</code>):
+									</p>
+<pre><code>lake build &lt;Lib&gt; --wfail
+lake exe runLinter &lt;Lib&gt;
+grep -rn "sorry" &lt;Lib&gt;
+grep -rn "^theorem" &lt;Lib&gt;
+lake exe mk_all --lib &lt;Lib&gt;</code></pre>
+									<p>
+									After a change to the blueprint, a script checks its consistency (labels, dependencies, bibliography), the PDF and web versions are rebuilt, and <a href="https://github.com/PatrickMassot/checkdecls">checkdecls</a> checks that every Lean name cited in the blueprint exists.
+									When a main statement or a definition it depends on changes, the comparator challenges are regenerated and must still compile.
+									</p>
+
+									<h4>Starting from nothing</h4>
+									<p>
+									<a href="https://github.com/RemyDegenne/remydegenne.github.io/blob/master/docs/formalize-paper/bootstrap.md"><code>bootstrap.md</code></a> is meant for a collaborator with an empty directory and no experience of formalization.
+									It has seven steps, each ending with a check that must pass before going on:
+									</p>
+									<ol>
+										<li><b>Install the tools:</b> <a href="https://github.com/leanprover/elan">elan</a> (which installs Lean), <a href="https://code.visualstudio.com/">VS Code</a> with the <a href="https://github.com/leanprover/vscode-lean4">Lean 4 extension</a>, git and the <a href="https://cli.github.com/">GitHub CLI</a>, <a href="https://github.com/PatrickMassot/leanblueprint">leanblueprint</a>, and a TeX distribution such as <a href="https://tug.org/texlive/">TeX Live</a>.</li>
+										<li><b>Create the Lean project</b> from the Mathlib template, with the <a href="https://github.com/RemyDegenne/remydegenne.github.io/blob/master/docs/formalize-paper/templates/lakefile.toml">template lakefile</a>. The project depends on <a href="https://github.com/LeanMachineLearning/LML">LML</a> rather than directly on Mathlib, so that Mathlib comes at the version LML uses. Every Lean file follows the <a href="https://github.com/RemyDegenne/remydegenne.github.io/blob/master/docs/formalize-paper/templates/Example.lean">example file</a>, written with Lean's <a href="https://lean-lang.org/doc/reference/latest/Source-Files-and-Modules/">module system</a>.</li>
+										<li><b>Add the paper and write the outline:</b> the TeX sources of the paper go in <code>source/</code>, and the outline is written before any blueprint or Lean.</li>
+										<li><b>Create the blueprint</b> with <code>leanblueprint new</code>, one chapter per part of the outline. On every push, the <a href="https://github.com/RemyDegenne/remydegenne.github.io/blob/master/docs/formalize-paper/templates/workflows/blueprint.yml">template workflow</a> builds and lints the project, builds the <a href="https://github.com/LeanTrustBuilders/referee-site">referee site</a> and publishes the blueprint on GitHub Pages.</li>
+										<li><b>Write <code>formalization.yaml</code></b> from the <a href="https://github.com/RemyDegenne/remydegenne.github.io/blob/master/docs/formalize-paper/templates/formalization.yaml">template</a>, which follows the <a href="https://github.com/mathlib-initiative/formalization.yaml">formalization.yaml schema</a>.</li>
+										<li><b>Set up comparator</b> once the main statements exist. Two scripts, <a href="https://github.com/RemyDegenne/remydegenne.github.io/blob/master/docs/formalize-paper/templates/scripts/make-challenges.py"><code>make-challenges.py</code></a> and <a href="https://github.com/RemyDegenne/remydegenne.github.io/blob/master/docs/formalize-paper/templates/scripts/comparator-verify.sh"><code>comparator-verify.sh</code></a>, generate the challenges with <a href="https://github.com/LeanTrustBuilders/challenge-gen">challenge-gen</a> and check them with <a href="https://github.com/leanprover/comparator">comparator</a>.</li>
+										<li><b>Push to GitHub</b> and check that the workflow succeeds.</li>
+									</ol>
+
+									<h4>Tools and pitfalls</h4>
+									<p>
+									<a href="https://github.com/RemyDegenne/remydegenne.github.io/blob/master/docs/formalize-paper/tools.md"><code>tools.md</code></a> says where each tool above comes from and how it is installed.
+									Most of them are maintained by <a href="https://github.com/leanprover">the Lean developers</a>, <a href="https://github.com/leanprover-community">the Mathlib community</a> or the <a href="https://github.com/LeanTrustBuilders">LeanTrustBuilders</a> suite.
+									It also lists the GitHub actions used in CI, including <a href="https://github.com/leanprover-community/mathlib-update-action">mathlib-update-action</a> for dependency updates.
+									To learn Lean and Mathlib:
+									</p>
+									<ul>
+										<li><a href="https://leanprover-community.github.io/mathematics_in_lean/">Mathematics in Lean</a>, the tutorial for doing mathematics with Mathlib;</li>
+										<li>the <a href="https://leanprover-community.github.io/mathlib4_docs/">Mathlib documentation</a>, and <a href="https://loogle.lean-lang.org">Loogle</a> to search for lemmas by the shape of their statement;</li>
+										<li>the <a href="https://lean-lang.org/doc/reference/latest/">Lean reference manual</a> and the <a href="https://leanprover-community.github.io/contribute/style.html">Mathlib style guide</a>;</li>
+										<li>the <a href="https://leanprover.zulipchat.com">Lean Zulip chat</a>, for questions.</li>
+									</ul>
+
+									<p>
+									<code>tools.md</code> ends with a list of pitfalls met during the project, with their workarounds: about Lean and Mathlib, about the blueprint, and about the restrictions comparator puts on the definitions behind the main statements.
+									</p>
+								</div>
+							</section>
+		</div>
+	</main>
+
+	<footer class="site-footer">
+		<div class="wrap">
+			<ul>
+				<li>&copy; R&eacute;my Degenne</li>
+				<li><a href="https://github.com/RemyDegenne">GitHub</a></li>
+				<li><a href="https://scholar.google.com/citations?user=H-uIBOwAAAAJ">Google Scholar</a></li>
+			</ul>
+		</div>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,47 @@
+# Verify, with leanprover/comparator, that the project proves exactly the headline statements
+# challenged under comparator/ — see comparator/README.md for the setup and its trust model.
+#
+# Manually triggered rather than per-push: the per-push value of a comparator run is drift
+# detection (a headline statement, or a definition it rests on, silently changing), which only
+# matters at the cadence of releases and dependency bumps, while the run costs a full project
+# build. Trigger it after touching the headline statements, the comparator/ directory, or the
+# toolchain.
+#
+# The run uses --insecure (comparator's no-op landrun shim): sandboxing defends a *skeptical
+# reader* against a malicious repository, which is not CI's threat model — CI runs our own tree,
+# and the mathematical checks (statement identity, axiom check, kernel replay) are identical.
+name: Comparator
+
+on:
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    name: Verify headline results
+    steps:
+      - name: Cleanup to free disk space
+        uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.0
+        with:
+          tool-cache: false
+          android: true
+          dotnet: false
+          haskell: false
+          large-packages: false
+          docker-images: false
+          swap-storage: false
+
+      - name: Checkout project
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Build project
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9 # 2025-07-02
+        with:
+          build: true
+          lint: false
+          mk_all-check: false
+
+      - name: Run comparator on every config
+        run: scripts/comparator-verify.sh --insecure

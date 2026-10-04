@@ -1,0 +1,110 @@
+name: Compile blueprint
+
+on:
+  push:
+    branches:
+      - main # Trigger on pushes to the default branch
+      - master
+  workflow_dispatch:        # Allow manual triggering of the workflow from the GitHub Actions interface
+
+# Cancel previous runs if a new commit is pushed to the same PR or branch
+concurrency:
+  group: ${{ github.ref }}  # Group runs by the ref (branch or PR)
+  cancel-in-progress: true  # Cancel any ongoing runs in the same group
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: write         # Publish the dataset release, and push the provenance ledger to its branch
+  pages: write            # Write access to GitHub Pages
+  id-token: write         # Write access to ID tokens
+  issues: write           # Write access to issues
+  pull-requests: write    # Write access to pull requests
+
+jobs:
+  build_project:
+    runs-on: ubuntu-latest
+    name: Build project
+    steps:
+      - name: Cleanup to free disk space
+        uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.0
+        with:
+          tool-cache: false
+          android: true
+          dotnet: false
+          haskell: false
+          large-packages: false
+          docker-images: false
+          swap-storage: false
+
+      - name: Checkout project
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # Load-bearing for provenance, not just a convenience: the ledger's edit half is
+          # `git blame`, and at the default `fetch-depth: 1` blame attributes the entire library to
+          # the single fetched commit.  The action would unshallow the checkout itself, but
+          # fetching it here saves that second round trip.
+          fetch-depth: 0 # Fetch all history for all branches and tags
+
+      - name: Build and lint project
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9 # 2025-07-02
+        with:
+          build: true
+          lint: true
+          # Restricted to the Maiti2026Power library below: the bare `mk_all --check` chokes on the
+          # Comparator library, whose modules are globs with no module directory.
+          mk_all-check: false
+
+      - name: mk_all check (Maiti2026Power library only)
+        run: |
+          set -euo pipefail
+          lake exe mk_all --check --lib Maiti2026Power
+
+      # The comparator challenge/solution modules (see comparator/README.md). Building them here
+      # keeps them compiling against the current tree, and `checkdecls` (inside the blueprint
+      # step below) imports every library root of the workspace, so the Comparator library's stub
+      # root module must have an olean by then. The library's real modules are globs, not roots,
+      # exactly so that root-importing tools (checkdecls) never load the challenges,
+      # which redeclare project and LML names.
+      - name: Build comparator challenges
+        run: |
+          set -euo pipefail
+          lake build Comparator
+
+      # The referee site (https://github.com/LeanTrustBuilders/referee-site), into the home page, in
+      # one step: the dataset, extracted with the newest trust-extract release for this project's
+      # toolchain, following dependencies into LML, Mathlib and Lean core, and published as the
+      # release dataset-<commit12>; the build recorded in the provenance ledger, on its own branch,
+      # trust-ledger; and the site, against the previous build. The blueprint step below only adds
+      # its own folders to the home page, so writing the site there first is safe.
+      - name: Referee site
+        if: github.event_name == 'push'
+        uses: LeanTrustBuilders/referee-site@main
+        with:
+          root: Maiti2026Power
+          extract-args: --upstream-closure term
+          # Lean's kernel checks every closure the dataset records, proofs included.
+          check: meaning term
+          # An editorial claim, not a derived fact: whoever publishes this site vouches for Mathlib and
+          # everything under it. Drop it and every upstream package counts as unaudited.
+          trust: mathlib
+          out: home_page/referee
+
+      - name: Compile blueprint and documentation
+        uses: leanprover-community/docgen-action@56023ee2a4b3630c1071825be5bafdb43f540bbd # 2026-08-21
+        with:
+          blueprint: true
+          api-docs: false      # blueprint only: no doc-gen API documentation
+          homepage: home_page
+          build-page: false
+          deploy: false
+
+      - name: "Upload website (API documentation, blueprint and any home page)"
+        if: github.event_name == 'push'
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: home_page/
+
+      - name: Deploy to GitHub Pages
+        if: github.event_name == 'push'
+        id: deployment
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0
