@@ -3,6 +3,10 @@
 
   "recent": [
     {
+      "date": "October 2026",
+      "text": "I co-authored the blog post [How to Formalize All of Mathematics](https://xenaproject.wordpress.com/2026/10/16/how-to-formalize-all-of-mathematics/), with {{Jeremy Avigad}}, {{Kevin Buzzard}}, {{Johan Commelin}}, {{Kim Morrison}}, {{Oliver Nash}} and {{Adam Topaz}}."
+    },
+    {
       "date": "July 2026",
       "text": "I am giving a tutorial at ICML 2026 on Proving Theorems with Lean and Machine Learning, with {{Wenda Li}}."
     },
