@@ -454,6 +454,34 @@ li > ul { margin-top: 0.5rem; }
 	border-color: var(--lml);
 }
 
+/* The way to the page on formalizing a paper: filled, so that it stands out next to the
+   outlined brand buttons. */
+.cta {
+	display: flex;
+	justify-content: center;
+	margin: 0 0 2.25rem;
+}
+
+.cta-btn {
+	display: inline-flex;
+	align-items: center;
+	font-family: var(--sans);
+	font-weight: 600;
+	font-size: 1.1rem;
+	padding: 0.9rem 2rem;
+	border-radius: 0.5rem;
+	background: var(--accent);
+	color: var(--bg);
+	text-decoration: none;
+	text-align: center;
+	box-shadow: var(--shadow);
+}
+
+.cta-btn:hover {
+	background: var(--accent-hover);
+	color: var(--bg);
+}
+
 /* --- portrait ------------------------------------------------------------ */
 
 .intro {
@@ -508,6 +536,12 @@ pre {
 pre code {
 	background: none;
 	padding: 0;
+}
+
+/* A sentence to type, wrapped so that it reads whole on a phone. */
+pre.prompt {
+	white-space: pre-wrap;
+	overflow-wrap: anywhere;
 }
 
 /* --- footer -------------------------------------------------------------- */
