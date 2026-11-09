@@ -4,6 +4,10 @@
   "recent": [
     {
       "date": "October 2026",
+      "text": "With Paulo Rauber and David Ledvinka, I am starting the project [Enabling the analysis of stochastic algorithms in Lean](https://www.renaissancephilanthropy.org/enabling-the-analysis-of-stochastic-algorithms-in-lean), supported by the [AI for Math Fund](https://www.renaissancephilanthropy.org/ai-for-math-fund) of Renaissance Philanthropy. It develops the tools to write, run and analyze randomized algorithms in Lean, so that humans and AI systems can prove statistical guarantees about algorithms that run on real data."
+    },
+    {
+      "date": "October 2026",
       "text": "I co-authored the blog post [How to Formalize All of Mathematics](https://xenaproject.wordpress.com/2026/10/16/how-to-formalize-all-of-mathematics/), with {{Jeremy Avigad}}, {{Kevin Buzzard}}, {{Johan Commelin}}, {{Kim Morrison}}, {{Oliver Nash}} and {{Adam Topaz}}."
     },
     {

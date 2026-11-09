@@ -538,12 +538,6 @@ pre code {
 	padding: 0;
 }
 
-/* A sentence to type, wrapped so that it reads whole on a phone. */
-pre.prompt {
-	white-space: pre-wrap;
-	overflow-wrap: anywhere;
-}
-
 /* --- footer -------------------------------------------------------------- */
 
 .site-footer {
